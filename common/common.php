@@ -13,7 +13,8 @@ function writeHTMLHead($title){
 }//end of writeHTMLHead
 
 //writes the html footer
-function writeHTMLFooter
+function writeHTMLFooter(){
   echo '</body>\r\n
-        </html>';
+        </html>\r\n';
 }//end of writeHTMLFooter
+?>
