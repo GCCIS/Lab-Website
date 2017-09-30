@@ -1,0 +1,8 @@
+import logging
+
+RIT_API_KEY = ""
+LOGGING_LEVEL = logging.CRITICAL
+DATABASE_HOST = ""
+DATABASE_NAME = ""
+DATABASE_USER = ""
+DATABASE_PW = ""
