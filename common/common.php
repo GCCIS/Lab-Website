@@ -6,8 +6,12 @@ function writeHTMLHead($title){
         <html lang="en">\r\n
         <head>\r\n
           <meta charset="utf-8">\r\n
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">\r\n
+          <meta name="viewport" content="width=device-width, initial-scale=1">\r\n
+          <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->\r\n
           <title>$title</title>\r\n
           <link rel="stylesheet" href="css/style.css">\r\n
+          <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">\r\n
         </head>\r\n
         <body>\r\n';
 }//end of writeHTMLHead
@@ -25,10 +29,11 @@ function writeNav(){
         </nav>\r\n';
 }//end of nav
 
-
 //writes the html footer
 function writeHTMLFooter(){
-  echo '</body>\r\n
+  echo '<script src="js/jquery-3.2.1.min.js"></script>\r\n
+        <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>\r\n
+        </body>\r\n
         </html>\r\n';
 }//end of writeHTMLFooter
 ?>
