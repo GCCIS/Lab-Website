@@ -1,0 +1,48 @@
+body {
+  min-height: 2000px;
+  padding-top: 70px;
+  background-color: #181818;
+}
+
+.navbar{
+    margin-top: 10px;
+    background-color: #181818;
+    border: none;
+}
+
+.navbar-brand img {
+    width: 45px;
+    height: auto;
+}
+
+.nav {
+    margin-left: 20px; 
+}
+
+.nav li{
+    margin: 10px;
+}
+
+.activePage {
+    background-color: #29ABE0;
+    border-radius: 3px;
+    padding: -25px;
+    color: #FCFCFC;: 
+}
+
+.jumbotron {
+    background-color: #181818;
+}
+
+.jumbotron h1 {
+    color: #FCFCFC;
+}
+
+.jumbotron p {
+    color: #FCFCFC;
+}
+
+.jumbotron img {
+     width: 128px;
+     height: auto; 
+}
