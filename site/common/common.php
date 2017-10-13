@@ -1,7 +1,7 @@
 <?php
 
 //writes the html head - requires the page title
-function wrtieHTMLHead($title){
+function writeHTMLHead($title){
     echo '<!DOCTYPE html>
         <html lang="en">
           <head>
