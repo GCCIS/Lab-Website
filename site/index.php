@@ -8,7 +8,7 @@ include 'common/common.php';
 writeHTMLHead('Home');
 
 //write nav
-writeNav();
+writeNav('activePage','','','','');
 
 echo getRooms();
 

@@ -30,19 +30,60 @@ body {
     color: #FCFCFC;: 
 }
 
-.jumbotron {
-    background-color: #181818;
+.header {
+    margin-top: 70px;
 }
 
-.jumbotron h1 {
+.header h1 {
+    margin-top: 70px;
+    margin-left: 100px;
+    font-size: 64px;
     color: #FCFCFC;
 }
 
-.jumbotron p {
+.header p {
+    margin-left: 100px;
+    font-size: 32px;
     color: #FCFCFC;
 }
 
-.jumbotron img {
-     width: 128px;
+.header img {
+     margin-left: 80px;
+     width: 256px;
      height: auto; 
+}
+
+.LACard {
+    margin-top: 50px;
+    margin-left: 100px;
+    background-color: #26A35B;
+    border-radius: 10px;
+}
+
+.LACard img{
+    width: 128px;
+    height: auto;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.LADetails {
+    margin-top: 10px;
+    margin-left: 10px;
+    color: #FCFCFC;: 
+}
+
+.LADetails p {
+    padding: 3px;
+    font-size: 16px;
+    color: #FCFCFC;: 
+}
+
+.LAMajor {
+    padding: 3px;
+    margin-right: 10px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #26A35B;
+    background-color: #FCFCFC;
 }
