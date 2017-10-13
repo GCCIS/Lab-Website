@@ -12,6 +12,9 @@ function writeHTMLHead($title){
           <title>'.$title.'</title>
           <link rel="stylesheet" href="css/style.css">
           <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+	  <link href='cal/assets/fullcalendar.css' rel='stylesheet' />
+	  <script src='cal/lib/jquery.min.js'></script>
+	  <script src='cal/assets/fullcalendar.js'></script>  
         </head>
         <body>';
 }//end of writeHTMLHead
