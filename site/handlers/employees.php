@@ -24,7 +24,7 @@ require_once('DBcore.class.php');
 
 	function getTAprofiles(){
 		$DBcore = new DBcore();
-		$taArr = new array();
+		$taArr = array();
 		$taArr = $DBcore->selectAllTAProfiles();
 		$taStr = '';
 		foreach($taArr as $row){
