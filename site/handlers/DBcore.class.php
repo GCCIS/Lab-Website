@@ -30,17 +30,29 @@ class DBcore{
 	}//end of get rooms	
 
 	/*
-	* Get all employees - TAs and LAs
+	* Get all LAs
 	*/
-	function selectAllEmployees(){
+	function selectAllLAProfiles(){
 		$data = Array();
-                if($stmt = $this->conn->prepare("select uid, EID, firstName, lastName, phoneNumber, email, major, biography, employeeType from EMPLOYEE;")){
+                if($stmt = $this->conn->prepare("select uid, EID, firstName, lastName, phoneNumber, email, major, biography, employeeType from EMPLOYEE where employeeType='LA';")){
                         $stmt->execute();
                         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
                 return $data;
 
-	}//end of getEmployees
+	}//end of LA
+
+	function selectAllTAProfiles(){
+		$data = array();
+		$sqlstmt = "select e.uid, e.EID, e.firstName, e.lastName, e.phoneNumber, e.email, e.major, e.biography, e.employeeType, c.courseNumber FROM EMPLOYEE e JOIN TA_SIGNOFF using(uid) JOIN COURSE c using(courseNumber) WHERE employeeType = 'TA' AND signoff='1';";
+		if($stmt = $this->conn->prepare($sqlstmt)){
+			$stmt->execute();
+			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return $data;
+	
+	}//end of TA
+	
 
 	function selectAllEvents(){
 		$data = Array();

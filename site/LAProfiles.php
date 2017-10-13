@@ -8,7 +8,7 @@ writeHTMLHead('LA Profiles');
 //write nav
 writeNav();
 
-echo getEmployees('LA');
+echo getLAProfiles();
 
 //write page footer
 writeHTMLFooter();

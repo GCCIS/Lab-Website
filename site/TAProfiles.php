@@ -8,7 +8,7 @@ writeHTMLHead('TA Profiles');
 //write nav
 writeNav();
 
-echo getEmployees('TA');
+echo getTAProfiles();
 
 //write page footer
 writeHTMLFooter();
