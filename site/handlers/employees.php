@@ -4,7 +4,9 @@ require_once('DBcore.class.php');
         function getLAProfiles(){
             echo '
                  <div class="profiles">
-                    <div class="container">
+                    <div class="container"> ';
+                        
+            echo '
                         <div class="row">
                             <div class="col-xs-12 col-sm-10 col-md-6">
                                 <div class="LACard">
@@ -34,10 +36,8 @@ require_once('DBcore.class.php');
                                     </div>
                                 </div>
                             </div>
-                        </div>    
-                    </div>
-                </div>  
-                ';
+                        </div>'; 
+
                 $DBcore = new DBcore();
                 $laArr = array();
                 $laArr = $DBcore->selectAllLAProfiles();
@@ -56,6 +56,12 @@ require_once('DBcore.class.php');
                         $laStr .= 'Email: '.$email.'</br></p>';
                 }//end of foreach
                 return $laStr;
+            
+                        
+             echo '      
+                    </div>
+                </div>  
+                ';
         }
 
 	function getTAprofiles(){
