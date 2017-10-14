@@ -72,6 +72,25 @@ function writeNav($indexA, $scheduleA, $TASchedulA, $TAProfileA, $LAProfileA){
          </nav>';
 }//end of nav
 
+
+//writes the header
+function writeHTMLHeader($title){
+  echo '
+        <div class="header"> <!-- Main component for a primary message -->
+            <div class="container">
+                <div class="row"> 
+                    <div class="col-md-6">
+                        <h1>'.$title.'</h1>
+                        <p>1:30 PM</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="images/IST_large.png">  
+                    </div>
+                </div>     
+            </div>
+         </div>';
+}//end of header
+
 //writes the html footer
 function writeHTMLFooter(){
   echo '

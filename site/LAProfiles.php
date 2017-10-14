@@ -6,7 +6,10 @@ include 'common/common.php';
 writeHTMLHead('LA Profiles');
 
 //write nav
-writeNav('','','','','activePage');
+writeNav('notActivePage','notActivePage','notActivePage','notActivePage','activePage');
+
+//write header
+writeHTMLHeader('LA Profiles');
 
 echo getLAProfiles();
 
