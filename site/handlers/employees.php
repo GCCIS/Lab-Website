@@ -42,7 +42,11 @@ require_once('DBcore.class.php');
                 $laArr = array();
                 $laArr = $DBcore->selectAllLAProfiles();
                 $laStr = '';
+                $i = 0;
                 foreach($laArr as $row){
+                        if ($i=0 || $i % 2 == 0) {
+                            echo '<div class="row">';
+                        }
 			            $uid = $row['uid'];
                         $EID = $row['EID'];
                         $firstName = $row['firstName'];
@@ -68,6 +72,10 @@ require_once('DBcore.class.php');
                                     </div>
                                 </div>    
                         ';
+                        if ($i % 2 != 0) {
+                            echo '</div>';
+                        }
+                        $i++;
 			            //$laStr .= '<p>'.$firstName.' '.$lastName.'</br>';
                         //$laStr .= ''.$email.'</p>';
                         //$laStr .= '<p>Major: '.$major.'</br></p>';
