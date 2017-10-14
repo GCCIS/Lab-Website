@@ -37,6 +37,13 @@ body {
 }
 
 /* mouse over link */
+.navbar .nav li a:link {
+    background-color: #464646;
+    border-radius: 3px;
+     color: #FCFCFC;
+}
+
+/* mouse over link */
 .navbar .nav li a:hover {
     transition: background-color 0.3s ease;
     background-color: #2072AE;
@@ -58,7 +65,7 @@ body {
     border-radius: 3px;
 }
 
-.activePage a {
+.activePage a{
     margin: 0px 10px 0px 40px;
     transition: background-color 0.3s ease;
     background-color: #29ABE0;
