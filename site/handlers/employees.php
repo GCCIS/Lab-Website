@@ -43,7 +43,7 @@ require_once('DBcore.class.php');
                 $laArr = $DBcore->selectAllLAProfiles();
                 $laStr = '';
                 foreach($laArr as $row){
-			$uid = $row['uid'];
+			            $uid = $row['uid'];
                         $EID = $row['EID'];
                         $firstName = $row['firstName'];
                         $lastName = $row['lastName'];
@@ -51,9 +51,10 @@ require_once('DBcore.class.php');
                         $email = $row['email'];
                         $major = $row['major'];
                         $biography = $row['biography'];
-			$employeeType = $row['employeeType'];
-			$laStr .= '<p>Name: '.$firstName.' '.$lastName.'</br>';
+			            $employeeType = $row['employeeType'];
+			            $laStr .= '<p>Name: '.$firstName.' '.$lastName.'</br>';
                         $laStr .= 'Email: '.$email.'</br></p>';
+                        $laStr .= 'Major: '.$major.'</br></p>';
                 }//end of foreach
                 return $laStr;
             
