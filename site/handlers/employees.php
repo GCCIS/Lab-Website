@@ -19,8 +19,9 @@ require_once('DBcore.class.php');
                         $major = $row['major'];
                         $biography = $row['biography'];
 			            $employeeType = $row['employeeType'];
-			            $laStr .= '<p>Name: '.$firstName.' '.$lastName.'</br>';
-                        $laStr .= 'Email: '.$email.'</br></p>';
+			            $laStr .= '<p>'.$firstName.' '.$lastName.'</p>';
+                        $laStr .= '<p>'.$email.'</p>';
+                        $laStr .= '<p><span class="LAMajor">Major</span>'.$major'</p>';
                 }//end of foreach
                 return $laStr;
         }
