@@ -6,6 +6,7 @@ require_once('DBcore.class.php');
                  <div class="profiles">
                     <div class="container"> ';
             
+            //Testing Profile card layout
             echo '
                         <div class="row">
                             <div class="col-xs-12 col-sm-10 col-md-6">
