@@ -38,9 +38,8 @@ body {
 
 /* mouse over link */
 .navbar .nav li a:link {
-    background-color: #464646;
     border-radius: 3px;
-     color: #FCFCFC;
+    color: #FCFCFC;
 }
 
 /* mouse over link */
