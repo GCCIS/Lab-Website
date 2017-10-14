@@ -2,6 +2,42 @@
 require_once('DBcore.class.php');
 
         function getLAProfiles(){
+            echo '
+                 <div class="profiles">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-10 col-md-6">
+                                <div class="LACard">
+                                    <div class="row">
+                                        <div class="LAPicture col-xs-4 col-sm-3 col-md-4">
+                                            <img src="images/LA1.png">
+                                        </div>
+                                        <div class="LADetails col-xs-7 col-sm-8 col-md-7">
+                                            <p>Jacob Holtman </p>
+                                            <p>email@rit.edu</p>
+                                            <p><span class="LAMajor">Major</span>IST</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>    
+                            <div class="col-xs-12 col-sm-10 col-md-6">
+                                <div class="LACard">
+                                    <div class="row">
+                                        <div class="LAPicture col-xs-4 col-sm-3 col-md-4">
+                                            <img src="images/LA1.png">
+                                        </div>
+                                        <div class="LADetails col-xs-7 col-sm-8 col-md-7">
+                                            <p>Chandan Mahapatra</p>
+                                            <p>email@rit.edu</p>
+                                            <p><span class="LAMajor">Major</span>IST</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>  
+                ';
                 $DBcore = new DBcore();
                 $laArr = array();
                 $laArr = $DBcore->selectAllLAProfiles();
