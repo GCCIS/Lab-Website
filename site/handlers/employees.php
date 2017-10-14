@@ -53,8 +53,8 @@ require_once('DBcore.class.php');
                         $biography = $row['biography'];
 			            $employeeType = $row['employeeType'];
 			            $laStr .= '<p>'.$firstName.' '.$lastName.'</br>';
-                        $laStr .= .$email.'</br></p>';
-                        $laStr .= 'Major: '.$major.'</br></p>';
+                        $laStr .= ''.$email.'</br></p>';
+                        $laStr .= '<p>Major: '.$major.'</br></p>';
                 }//end of foreach
                 return $laStr;
             
