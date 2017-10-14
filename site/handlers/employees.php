@@ -52,7 +52,22 @@ require_once('DBcore.class.php');
                         $major = $row['major'];
                         $biography = $row['biography'];
 			            $employeeType = $row['employeeType'];
-                        echo 'Hello there';
+                        echo '
+                                <div class="col-xs-12 col-sm-10 col-md-6">
+                                    <div class="LACard">
+                                        <div class="row">
+                                            <div class="LAPicture col-xs-4 col-sm-3 col-md-4">
+                                                <img src="images/LA1.png">
+                                            </div>
+                                             <div class="LADetails col-xs-7 col-sm-8 col-md-7">
+                                                <p>'.$firstName.' '.$lastName.'</p>
+                                                <p>'.$email.'</p>
+                                                <p><span class="LAMajor">Major</span>'.$major.'</p>
+                                             </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                        ';
 			            $laStr .= '<p>'.$firstName.' '.$lastName.'</br>';
                         $laStr .= ''.$email.'</p>';
                         $laStr .= '<p>Major: '.$major.'</br></p>';
