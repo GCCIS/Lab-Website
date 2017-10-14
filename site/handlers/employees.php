@@ -5,30 +5,8 @@ require_once('DBcore.class.php');
             echo '
                  <div class="profiles">
                     <div class="container"> ';
-                        
-                $DBcore = new DBcore();
-                $laArr = array();
-                $laArr = $DBcore->selectAllLAProfiles();
-                $laStr = '';
-                foreach($laArr as $row){
-			            $uid = $row['uid'];
-                        $EID = $row['EID'];
-                        $firstName = $row['firstName'];
-                        $lastName = $row['lastName'];
-                        $phoneNumber = $row['phoneNumber'];
-                        $email = $row['email'];
-                        $major = $row['major'];
-                        $biography = $row['biography'];
-			            $employeeType = $row['employeeType'];
-			            $laStr .= '<p>'.$firstName.' '.$lastName.'</br>';
-                        $laStr .= ''.$email.'</p>';
-                        $laStr .= '<p>Major: '.$major.'</br></p>';
-                }//end of foreach
-                return $laStr;
             
-                for ($n = 0; $n <=count($laArr); $n+2) {
-                        
-                        echo '
+            echo '
                         <div class="row">
                             <div class="col-xs-12 col-sm-10 col-md-6">
                                 <div class="LACard">
@@ -36,11 +14,11 @@ require_once('DBcore.class.php');
                                         <div class="LAPicture col-xs-4 col-sm-3 col-md-4">
                                             <img src="images/LA1.png">
                                         </div>
-                                        <div class="LADetails col-xs-7 col-sm-8 col-md-7">
-                                            <p>'.$laArr[$n].$firstName.' '.$laArr[$n].$lastName.'</p>
-                                            <p>'.$laArr[$n].$email.'</p>
+                                         <div class="LADetails col-xs-7 col-sm-8 col-md-7">
+                                            <p>Jacob Holtman </p>
+                                            <p>email@rit.edu</p>
                                             <p><span class="LAMajor">Major</span>IST</p>
-                                        </div>
+                                         </div>
                                     </div>
                                 </div>
                             </div>    
@@ -58,8 +36,28 @@ require_once('DBcore.class.php');
                                     </div>
                                 </div>
                             </div>
-                        </div>'; 
-                    }
+                    </div>'; 
+                        
+                $DBcore = new DBcore();
+                $laArr = array();
+                $laArr = $DBcore->selectAllLAProfiles();
+                $laStr = '';
+                foreach($laArr as $row){
+			            $uid = $row['uid'];
+                        $EID = $row['EID'];
+                        $firstName = $row['firstName'];
+                        $lastName = $row['lastName'];
+                        $phoneNumber = $row['phoneNumber'];
+                        $email = $row['email'];
+                        $major = $row['major'];
+                        $biography = $row['biography'];
+			            $employeeType = $row['employeeType'];
+                        echo 'Hello there';
+			            $laStr .= '<p>'.$firstName.' '.$lastName.'</br>';
+                        $laStr .= ''.$email.'</p>';
+                        $laStr .= '<p>Major: '.$major.'</br></p>';
+                }//end of foreach
+                return $laStr;
             
                         
              echo '      
