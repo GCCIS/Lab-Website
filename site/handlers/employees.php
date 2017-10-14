@@ -68,9 +68,9 @@ require_once('DBcore.class.php');
                                     </div>
                                 </div>    
                         ';
-			            $laStr .= '<p>'.$firstName.' '.$lastName.'</br>';
-                        $laStr .= ''.$email.'</p>';
-                        $laStr .= '<p>Major: '.$major.'</br></p>';
+			            //$laStr .= '<p>'.$firstName.' '.$lastName.'</br>';
+                        //$laStr .= ''.$email.'</p>';
+                        //$laStr .= '<p>Major: '.$major.'</br></p>';
                 }//end of foreach
                 return $laStr;
             
