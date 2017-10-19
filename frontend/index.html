@@ -32,7 +32,6 @@
   </head>
 
   <body>
-
     <!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -48,26 +47,85 @@
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
             <li class="activePage"><a href="#">Home</a></li>
-            <li><a href="#about">Lab Schedules</a></li>
-            <li><a href="#contact">TA Schedules</a></li>
-            <li><a href="#contact">TA Profiles</a></li>
-            <li><a href="#contact">LA Profiles</a></li>  
+            <li class="notActivePage"><a href="#about">Lab Schedules</a></li>
+            <li class="notActivePage"><a href="#contact">TA Schedules</a></li>
+            <li class="notActivePage"><a href="#contact">TA Profiles</a></li>
+            <li class="notActivePage"><a href="#contact">LA Profiles</a></li>  
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
+    <div class="header"> <!-- Main component for a primary messagen -->
     <div class="container">
-
-      <!-- Main component for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>IST Labs</h1>
-        <p>1:30 PM</p>
-        <img src="images/IST_large.png">  
-      </div>
-
-    </div> <!-- /container -->
-
+        <div class="row"> 
+            <div class="col-md-6">
+                <h1>IST Labs</h1>
+                <p>1:30 PM</p>
+            </div>
+            <div class="col-md-6">
+                <img src="images/IST_large.png">  
+            </div>
+        </div>     
+    </div>
+    </div>
+      
+    <div class="container onShift">
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-6">
+                <div class="TA-onShift">
+                    <h2>TA - Available</h2>
+                    <div class="row">
+                        <div class="LAPicture col-xs-4 col-sm-3 col-md-4">
+                            <img src="images/LA1.png">
+                            <h3>Jacob Holtman </h3>
+                        </div>
+                        <div class="LADetails col-xs-7 col-sm-8 col-md-7">
+                            <p>Open Lab</p>
+                            <p>1:20 PM to 3:00 PM</p>
+                            <p><span class="TASignoffs">Signoffs</span>240, 340</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>  
+      
+    <div class="profiles">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-10 col-md-6">
+                <div class="LACard">
+                    <div class="row">
+                        <div class="LAPicture col-xs-4 col-sm-3 col-md-4">
+                            <img src="images/LA1.png">
+                        </div>
+                        <div class="LADetails col-xs-7 col-sm-8 col-md-7">
+                            <p>Jacob Holtman </p>
+                            <p>email@rit.edu</p>
+                            <p><span class="LAMajor">Major</span>IST</p>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+            <div class="col-xs-12 col-sm-10 col-md-6">
+                <div class="LACard">
+                    <div class="row">
+                        <div class="LAPicture col-xs-4 col-sm-3 col-md-4">
+                            <img src="images/LA1.png">
+                        </div>
+                        <div class="LADetails col-xs-7 col-sm-8 col-md-7">
+                            <p>Chandan Mahapatra</p>
+                            <p>email@rit.edu</p>
+                            <p><span class="LAMajor">Major</span>IST</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    </div>  
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
