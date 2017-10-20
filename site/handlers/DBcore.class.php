@@ -34,7 +34,7 @@ class DBcore{
 	*/
 	function selectAllLAProfiles(){
 		$data = Array();
-                if($stmt = $this->conn->prepare("select uid, EID, firstName, lastName, phoneNumber, email, major, biography, employeeType from EMPLOYEE where employeeType='LA';")){
+                if($stmt = $this->conn->prepare("select uid, EID, firstName, lastName, phoneNumber, email, major, biography, employeeType, image  from EMPLOYEE where employeeType='LA';")){
                         $stmt->execute();
                         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
@@ -44,12 +44,33 @@ class DBcore{
 
 	function selectAllTAProfiles(){
 		$data = array();
-		$sqlstmt = "select e.uid, e.EID, e.firstName, e.lastName, e.phoneNumber, e.email, e.major, e.biography, e.employeeType, c.courseNumber FROM EMPLOYEE e JOIN TA_SIGNOFF using(uid) JOIN COURSE c using(courseNumber) WHERE employeeType = 'TA' AND signoff='1';";
-		if($stmt = $this->conn->prepare($sqlstmt)){
+		$TAsqlstmt = "select e.uid, e.EID, e.firstName, e.lastName, e.phoneNumber, e.email, e.major, e.biography, e.employeeType, image  FROM EMPLOYEE e WHERE e.employeeType = 'TA';";
+		if($stmt = $this->conn->prepare($TAsqlstmt)){
 			$stmt->execute();
 			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		}
-		return $data;
+
+			foreach($data as $row){
+                        	$uid = $row['uid'];
+				
+				$data2 = array();
+				$signoffData = array();
+				$SIGNOFFsqlstmt = "SELECT c.courseNumber FROM COURSE c JOIN TA_SIGNOFF t using(courseNumber) WHERE t.uid='".$uid."';";
+				if($stmt2 = $this->conn->prepare($SIGNOFFsqlstmt)){
+					$stmt2->execute();
+					$data2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+					$courseStr = '';
+					foreach($data2 as $row2){
+						$course = $row2['courseNumber'];
+						$courseStr .= $course.";";
+					}
+				
+					//add the course string to the first array
+					array_push($signoffData, $courseStr);
+				}
+
+                	}
+		}//end of if
+		return array($data, $signoffData);
 	
 	}//end of TA
 	

@@ -27,7 +27,8 @@ require_once('DBcore.class.php');
 		$taArr = array();
 		$taArr = $DBcore->selectAllTAProfiles();
 		$taStr = '';
-		foreach($taArr as $row){
+		$i=0;
+		foreach($taArr[0] as $row){
 			$uid = $row['uid'];
                         $EID = $row['EID'];
                         $firstName = $row['firstName'];
@@ -37,13 +38,16 @@ require_once('DBcore.class.php');
                         $major = $row['major'];
                         $biography = $row['biography'];
                         $employeeType = $row['employeeType'];
-			$courseNumber = $row['courseNumber'];
-                        
+	         	$employeeType = $row['image'];
+			//get courseNumber string
+			$courseStr = $taArr[1][$i]; 
+               
+
 			$taStr .= '<p>Name: '.$firstName.' '.$lastName.'</br>';
                         $taStr .= 'Email: '.$email.'</br>';
-			$taStr .= 'Signoffs: '.$courseNumber.'</p>';
-
-
+			$taStr .= 'Signoffs: '.$courseStr.'</p>';
+		
+			$i++;
 		}
 		return $taStr;
 	}
