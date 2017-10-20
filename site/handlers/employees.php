@@ -24,12 +24,16 @@ require_once('DBcore.class.php');
                         $major = $row['major'];
                         $biography = $row['biography'];
 			$image = $row['image'];
-			            $employeeType = $row['employeeType'];
+			if(strlen($image)<4){
+                                $image = 'default.jpg';
+                        }
+
+			$employeeType = $row['employeeType'];
                         echo '
                                 <div class="col-xs-12 col-sm-10 col-md-6">
                                     <div class="LACard">
                                         <div class="row">
-                                            <div class="LAPicture col-xs-4 col-sm-3 col-md-4">
+                                            <div class="LAPicture cols-4 col-sm-3 col-md-4">
                                                 <img src="images/employees/'.$image.'">
                                             </div>
                                              <div class="LADetails col-xs-7 col-sm-8 col-md-7">
