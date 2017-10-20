@@ -9,7 +9,7 @@ writeHTMLHead('LA Profiles');
 writeNav('notActivePage','notActivePage','notActivePage','notActivePage','activePage');
 
 //write header
-writeHTMLHeader('LA Profiles');
+//writeHTMLHeader('LA Profiles');
 
 echo getLAProfiles();
 
