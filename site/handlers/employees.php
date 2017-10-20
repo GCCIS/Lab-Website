@@ -78,7 +78,8 @@ require_once('DBcore.class.php');
                                 <!-- End of Card -->';
                         }
                         else {
-                            echo '</div>';
+                            echo '  <!-- End of Card -->
+                                  </div>';
                         }
                         $i++;
                 }//end of foreach
