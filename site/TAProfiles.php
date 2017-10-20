@@ -6,7 +6,7 @@ include 'common/common.php';
 writeHTMLHead('TA Profiles');
 
 //write nav
-writeNav('','','','activePage','');
+writeNav('notActivePage','notActivePage','notActivePage','activePage','notActivePage');
 
 echo getTAProfiles();
 

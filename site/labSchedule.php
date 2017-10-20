@@ -6,7 +6,7 @@ include_once('common/common.php');
 writeHTMLHead('Lab Schedule');
 
 //write nav
-writeNav('','activePage','','','');
+writeNav('notActivePage','activePage','notActivePage','notActivePage','notActivePage');
 
 //echos the name and numbers of all rooms
 echo getRooms();

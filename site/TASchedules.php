@@ -5,7 +5,7 @@ include_once('common/common.php');
 writeHTMLHead('TA Schedules');
 
 //write nav
-writeNav('','','activePage','','');
+writeNav('notActivePage','notActivePage','activePage','notActivePage','notActivePage');
 
 //write page footer
 writeHTMLFooter();

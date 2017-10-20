@@ -45,7 +45,7 @@ require_once('DBcore.class.php');
                 $laStr = '';
                 $i = 0;
                 foreach($laArr as $row){
-                        if ($i=0 || $i % 2 == 0) {
+                        if ($i == 0 || $i % 2 == 0) {
                             echo '<div class="row">';
                         }
 			            $uid = $row['uid'];
@@ -73,11 +73,14 @@ require_once('DBcore.class.php');
                                     </div>
                                 </div>    
                         ';
-                        $i++;
-                        if ($i % 2 != 0) {
+                        if ($i == 0 || $i % 2 == 0) {
+                            echo '
+                                <!-- End of Card -->';
+                        }
+                        else {
                             echo '</div>';
                         }
-                
+                        $i++;
                 }//end of foreach
                 return $laStr;
             
