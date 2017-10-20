@@ -139,7 +139,7 @@ require_once('DBcore.class.php');
                 </div>  
                 ';
 		}
-	}
+
 
 
 ?>
