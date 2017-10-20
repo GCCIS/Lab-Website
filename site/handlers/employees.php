@@ -126,7 +126,7 @@ require_once('DBcore.class.php');
                         }
                         $j++;
                 }//end of foreach
-                if($i % 2 != 0) {
+                if($j % 2 != 0) {
                             echo '
                                 <!-- End of Card -->
                                 </div>
