@@ -83,6 +83,12 @@ require_once('DBcore.class.php');
                         }
                         $i++;
                 }//end of foreach
+                if($i % 2 != 0) {
+                            echo '
+                                <!-- End of Card -->
+                                </div>
+                                ';
+                }
                 return $laStr;
             
                         
