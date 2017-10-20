@@ -73,13 +73,11 @@ require_once('DBcore.class.php');
                                     </div>
                                 </div>    
                         ';
+                        $i++;
                         if ($i % 2 != 0) {
                             echo '</div>';
                         }
-                        $i++;
-			            //$laStr .= '<p>'.$firstName.' '.$lastName.'</br>';
-                        //$laStr .= ''.$email.'</p>';
-                        //$laStr .= '<p>Major: '.$major.'</br></p>';
+                
                 }//end of foreach
                 return $laStr;
             
