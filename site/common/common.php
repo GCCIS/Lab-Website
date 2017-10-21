@@ -65,7 +65,7 @@ function writeNav($indexA, $scheduleA, $TASchedulA, $TAProfileA, $LAProfileA){
                 <li class="'.$scheduleA.'"><a href="labSchedule.php">Lab Schedules</a></li>
                 <li class="'.$TASchedulA.'"><a href="TASchedules.php">TA Schedules</a></li>
                 <li class="'.$TAProfileA.'"><a href="TAProfiles.php">TA Profiles</a></li>
-                <li class="'.$LAProfileA.'"><a href="LAProfiles.php">LA Profiles</a></li>  
+                <li class="'.$LAProfileA.'"><a href="LAProfiles.php">Lab Assistant Profiles</a></li>  
               </ul>
             </div><!--/.nav-collapse -->
           </div>
