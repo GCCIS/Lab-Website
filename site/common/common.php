@@ -27,8 +27,10 @@ function writeHTMLHead($title){
             <!-- Custom styles for Full Calendar -->
             <link href="css/fullcalendar.css" rel="stylesheet" />
             
-            <!-- Full Calendar Javascript file -->
-            <script src="js/fullcalendar.js"></script>  
+            <!-- Full Calendar, Jquery, moment Javascript file -->
+            <script src="js/fullcalendar.js"></script>
+	    <script src="js/jquery.min.js"></script>
+            <script src="js/moment.min.js"></script>  
 
             <!-- Just for debugging purposes. Dont actually copy these 2 lines! -->
             <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -97,8 +99,6 @@ function writeHTMLFooter(){
             <!-- Bootstrap core JavaScript
             ================================================== -->
             <!-- Placed at the end of the document so the pages load faster -->
-            <script src="js/jquery.min.js"></script>
-            <script src="js/moment.min.js"></script>
 	    <script src="js/bootstrap.min.js"></script>
             <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
             <script src="js/ie10-viewport-bug-workaround.js"></script>
