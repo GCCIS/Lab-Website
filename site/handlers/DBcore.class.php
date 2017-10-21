@@ -6,7 +6,7 @@ class DBcore{
 	//Default constructor
 	function __construct(){
 	//will be the path to our dbInfo
-		require_once('/home/ISTLABS/amber.libby/dbinfo.php');
+		require('/home/ISTLABS/amber.libby/dbinfo.php');
 		try{
         		$this->conn = new PDO('mysql:dbname='.$db.';host='.$host.'', $user, $pass, array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
       		}
@@ -20,7 +20,7 @@ class DBcore{
 	* Get all rooms - names and numbers
 	*/
 	function selectAllRooms(){
-		$data = Array();
+		$data = array();
 		if($stmt = $this->conn->prepare("select roomNumber, roomName from ROOM;")){
 			$stmt->execute();
 			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -33,7 +33,7 @@ class DBcore{
 	* Get all LAs
 	*/
 	function selectAllLAProfiles(){
-		$data = Array();
+		$data = array();
                 if($stmt = $this->conn->prepare("select uid, EID, firstName, lastName, phoneNumber, email, major, biography, employeeType, image  from EMPLOYEE where employeeType='LA';")){
                         $stmt->execute();
                         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -76,13 +76,26 @@ class DBcore{
 	
 
 	function selectAllEvents(){
-		$data = Array();
-                if($stmt = $this->conn->prepare("select eventID, roomNumber, date, startTime, endTime, eventName from EVENT;")){
+		$data = array();
+		$sqlStmt = "select eventID, roomNumber, date, startTime, endTime, eventName from EVENT;";
+                if($stmt = $this->conn->prepare($sqlStmt)){
                         $stmt->execute();
                         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
                 return $data;
 
 	}
+
+	function selectAllTAShifts(){
+		$data = array();
+		$sqlStmt = "select ess.dayOfWeek, ess.startTime, ess.endTime FROM EMPLOYEE_SHIFT_SCHEDULE ess JOIN EMPLOYEE e using(uid) WHERE e.employeeType='TA';";
+		if($stmt = $this->conn->prepare($sqlStmt)){
+			$stmt->execute();
+			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return $data;
+	}
+
+
 }//end of class
 ?>
