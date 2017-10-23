@@ -3,9 +3,9 @@ require_once('DBcore.class.php');
 
         $DBcore = new DBcore();
         $eventArr = array();
-        $eventArr = $DBcore->selectAllEvents();
-
-        //returning array
+        $eventArr = $DBcore->selectEventsForRoom('070-2520');
+	
+	//returning array
         $events = array();
 
         foreach($eventArr as $row){
@@ -18,8 +18,8 @@ require_once('DBcore.class.php');
 
                 $e['eventID'] = $eventID;
                 $e['title'] = $eventName;
-                $e['start'] = $startTime;
-                $e['end'] = $endTime;
+                $e['start'] = $date.'T'.$startTime;
+                $e['end'] = $date.'T'.$endTime;
                 $e['allDay'] = false;
 
                 array_push($events, $e);

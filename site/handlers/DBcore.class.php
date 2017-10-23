@@ -85,6 +85,17 @@ class DBcore{
                 return $data;
 
 	}
+	
+	function selectEventsForRoom($roomNumber){
+		$data = array();
+		$sqlStmt = "select eventID, roomNumber, date, startTime, endTime, eventName from EVENT WHERE roomNumber='".$roomNumber."';";
+		if($stmt = $this->conn->prepare($sqlStmt)){
+			$stmt->execute();
+			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return $data;
+
+	}
 
 	function selectAllTAShifts(){
 		$data = array();

@@ -32,6 +32,8 @@ function writeHTMLHead($title){
             <script src="js/moment.min.js"></script>  
             <script src="js/fullcalendar.js"></script>
 
+	    <script src="js/script.js"></script>
+
             <!-- Just for debugging purposes. Dont actually copy these 2 lines! -->
             <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
             <script src="js/ie-emulation-modes-warning.js"></script>
