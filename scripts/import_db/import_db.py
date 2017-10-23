@@ -21,7 +21,12 @@ try:
     with db_conn.cursor() as cursor:
         statement = 'SELECT * FROM ROOM;'
         cursor.execute(statement)
-        rooms = cursor.fetchall()
+        queryResult = cursor.fetchall()
+
+        # Add each room to the room array
+        for room in queryResult:
+            rooms.append(room['roomNumber'])
+
         logging.info("Retrieved list of rooms from database")
 except Exception as e:
     logging.critical('Unable to get rooms from ROOM table ' + str(e))
@@ -31,10 +36,6 @@ if len(rooms) == 0:
     logging.critical("It seems that we didn't get any rooms back")
     sys.exit()
 
-# Get rooms from the ROOM table
-# rooms = ['70-2160', '70-2320', '70-2520']
-rooms = ['70-2320']
-
 # Build a list of dates to iterate over
 ## First get the week floor (i.e. Monday)
 utc  = arrow.utcnow()
@@ -42,8 +43,8 @@ local = utc.to('US/Eastern')
 week_floor = local.floor('week')
 
 ## Then construct an array with all of the dates that we care about (i.e. M - Sun)
-dates = [week_floor.format('YYYY-MM-DD')] # Add Monday
-for i in range(1,7): # Add remaining days
+dates = [week_floor.shift(days=-1).format('YYYY-MM-DD')] # Add Sunday
+for i in range(0,7): # Add remaining days
     dates.append(week_floor.shift(days=+i).format('YYYY-MM-DD'))
 
 # For each room from the ROOM table, make an API calls to get events and create some SQL statements
@@ -89,10 +90,9 @@ for room in rooms:
             logging.critical('Key error for key ' + str(e))
             continue
 
-        # Make sure we actually have SQL statements. If not, we will log an error and exist
+        # Make sure we actually have SQL statements. If not, we will log an error and continue to next room
         if len(sql_statements) == 0:
-            logging.critical('No SQL statements available to put into the database!')
-            sys.exit()
+            logging.critical('No SQL statements available to put into the database for date %s!' % date)
 
         
         try:
