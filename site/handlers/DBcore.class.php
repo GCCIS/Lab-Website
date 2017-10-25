@@ -34,7 +34,7 @@ class DBcore{
 	*/
 	function selectAllLAProfiles(){
 		$data = array();
-                if($stmt = $this->conn->prepare("select uid, EID, firstName, lastName, phoneNumber, email, major, biography, employeeType, image  from EMPLOYEE where employeeType='LA';")){
+                if($stmt = $this->conn->prepare("select uid, EID, firstName, lastName, email, major, biography, employeeType, image  from EMPLOYEE where employeeType='LA';")){
                         $stmt->execute();
                         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 }
@@ -44,7 +44,7 @@ class DBcore{
 
 	function selectAllTAProfiles(){
 		$data = array();
-		$TAsqlstmt = "select e.uid, e.EID, e.firstName, e.lastName, e.phoneNumber, e.email, e.major, e.biography, e.employeeType, image  FROM EMPLOYEE e WHERE e.employeeType = 'TA';";
+		$TAsqlstmt = "select e.uid, e.EID, e.firstName, e.lastName, e.email, e.major, e.biography, e.employeeType, image  FROM EMPLOYEE e WHERE e.employeeType = 'TA';";
 		if($stmt = $this->conn->prepare($TAsqlstmt)){
 			$stmt->execute();
 			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
