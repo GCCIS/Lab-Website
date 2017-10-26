@@ -94,7 +94,7 @@ body {
      height: auto; 
 }
 
-.profiles {
+.profiles {http://webdev01.istlabs.rit.edu/~amber.libby/Lab-Website/site/labSchedule.php
     padding: 40px;
 }
 
@@ -121,7 +121,7 @@ body {
 .LADetails p {
     padding: 3px;
     font-size: 16px;
-    color: #FCFCFC;: 
+    color: #FCFCFC;
 }
 
 .LAMajor {
@@ -133,54 +133,35 @@ body {
     background-color: #FCFCFC;
 }
 
-
-.TA-onShift {
-    border: 4px solid #29ABE0;
-    border-radius: 10px;
+#calendar {
+    margin-top: 20px;
 }
 
-.TA-onShift .row {
-    margin: 20px;
+.Roomstatus {
+    align-content: left;
+    margin-top: 180px;
 }
 
-.TA-onShift img {
-    width: 105px;
-    height: auto;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+.Roomstatus li {
+    display: inline-block;
+    list-style: none;
+    padding: 10px;
 }
 
-.TA-onShift h2 {
-    font-size: 32px;
-    color: #29ABE0;
-    text-align: center;
-    margin: 20px;
-}
-
-.TA-onShift h3 {
-    margin-top: 0px;
-    width: 105px;
-    height: 30px;
-    padding: 8px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 600;
+.notActiveRoom a {
+    padding: 6px;
+    transition: background-color 0.3s ease;
+    background-color: #464646;
+    border-radius: 3px;
     color: #FCFCFC;
-    background-color: #29ABE0;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
 }
 
-.TASignoffs {
-    padding: 4px;
-    margin-right: 10px;
-    border-radius: 4px;
-    font-size: 16px;
-    color: #29ABE0;
-    background-color: #FCFCFC;
+.activeRoom a{
+    padding: 6px;
+    transition: background-color 0.3s ease;
+    background-color: #29ABE0;
+    border-radius: 3px;
+    color: #FCFCFC;
 }
 
 
