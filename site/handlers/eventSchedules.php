@@ -26,7 +26,5 @@ require_once('DBcore.class.php');
         }
         echo json_encode($events);
         exit();
-
-
 ?>
 

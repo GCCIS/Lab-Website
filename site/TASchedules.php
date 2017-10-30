@@ -7,6 +7,17 @@ writeHTMLHead('TA Schedules');
 //write nav
 writeNav('notActivePage','notActivePage','activePage','notActivePage','notActivePage');
 
+
+?>
+
+<!--Dump the ta event calendar in this div -->
+
+</br></br</br></br></br></br>
+
+<div id="taCalendar"></div>
+
+<?php
+
 //write page footer
 writeHTMLFooter();
 ?>

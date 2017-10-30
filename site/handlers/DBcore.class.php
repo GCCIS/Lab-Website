@@ -85,7 +85,18 @@ class DBcore{
                 return $data;
 
 	}
-	
+
+	function selectTASchedules(){
+		$data = array();
+		$sqlStmt = "select ess.uid, ess.dayOfWeek, ess.startTime, ess.endTime, e.firstName, e.lastName from EMPLOYEE_SHIFT_SCHEDULE ess join EMPLOYEE e using(uid) WHERE employeeType='TA';";
+		if($stmt = $this->conn->prepare($sqlStmt)){
+			$stmt->execute();
+			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		} 
+		return $data;
+	}	
+
+
 	function selectEventsForRoom($roomNumber){
 		$data = array();
 		$sqlStmt = "select eventID, roomNumber, date, startTime, endTime, eventName from EVENT WHERE roomNumber='".$roomNumber."';";
