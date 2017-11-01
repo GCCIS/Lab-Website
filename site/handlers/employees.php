@@ -31,7 +31,7 @@ require_once('DBcore.class.php');
                                 <div class="col-xs-12 col-sm-10 col-md-6">
                                     <div class="LACard">
                                         <div class="row">
-                                            <div class="LAPicture cols-4 col-sm-3 col-md-4">
+         selectAllLAShifts                                   <div class="LAPicture cols-4 col-sm-3 col-md-4">
                                                 <img src="images/employees/'.$image.'">
                                             </div>
                                              <div class="LADetails col-xs-7 col-sm-8 col-md-7">
@@ -138,6 +138,39 @@ require_once('DBcore.class.php');
                 ';
 		}
 
+	function getOnShiftLAs(){
+		$DBcore = new DBcore();
+                $laShiftArr = array();
+                $laShiftArr = $DBcore->selectAllLAShifts();
+                $laShiftStr = "";
+
+		//used to assign numbers as dayOfWeek
+		//array to get the date of the day of week
+        	$dayOfWeekArr = array(0=>'SU',1=>'M',2=>'TU',3=>'W',4=>'TH',5=>'F',6=>'SA');
+		date_default_timezone_set('America/New_York');	
+
+		//today's day of week number
+		$today = date('w');
+		$currentTime = date('H:i:s');
+	
+		foreach($laShiftArr as $row){
+			$name = $row['firstName'].' '.$row['lastName'];
+			$image = $row['image'];
+			$dayOfWeek = $row['dayOfWeek'];
+			$dayOfWeekNum = array_search($dayOfWeek, $dayOfWeekArr);
+			$startTime = $row['startTime'];
+			$endTime = $row['endTime'];
+			
+			//if today is the same day as scheduled then print it out
+			if($today == $dayOfWeekNum){
+				//if the current time is between the start and the end time then show the la
+				if($startTime <= $currentTime && $currentTime <= $endTime){
+					$laShiftStr.= $name." works ".$startTime." - ".$endTime." </br>";
+				}
+			}
+		}
+		return $laShiftStr;
+	}
 
 
 ?>

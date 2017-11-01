@@ -118,6 +118,16 @@ class DBcore{
 		return $data;
 	}
 
+	function selectAllLAShifts(){
+		$data = array();
+		$sqlStmt = "select e.firstName, e.lastName, e.image, ess.dayOfWeek, ess.startTime, ess.endTime FROM EMPLOYEE_SHIFT_SCHEDULE ess JOIN EMPLOYEE e using(uid) WHERE e.employeeType='LA';";
+		if($stmt = $this->conn->prepare($sqlStmt)){
+			$stmt->execute();
+			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return $data;
+	}
+
 
 }//end of class
 ?>
