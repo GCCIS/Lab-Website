@@ -15,7 +15,7 @@ writeNav('notActivePage','activePage','notActivePage','notActivePage','notActive
 ?>
 <!--Dump the event calendar in this div -->
 
-</br></br></br></br></br</br></br></br></br>
+</br></br</br></br></br></br>
 <div id="calendar"><div>
 
 
