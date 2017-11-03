@@ -13,6 +13,8 @@ writeNav('activePage','notActivePage','notActivePage','notActivePage','notActive
 
 echo getRooms();
 echo getOnShiftLAs();
+echo getOnShiftTAs();
+
 
 //write page footer
 writeHTMLFooter();
