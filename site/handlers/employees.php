@@ -177,7 +177,6 @@ require_once('DBcore.class.php');
 		$taShiftArr = array();
 		//will get the TA's that are currently clocked into webpunch
 		$taShiftArr = $DBcore->selectWorkingTAs();
-		$taShiftStr = "";
 		foreach($taShiftArr as $row){
 			$eid = $row['TA_EID'];
 			$shiftBegin = $row['shift_begin'];
@@ -185,10 +184,25 @@ require_once('DBcore.class.php');
 			$location = $row['location'];
 			$name = $row['firstName'].' '.$row['lastName'];
 			
-			$taShiftStr .= $name." is working from ".$shiftBegin." to ".$shiftEnd." in ".$location."<br>";
+            echo '<div class="col-xs-12 col-sm-6 col-md-6">
+                <div class="TA-onShift">
+                    <h2>TA - Available</h2>
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-4 col-md-3">
+                            <img src="images/LA1.png">
+                            <h3>'.$name.'</h3>
+                        </div>
+                        <div class="TADetails col-xs-7 col-sm-7 col-md-8">
+                            <p>'.$location.'</p>
+                            <p>'.$shiftBegin.' to '.$shiftEnd.'</p>
+                            <p><span class="TASignoffs">Signoffs</span>240, 340</p>
+                        </div>
+                    </div>
+                </div>
+            </div>';
+            
 			
 		}
-		return $taShiftStr;
 	}
 
 
