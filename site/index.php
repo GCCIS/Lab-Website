@@ -1,5 +1,6 @@
 <?php
 include 'handlers/roomStatus.php';
+include 'handlers/employees.php';
 include 'common/common.php';
 
 
@@ -11,6 +12,7 @@ writeHTMLHead('Home');
 writeNav('activePage','notActivePage','notActivePage','notActivePage','notActivePage');
 
 echo getRooms();
+echo getOnShiftLAs();
 
 //write page footer
 writeHTMLFooter();
