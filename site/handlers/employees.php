@@ -31,7 +31,7 @@ require_once('DBcore.class.php');
                                 <div class="col-xs-12 col-sm-10 col-md-6">
                                     <div class="LACard">
                                         <div class="row">
-         selectAllLAShifts                                   <div class="LAPicture cols-4 col-sm-3 col-md-4">
+                                            <div class="LAPicture cols-4 col-sm-3 col-md-4">
                                                 <img src="images/employees/'.$image.'">
                                             </div>
                                              <div class="LADetails col-xs-7 col-sm-8 col-md-7">
