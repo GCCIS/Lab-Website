@@ -17,6 +17,9 @@ function writeHTMLHead($title){
 
             <!-- Bootstrap core CSS -->
             <link href="css/bootstrap.min.css" rel="stylesheet">
+            
+            <!-- Bootstrap theme CSS -->
+            <link href="css/darkly.min.css" rel="stylesheet">
 
             <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
             <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
