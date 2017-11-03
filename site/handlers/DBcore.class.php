@@ -127,6 +127,34 @@ class DBcore{
 		}
 		return $data;
 	}
+	
+	function selectWorkingTAs(){
+		$data = array();
+		date_default_timezone_set("America/New_York");
+		$currDate = date("Y-m-d");
+		$currTime = date("H:i:s");
+		//select all events on today where the current time falls within the shift begin and end
+		$sqlStmt = "SELECT tsl.TA_EID, tsl.shift_date, tsl.shift_begin, tsl.shift_end, tsl.location, e.firstName, e.lastName FROM TA_SHIFT_LOG tsl JOIN EMPLOYEE e on tsl.TA_EID=e.EID WHERE tsl.shift_date='".$currDate."' AND tsl.shift_begin <= '".$currTime."' AND tsl.shift_end >= '".$currTime."';";
+		if($stmt = $this->conn->prepare($sqlStmt)){
+			$stmt->execute();
+			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return $data;
+	}
+
+	function addTAshift($TA_EID, $shift_date, $shift_begin, $shift_end, $location){
+		$sqlStmt = "INSERT INTO TA_SHIFT_LOG (TA_EID, shift_date, shift_begin, shift_end, location) VALUES (:TA_EID, :shift_date, :shift_begin, :shift_end, :location)";
+		if($stmt = $this->conn->prepare($sqlStmt)){
+			$stmt->bindValue(":TA_EID", $TA_EID);
+			$stmt->bindValue(":shift_date", $shift_date);
+                        $stmt->bindValue(":shift_begin", $shift_begin);
+                        $stmt->bindValue(":shift_end", $shift_end);
+                        $stmt->bindValue(":location", $location);
+			$result = $stmt->execute();
+		}
+		return $result;
+
+	}
 
 
 }//end of class

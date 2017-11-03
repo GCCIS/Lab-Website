@@ -172,5 +172,24 @@ require_once('DBcore.class.php');
 		return $laShiftStr;
 	}
 
+	function getOnShiftTAs(){
+		$DBcore = new DBcore();
+		$taShiftArr = array();
+		//will get the TA's that are currently clocked into webpunch
+		$taShiftArr = $DBcore->selectWorkingTAs();
+		$taShiftStr = "";
+		foreach($taShiftArr as $row){
+			$eid = $row['TA_EID'];
+			$shiftBegin = $row['shift_begin'];
+			$shiftEnd = $row['shift_end'];
+			$location = $row['location'];
+			$name = $row['firstName'].' '.$row['lastName'];
+			
+			$taShiftStr .= $name." is working from ".$shiftBegin." to ".$shiftEnd." in ".$location."<br>";
+			
+		}
+		return $taShiftStr;
+	}
+
 
 ?>
