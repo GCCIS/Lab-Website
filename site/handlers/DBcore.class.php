@@ -44,35 +44,37 @@ class DBcore{
 
 	function selectAllTAProfiles(){
 		$data = array();
+		$signoffData = array();
 		$TAsqlstmt = "select e.uid, e.EID, e.firstName, e.lastName, e.email, e.major, e.biography, e.employeeType, image  FROM EMPLOYEE e WHERE e.employeeType = 'TA';";
 		if($stmt = $this->conn->prepare($TAsqlstmt)){
 			$stmt->execute();
 			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
+			
 			foreach($data as $row){
-                        	$uid = $row['uid'];
-				
-				$data2 = array();
-				$signoffData = array();
-				$SIGNOFFsqlstmt = "SELECT c.courseNumber FROM COURSE c JOIN TA_SIGNOFF t using(courseNumber) WHERE t.uid='".$uid."';";
-				if($stmt2 = $this->conn->prepare($SIGNOFFsqlstmt)){
-					$stmt2->execute();
-					$data2 = $stmt2->fetchAll(PDO::FETCH_ASSOC);
-					$courseStr = '';
-					foreach($data2 as $row2){
-						$course = $row2['courseNumber'];
-						$courseStr .= $course.";";
-					}
-				
-					//add the course string to the first array
-					array_push($signoffData, $courseStr);
-				}
+                       		$uid = $row['uid'];
+				array_push($signoffData, $this->selectTASignoffs($uid));
 
                 	}
 		}//end of if
 		return array($data, $signoffData);
 	
 	}//end of TA
+
+	function selectTASignoffs($uid){
+		$data = array();
+		$courseStr = '';
+                $SIGNOFFsqlstmt = "SELECT c.courseNumber FROM COURSE c JOIN TA_SIGNOFF t using(courseNumber) WHERE t.uid='".$uid."';";
+               	if($stmt = $this->conn->prepare($SIGNOFFsqlstmt)){
+               		$stmt->execute();
+                        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        foreach($data as $row){
+                        	$course = $row['courseNumber'];
+                                $courseStr .= $course.";";
+                      	}
+                 }
+		return $courseStr;
+
+	}//end of TA signoffs
 	
 
 	function selectAllEvents(){
@@ -134,10 +136,12 @@ class DBcore{
 		$currDate = date("Y-m-d");
 		$currTime = date("H:i:s");
 		//select all events on today where the current time falls within the shift begin and end
-		$sqlStmt = "SELECT tsl.TA_EID, tsl.shift_date, tsl.shift_begin, tsl.shift_end, tsl.location, e.firstName, e.lastName FROM TA_SHIFT_LOG tsl JOIN EMPLOYEE e on tsl.TA_EID=e.EID WHERE tsl.shift_date='".$currDate."' AND tsl.shift_begin <= '".$currTime."' AND tsl.shift_end >= '".$currTime."';";
+		$sqlStmt = "SELECT tsl.TA_EID, tsl.shift_date, tsl.shift_begin, tsl.shift_end, tsl.location, e.firstName, e.lastName, e.image, e.uid FROM TA_SHIFT_LOG tsl JOIN EMPLOYEE e on tsl.TA_EID=e.EID WHERE tsl.shift_date='".$currDate."' AND tsl.shift_begin <= '".$currTime."' AND tsl.shift_end >= '".$currTime."';";
 		if($stmt = $this->conn->prepare($sqlStmt)){
 			$stmt->execute();
 			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
 		}
 		return $data;
 	}
