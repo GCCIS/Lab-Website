@@ -4,6 +4,7 @@ $(document).ready(function(){
                 //defaultView: 'basicWeek',   -- Will this work better?
                 minTime: "08:00:00",
                 maxTime: "22:00:00",
+                nowIndicator: true,
 		        header: false,        
                 themeSystem: 'bootstrap3',
                 theme: 'darkly',
@@ -22,6 +23,7 @@ $(document).ready(function(){
                 //defaultView: 'basicWeek',   -- Will this work better?
                 minTime: "08:00:00",
                 maxTime: "22:00:00",
+                nowIndicator: true,
 		        header: false,        
                 themeSystem: 'bootstrap3',
                 theme: 'darkly',
