@@ -1,5 +1,4 @@
 <?php
-
 require_once('DBcore.class.php');
 
 	function getRooms(){
@@ -11,9 +10,13 @@ require_once('DBcore.class.php');
 			$roomNumber = $row['roomNumber'];
 			$roomName = $row['roomName'];
 			
+			//$eventsCurr = array();
+                        //for each room check to see if there any events currently happening
+                        $eventsCurr = $DBcore->selectCurrentEvent($roomNumber);
+			//print_r($eventsCurr);
 			$roomStr .= '<p>Room Number: '.$roomNumber.'</br>';
+			$roomStr .= 'CurrEvent#: '.$eventsCurr.'</br>';
 			$roomStr .= 'Room Name: '.$roomName.'</br></p>';
-
 			
 		}//end of foreach
 		return $roomStr;
@@ -31,6 +34,10 @@ require_once('DBcore.class.php');
                         $roomNumber = $row['roomNumber'];
                         $roomName = $row['roomName'];
 			
+			//for each room check to see if there any events currently happening
+			$eventsCurr = $DBcore->selectCurrentEvent($roomNumber);	
+			
+
 			$roomButtonStr .= '<div class="roomStatus"><form action="#" method="post" class="roomStatusForm" name="roomStatusForm">';
                         $roomButtonStr .= '<button name="roomStatus" value="'.$roomNumber.'" type="submit" class="roomStatusButton">'.$roomNumber.'</br>'.$roomName.'</button>';
 			$roomButtonStr .= '</form></div>';

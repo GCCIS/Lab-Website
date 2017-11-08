@@ -30,6 +30,28 @@ class DBcore{
 	}//end of get rooms	
 
 	/*
+	* Select the current event that is hapenning in the room - if no event then return 0 - if event that return 1
+	*/
+	function selectCurrentEvent($roomNumber){
+                date_default_timezone_set("America/New_York");
+                $currDate = date("Y-m-d");
+                $time = date("H:i:s");
+		$result = '';
+		$sqlStmt = "select count(*) from EVENT where roomNumber=:roomNumber AND date=:currDate AND endTime > :time AND startTime < :time2;";
+		if($stmt = $this->conn->prepare($sqlStmt)){
+                        $stmt->bindValue(":roomNumber", $roomNumber);
+                        $stmt->bindValue(":currDate", $currDate);
+                       	$stmt->bindValue(":time", $time);
+			$stmt->bindValue(":time2", $time);
+			$stmt->execute();
+        	        $result = $stmt->fetchColumn();      
+       			
+		}
+		return $result;
+	}
+
+
+	/*
 	* Get all LAs
 	*/
 	function selectAllLAProfiles(){
@@ -145,6 +167,8 @@ class DBcore{
 		}
 		return $data;
 	}
+                   
+
 
 	function addTAshift($TA_EID, $shift_date, $shift_begin, $shift_end, $location){
 		$sqlStmt = "INSERT INTO TA_SHIFT_LOG (TA_EID, shift_date, shift_begin, shift_end, location) VALUES (:TA_EID, :shift_date, :shift_begin, :shift_end, :location)";
