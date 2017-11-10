@@ -33,7 +33,7 @@ require_once('DBcore.class.php');
 
                                     <div class="lab lab-open">
                                             <div class="labHeading">
-                                                <h3>'.$roomName.' - '.$roomNumber'</h3>
+                                                <h3>'.$roomName.' - '.$roomNumber.'</h3>
                                                 <h4>Lab Hours: 8 AM - 12 AM</h4>
                                             </div>
                                             <div class="labDetails">
