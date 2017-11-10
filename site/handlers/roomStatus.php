@@ -5,7 +5,6 @@ require_once('DBcore.class.php');
 		$DBcore = new DBcore();
 		$roomArr = array();
 		$roomArr = $DBcore->selectAllRooms();
-		$roomStr = '';
 		foreach($roomArr as $row){
 			$roomNumber = $row['roomNumber'];
 			$roomName = $row['roomName'];
@@ -14,8 +13,6 @@ require_once('DBcore.class.php');
                         //for each room check to see if there any events currently happening
                         $eventsCurr = $DBcore->selectCurrentEvent($roomNumber);
 			//print_r($eventsCurr);
-			$roomStr .= '<p>Room Number: '.$roomNumber.'</br>';
-			$roomStatus = '';
 			if($eventsCurr == 0){
 				//if it is 0 then there is no class in session
 				$roomStatus = 'Closed/Open';
@@ -25,36 +22,32 @@ require_once('DBcore.class.php');
 				$roomStatus = 'Class';
 
 			}
-			$roomStr .= 'Current Status: '.$roomStatus.'</br>';
-			$roomStr .= 'Room Name: '.$roomName.'</br></p>';
+            
+            
+            
+             echo ' <div class="row">
+                  <div class="col-sm-6 col-md-3">
+                      <form id="'.$roomName.'" action="labSchedule.php" method="post">
+                          <input type="hidden" name="roomNumber" value="'.$roomNumber.'">
+                          <div class="col-sm-12 col-md-12">
+                          <a href="labSchedule.php" class="roomCard" onclick="document.getElementById("'.$roomName.'").submit();">
+
+                                    <div class="lab lab-open">
+                                            <div class="labHeading">
+                                                <h3>'.$roomName.' - '.$roomNumber.'</h3>
+                                                <h4>Lab Hours: 8 AM - 12 AM</h4>
+                                            </div>
+                                            <div class="labDetails">
+                                                <p class="currentStatus">'.$roomStatus.'</p>
+                                            </div>
+                                    </div>
+                          </a>
+                          </div>      
+                      </form>
+                    </div>
+                </div> ';
 			
 		}//end of foreach
-		return $roomStr;
 	}
 	
-	/*
-	* Create the lab buttons on Lab Schedules page
-	*/
-	function createRoomStatus(){
-		$DBcore = new DBcore();
-                $roomArr = array();
-                $roomArr = $DBcore->selectAllRooms();
-                $roomButtonStr = '';
-                foreach($roomArr as $row){
-                        $roomNumber = $row['roomNumber'];
-                        $roomName = $row['roomName'];
-			
-			//for each room check to see if there any events currently happening
-			$eventsCurr = $DBcore->selectCurrentEvent($roomNumber);	
-			
-
-			$roomButtonStr .= '<div class="roomStatus"><form action="#" method="post" class="roomStatusForm" name="roomStatusForm">';
-                        $roomButtonStr .= '<button name="roomStatus" value="'.$roomNumber.'" type="submit" class="roomStatusButton">'.$roomNumber.'</br>'.$roomName.'</button>';
-			$roomButtonStr .= '</form></div>';
-
-
-                }//end of foreach
-                return $roomButtonStr;
-
-	}
 ?>
