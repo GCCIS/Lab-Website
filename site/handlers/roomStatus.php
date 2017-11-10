@@ -15,7 +15,17 @@ require_once('DBcore.class.php');
                         $eventsCurr = $DBcore->selectCurrentEvent($roomNumber);
 			//print_r($eventsCurr);
 			$roomStr .= '<p>Room Number: '.$roomNumber.'</br>';
-			$roomStr .= 'CurrEvent#: '.$eventsCurr.'</br>';
+			$roomStatus = '';
+			if($eventsCurr == 0){
+				//if it is 0 then there is no class in session
+				$roomStatus = 'Closed/Open';
+			}
+			else{
+				//if it is greater than 0 then and event is in progress
+				$roomStatus = 'Class';
+
+			}
+			$roomStr .= 'Current Status: '.$roomStatus.'</br>';
 			$roomStr .= 'Room Name: '.$roomName.'</br></p>';
 			
 		}//end of foreach
