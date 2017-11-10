@@ -11,24 +11,25 @@ writeHTMLHead('Home');
 //write nav
 writeNav('activePage','notActivePage','notActivePage','notActivePage','notActivePage');
 
-echo getRooms();
-
 ?>
 
  <div class="container onShift">
         <div class="row">
 
 <?php
-     
-//echo getOnShiftLAs();
-getOnShiftTAs();
-
-            
-            ?>
-
+     //echo getOnShiftLAs();
+            getOnShiftTAs();
+?>
         </div>
    </div>  
 
+    <div class="container labStatus  text-center">
+        
+<?php
+    getRooms();
+        
+?>
+    </div>
 <?php
 
 //write page footer
