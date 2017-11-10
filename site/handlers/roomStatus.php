@@ -29,7 +29,7 @@ require_once('DBcore.class.php');
                   <div class="col-sm-6 col-md-3">
                       <form id="'.$roomName.'" action="labSchedule.php" method="post">
                           <div class="col-sm-12 col-md-12">
-                          <a href="#" class="roomCard" onclick="document.getElementById("'.$roomName.'").submit();">
+                          <a href="labSchedule.php" class="roomCard" onclick="document.getElementById("'.$roomName.'").submit();">
 
                                     <div class="lab lab-open">
                                             <div class="labHeading">
