@@ -90,5 +90,39 @@ class DBcoreAdmin{
 
 
 
+	//DELETE FUNCTIONALITY
+	
+	function deleteCourse($courseNumber){
+		$sql = "delete from COURSE where courseNumber=:courseNumber;";
+		if($stmt = $this->conn->prepare($sql)){
+			$stmt->bindParam(':courseNumber', $courseNumber);
+			$result = $stmt->execute();
+		}
+		return $result;
+	}
+
+
+
+
+
+
+
+
+
+
+	//INSERT FUNCTIONALITY
+	function addCourse($courseNumber, $courseName){
+		$sql = "insert into COURSE (courseName, courseNumber) VALUES (:courseName, :courseNumber);";
+		if($stmt = $this->conn->prepare($sql)){
+			$stmt->bindParam(':courseName', $courseName);
+			$stmt->bindParam(':courseNumber',$courseNumber);
+			$result = $stmt->execute();
+		}
+		return $result;
+	}
+
+
+
+
 }//end of class
 ?>
