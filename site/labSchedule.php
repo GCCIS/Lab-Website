@@ -20,7 +20,6 @@ writeNav('notActivePage','activePage','notActivePage','notActivePage','notActive
 
 
 <?php
-echo createRoomStatus();
 
 //write page footer
 writeHTMLFooter();
