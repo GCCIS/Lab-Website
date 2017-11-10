@@ -69,5 +69,26 @@ class DBcoreAdmin{
 
 	}//end of 
 
+	/*
+	* validate login
+	*/
+	function login($email, $pass){
+		$pass = hash('sha256', $pass);
+		$data = array();
+		if($stmt = $this->conn->prepare("select email, password from ADMINUSER where email=:email and password=:pass;")){
+			$stmt->bindParam(':email', $email);
+			$stmt->bindParam(':pass', $pass);
+			$stmt->execute();
+			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		if($data){
+			return true;
+		}
+		//not a valid login
+		return false;
+	}//end of login	
+
+
+
 }//end of class
 ?>

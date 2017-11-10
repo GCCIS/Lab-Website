@@ -1,6 +1,10 @@
 <?php
 include_once('common/common.php');
-    
+   session_start();
+   if(!isset($_SESSION['userLogin'])){
+	//NOT logged in
+	header("Location:logout.php");
+   }   
     writeHTMLHead("Admin");
     writeNav();
 
