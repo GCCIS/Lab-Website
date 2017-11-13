@@ -15,9 +15,6 @@ function writeHTMLHead($title){
 
             <title>'.$title.'</title>
 
-            <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-            <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
             <!-- Custom styles for this template -->
             <link href="css/adminStyle.css" rel="stylesheet">
 

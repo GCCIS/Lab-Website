@@ -1,7 +1,8 @@
 <?php
 include_once('common/common.php');
 include 'adminHandlers/courseHandler.php';
-  session_start();
+  //check if the user is logged in
+   session_start();
    if(!isset($_SESSION['userLogin'])){
         //NOT logged in
         header("Location:logout.php");
@@ -11,9 +12,37 @@ include 'adminHandlers/courseHandler.php';
     writeNav();
 
 
+	//if the form has been submitted then update the database
+        if(isset($_POST['editCourse'])){
+                //create the edit course form
+		editCourseForm($_POST['courseList']);
+        }
+	else if(isset($_POST['submitEdit'])){
+		//send the edit course to the database
+		editCourse($_POST['prevNumber'], $_POST['courseName'], $_POST['courseNumber']);
+	}
+        else if(isset($_POST['deleteCourse'])){
+                //delete the course
+                deleteCourse($_POST['courseList']);
+        }
+        else if(isset($_POST['addCourse'])){
+                //add course form
+		echo '<form action="course.php" method="post" name="addCourse">
+			Course Name: <input type="text" name="courseName" required><br>
+			Course Number: <input type="text" name="courseNumber" required><br> 
+			<input type="submit" name="submitAdd" value="submitAdd">
+		      </form>';
+		
+        }
+	else if(isset($_POST['submitAdd'])){
+		//the add course form has been submitted so now update the database	
+		addCourse($_POST['courseName'], $_POST['courseNumber']);
+	}
 ?>
+
+
 	<form action="course.php" method="post" name="courseForm">
-		<select name="courseList">
+		 <select name="courseList">
 		<?php
 			echo getCourses();
 		?>
@@ -25,18 +54,7 @@ include 'adminHandlers/courseHandler.php';
 	</form>
 	    
 	
-<?php
-	//if the form has been submitted then check what needs to show
-	if(isset($_POST['editCourse'])){
-		//edit course form
-	}
-	else if(isset($_POST['deleteCourse'])){
-		//delete the course
-	}
-	else if(isset($_POST['addCourse'])){
-		//add course form
-	}
-	
+<?php	
 
     writeHTMLFooter();
 ?>
