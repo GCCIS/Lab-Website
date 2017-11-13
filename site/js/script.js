@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	
 	$('#calendar').fullCalendar({
                 defaultView: 'agendaWeek',
                 //defaultView: 'basicWeek',   -- Will this work better?
