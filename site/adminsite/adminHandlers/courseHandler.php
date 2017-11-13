@@ -15,19 +15,49 @@
 		return $options;
 	}
 
-	function addCourse(){
-
+	function addCourse($courseName, $courseNumber){
+		$DBcoreAdmin = new DBcoreAdmin();
+		$result = $DBcoreAdmin->addTheCourse($courseName, $courseNumber);
+		if($result == 1){
+			//if the result is 1 than the record was added
+			return true;
+		}
+		else{
+			//the record was not added
+			return false;
+		}
 	}
 
 
-	function editCourse($courseName, $courseNumber){
-		
+	function editCourse($prevNumber, $courseName, $courseNumber){
+		$DBcoreAdmin = new DBcoreAdmin();
+		$result = $DBcoreAdmin->editTheCourse($prevNumber, $courseName, $courseNumber);
+		 if($result == 1){
+                        //if the result is 1 than the record was edited
+                        return true;
+                }
+                else{
+                        //the record was not edited
+                        return false;
+                }
 
+	}
+
+	function editCourseForm($courseNumber){
+		$DBcoreAdmin = new DBcoreAdmin();
+		$courseName = $DBcoreAdmin->selectCourseName($courseNumber);
+		//create the edit form 
+		echo '<form action="course.php" method="post" name="editForm">
+			<input type="hidden" name="prevNumber" value="'.$courseNumber.'">
+			<input type="text" name="courseName" value="'.$courseName.'" required>
+			<input type="text" name="courseNumber" value="'.$courseNumber.'" required>
+			<input type="submit" name="submitEdit" value="Submit Edit">
+			</form>';
 	}
 
 	function deleteCourse($courseNumber){
-		$DBcoreAdmin = newDBcoreAdmin();
-		$result = $DBcoreAdmin->deleteCourse($courseNumber);
+		$DBcoreAdmin = new DBcoreAdmin();
+		$result = $DBcoreAdmin->deleteTheCourse($courseNumber);
 		return $result;
 	}
 
