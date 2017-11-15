@@ -329,6 +329,28 @@ body {
     background-color: #26A35B;
 }
 
+/* Change today highlight */
+
+#calendar .fc-today {
+    background: rgba(41, 171, 224, 0.2) !important;
+    border: 2px solid #29ABE0 !important;
+    font-weight: bold;
+} 
+
+#calendar td {
+        border: 2px solid #29ABE0 !important;
+    }
+
+tr {
+        border: 2px solid #29ABE0 !important;
+        padding: 4px !important;
+    }
+
+th {
+    border: 2px solid #29ABE0 !important; 
+    padding: 6px !important;
+}
+
 /* Mobile Screen
 @media only screen and (max-width:480px)  {
     

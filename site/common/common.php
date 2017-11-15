@@ -23,12 +23,13 @@ function writeHTMLHead($title){
 
             <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
             <link href="css/ie10-viewport-bug-workaround.css" rel="stylesheet">
-
-            <!-- Custom styles for this template -->
-            <link href="css/style.css" rel="stylesheet">
             
             <!-- Custom styles for Full Calendar -->
             <link href="css/fullcalendar.css" rel="stylesheet" />
+              
+              
+            <!-- Custom styles for this template -->
+            <link href="css/style.css" rel="stylesheet">
             
             <!-- Full Calendar, Jquery, moment Javascript file -->
 	    <script src="js/jquery.min.js"></script>
