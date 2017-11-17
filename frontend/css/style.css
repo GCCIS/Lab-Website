@@ -123,25 +123,6 @@ body {
    
 }
 
-@media only screen and (max-width:767px)  {
-    
-    .navbar img{
-        display: none;
-    }
-    
-    .navbar{    
-        margin-left: -70px;
-        margin-top: 0px;
-    }
-    
-    .navbar .nav li {
-        display: block;
-        margin-top: 10px;
-        width: 100%;
-    }
-    
-}
-
 /* Profiles */
 
 .profiles {
@@ -523,14 +504,22 @@ th {
     border: 2px solid #29ABE0 !important; 
 }
 
-/* Mobile Screen
-@media only screen and (max-width:480px)  {
+/* Responsive CSS*/
+@media only screen and (max-width:767px)  {
     
-    .narvar {
-        padding = 0px;
-    }
     .navbar img{
-        margin-top: -10px;
+        display: none;
     }
     
-}*/
+    .navbar{    
+        margin-left: -70px;
+        margin-top: 0px;
+    }
+    
+    .navbar .nav li {
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+}

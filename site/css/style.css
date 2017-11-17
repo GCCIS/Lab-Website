@@ -123,25 +123,6 @@ body {
    
 }
 
-@media only screen and (max-width:767px)  {
-    
-    .navbar img{
-        display: none;
-    }
-    
-    .navbar{    
-        margin-left: -70px;
-        margin-top: 0px;
-    }
-    
-    .navbar .nav li {
-        display: block;
-        margin-top: 10px;
-        width: 100%;
-    }
-    
-}
-
 /* Profiles */
 
 .profiles {
@@ -487,6 +468,7 @@ body {
 
 #calendar {
     margin-top: 50px;
+    padding: 20px;
 }
 
 #calendar .fc-today {
@@ -499,6 +481,21 @@ body {
         border: 2px solid #29ABE0 !important;
     }
 
+#taCalendar {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+#taCalendar .fc-today {
+    background: rgba(41, 171, 224, 0.2) !important;
+    border: 2px solid #29ABE0 !important;
+    font-weight: bold;
+} 
+
+#taCalendar td {
+        border: 2px solid #29ABE0 !important;
+    }
+
 tr {
         border: 2px solid #29ABE0 !important;
     }
@@ -507,14 +504,22 @@ th {
     border: 2px solid #29ABE0 !important; 
 }
 
-/* Mobile Screen
-@media only screen and (max-width:480px)  {
+/* Responsive CSS*/
+@media only screen and (max-width:767px)  {
     
-    .narvar {
-        padding = 0px;
-    }
     .navbar img{
-        margin-top: -10px;
+        display: none;
     }
     
-}*/
+    .navbar{    
+        margin-left: -70px;
+        margin-top: 0px;
+    }
+    
+    .navbar .nav li {
+        display: block;
+        margin-top: 10px;
+        width: 100%;
+    }
+    
+}
