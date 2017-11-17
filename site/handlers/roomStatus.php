@@ -12,7 +12,8 @@ require_once('DBcore.class.php');
             
                         
             if ($j == 0 || $j % 4 == 0) {
-                            echo '<div class="row">';
+                            echo '
+                                  <div class="row">';
                         }
             
 			$roomNumber = $row['roomNumber'];
@@ -54,7 +55,7 @@ require_once('DBcore.class.php');
                       </form>
                     </div>';
             
-            if ($j == 0 || $j % 4 == 0) {
+            if ($j == 0 || $j % 2 == 0 || $j % 3 == 0 || $j % 4 == 0) {
                             echo '
                                 <!-- End of Lab -->';
                         }
@@ -66,12 +67,13 @@ require_once('DBcore.class.php');
 			
 		}//end of foreach
         
+        /*
                     if($j % 4 != 0) {
                             echo '
                                 <!-- End of Lab  -->
                                 </div>
                                 ';
-                }
+                }*/
             
                         
              echo '
