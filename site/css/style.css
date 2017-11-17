@@ -406,6 +406,7 @@ body {
 }
 
 .lab-class h3{
+    margin-top: 20px;
     font-size: 18px;
     color: #FCFCFC;
     padding-top: 10px;
@@ -441,6 +442,7 @@ body {
 }
 
 .lab-open h3{
+    margin-top: 20px;
     font-size: 18px;
     color: #FCFCFC;
     padding-top: 10px;
