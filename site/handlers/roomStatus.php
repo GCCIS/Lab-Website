@@ -66,7 +66,7 @@ require_once('DBcore.class.php');
 			
 		}//end of foreach
         
-                    if($j % 2 != 0) {
+                    if($j % 4 != 0) {
                             echo '
                                 <!-- End of Lab  -->
                                 </div>
