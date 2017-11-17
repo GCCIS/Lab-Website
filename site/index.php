@@ -23,13 +23,12 @@ writeNav('activePage','notActivePage','notActivePage','notActivePage','notActive
         </div>
    </div>  
 
-    <div class="container labStatus  text-center">
         
 <?php
     getRooms();
         
 ?>
-    </div>
+
 <?php
 
 //write page footer
