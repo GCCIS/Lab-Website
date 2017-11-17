@@ -100,15 +100,15 @@ require_once('DBcore.class.php');
             	$employeeType = $row['employeeType'];
                         echo '
                                 <div class="col-xs-12 col-sm-10 col-md-6">
-                                    <div class="LACard">
+                                    <div class="TACard">
                                         <div class="row">
-                                            <div class="LAPicture cols-4 col-sm-3 col-md-4">
+                                            <div class="TAPicture cols-4 col-sm-3 col-md-4">
                                                 <img src="images/employees/'.$image.'">
                                             </div>
-                                             <div class="LADetails col-xs-7 col-sm-8 col-md-7">
+                                             <div class="TADetails col-xs-7 col-sm-8 col-md-7">
                                                 <p>'.$firstName.' '.$lastName.'</p>
                                                 <p>'.$email.'</p>
-                                                <p><span class="LAMajor">Signoffs</span>'.$courseStr.'</p>
+                                                <p><span class="TAMajor">Signoffs</span>'.$courseStr.'</p>
                                              </div>
                                         </div>
                                     </div>

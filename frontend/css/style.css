@@ -487,6 +487,7 @@ body {
 
 #calendar {
     margin-top: 50px;
+    padding: 20px;
 }
 
 #calendar .fc-today {
@@ -496,6 +497,21 @@ body {
 } 
 
 #calendar td {
+        border: 2px solid #29ABE0 !important;
+    }
+
+#taCalendar {
+    margin-top: 50px;
+    padding: 20px;
+}
+
+#taCalendar .fc-today {
+    background: rgba(41, 171, 224, 0.2) !important;
+    border: 2px solid #29ABE0 !important;
+    font-weight: bold;
+} 
+
+#taCalendar td {
         border: 2px solid #29ABE0 !important;
     }
 
