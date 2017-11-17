@@ -11,7 +11,7 @@ require_once('DBcore.class.php');
 		foreach($roomArr as $row){
             
                         
-            if ($j == 0 || $j % 4 == 0) {
+            if ($j == 0 && $j == 5) {
                             echo '
                                   <div class="row">';
                         }
@@ -55,13 +55,14 @@ require_once('DBcore.class.php');
                       </form>
                     </div>';
             
-            if ($j == 0 || $j % 2 == 0 || $j % 3 == 0 || $j % 4 == 0) {
-                            echo '
-                                <!-- End of Lab -->';
-                        }
-                        else {
+            if ($j == 4) {
                             echo '  <!-- End of Lab  -->
                                   </div>';
+ 
+                        }
+                        else {
+                             echo '
+                                <!-- End of Lab -->';
                         }
             $j++;
 			
