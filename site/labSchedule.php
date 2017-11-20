@@ -18,8 +18,13 @@ writeNav('notActivePage','activePage','notActivePage','notActivePage','notActive
 </br></br</br></br></br></br>
 <div id="calendar"><div>
 
+<script>
+	var room = <?php echo $_POST['roomNumber'];?>
+	console.log(room);
+</script>
 
 <?php
+
 
 //write page footer
 writeHTMLFooter();

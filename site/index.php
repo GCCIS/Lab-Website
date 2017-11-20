@@ -23,6 +23,9 @@ writeNav('activePage','notActivePage','notActivePage','notActivePage','notActive
         </div>
    </div>  
 
+<?php
+	//echo getOnShiftLAs();
+?>	
     <div class="container labStatus  text-center">
         
 <?php
