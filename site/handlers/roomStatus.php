@@ -5,7 +5,17 @@ require_once('DBcore.class.php');
 		$DBcore = new DBcore();
 		$roomArr = array();
 		$roomArr = $DBcore->selectAllRooms();
+        
+        echo '<div class="container labStatus  text-center">';
+        $j=0;
 		foreach($roomArr as $row){
+            
+                        
+            if ($j == 0 && $j == 5) {
+                            echo '
+                                  <div class="row">';
+                        }
+            
 			$roomNumber = $row['roomNumber'];
 			$roomName = $row['roomName'];
 			
@@ -24,8 +34,7 @@ require_once('DBcore.class.php');
 			}
             
             
-            
-             echo ' <div class="row">
+             echo '
                   <div class="col-sm-6 col-md-3">
                       <form id="'.$roomName.'" name="roomStatusForm" action="labSchedule.php" method="post">
                           <input type="hidden" name="roomNumber" value="'.$roomNumber.'">
@@ -44,10 +53,33 @@ require_once('DBcore.class.php');
                           </a>
                           </div>      
                       </form>
-                    </div>
-                </div> ';
+                    </div>';
+            
+            if ($j == 4) {
+                            echo '  <!-- End of Lab  -->
+                                  </div>';
+ 
+                        }
+                        else {
+                             echo '
+                                <!-- End of Lab -->';
+                        }
+            $j++;
 			
 		}//end of foreach
+        
+        /*
+                    if($j % 4 != 0) {
+                            echo '
+                                <!-- End of Lab  -->
+                                </div>
+                                ';
+                }*/
+            
+                        
+             echo '
+                </div>  
+                ';
 	}
 	
 ?>
