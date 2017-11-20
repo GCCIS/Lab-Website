@@ -1,9 +1,10 @@
 <?php
 require_once('DBcore.class.php');
 
+
         $DBcore = new DBcore();
         $eventArr = array();
-        $eventArr = $DBcore->selectEventsForRoom($_POST['roomNumber']);
+        	$eventArr = $DBcore->selectEventsForRoom($_POST['roomNum']);
 	
 	//returning array
         $events = array();

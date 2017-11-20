@@ -36,8 +36,6 @@ function writeHTMLHead($title){
             <script src="js/moment.min.js"></script>  
             <script src="js/fullcalendar.js"></script>
 
-	    <script src="js/script.js"></script>
-
             <!-- Just for debugging purposes. Dont actually copy these 2 lines! -->
             <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
             <script src="js/ie-emulation-modes-warning.js"></script>
@@ -108,6 +106,8 @@ function writeHTMLFooter(){
 	    <script src="js/bootstrap.min.js"></script>
             <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
             <script src="js/ie10-viewport-bug-workaround.js"></script>
+            <script src="js/script.js"></script>
+
           </body>
         </html>';
 }//end of writeHTMLFooter
