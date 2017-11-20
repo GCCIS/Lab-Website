@@ -23,20 +23,13 @@ writeNav('activePage','notActivePage','notActivePage','notActivePage','notActive
         </div>
    </div>  
 
-<<<<<<< HEAD
 <?php
 	//echo getOnShiftLAs();
 ?>	
     <div class="container labStatus  text-center">
-=======
->>>>>>> 84c2b1dca6c3b9ea50cd7caec88a577c27383dc8
         
 <?php
     getRooms();
-        
-?>
-
-<?php
 
 //write page footer
 writeHTMLFooter();
