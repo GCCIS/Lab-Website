@@ -1,24 +1,27 @@
 $(document).ready(function(){
 	
-	$('#calendar').fullCalendar({
+	 $('#calendar').fullCalendar({
                 defaultView: 'agendaWeek',
-                //defaultView: 'basicWeek',   -- Will this work better?
-                minTime: "08:00:00",
+		minTime: "08:00:00",
                 maxTime: "22:00:00",
-                nowIndicator: true,
-		        header: false,        
+		 nowIndicator: true,
+                        header: false,
                 themeSystem: 'bootstrap3',
                 theme: 'darkly',
                 allDaySlot: false,
-		        contentHeight: "auto",
+                        contentHeight: "auto",
                 events: {
                             url: 'handlers/eventSchedules.php',
                                 type: 'POST', // Send post data
+                                data: {
+                                        roomNum: room
+                                },
                                 error: function() {
                                         alert('There was an error while fetching events.');
                                 }
                         }
-	});
+        });
+
 	$('#taCalendar').fullCalendar({
                 defaultView: 'agendaWeek',
                 //defaultView: 'basicWeek',   -- Will this work better?
