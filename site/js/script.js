@@ -4,12 +4,12 @@ $(document).ready(function(){
                 defaultView: 'agendaWeek',
 		minTime: "08:00:00",
                 maxTime: "22:00:00",
-		 nowIndicator: true,
-                        header: false,
+		nowIndicator: true,
+                header: false,
                 themeSystem: 'bootstrap3',
                 theme: 'darkly',
                 allDaySlot: false,
-                        contentHeight: "auto",
+                contentHeight: "auto",
                 events: {
                             url: 'handlers/eventSchedules.php',
                                 type: 'POST', // Send post data

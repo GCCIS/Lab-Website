@@ -25,11 +25,8 @@ writeNav('activePage','notActivePage','notActivePage','notActivePage','notActive
 
 <?php
 	//echo getOnShiftLAs();
-?>	
-    <div class="container labStatus  text-center">
-        
-<?php
-    getRooms();
+
+    echo getRooms();
 
 //write page footer
 writeHTMLFooter();
