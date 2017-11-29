@@ -9,6 +9,7 @@ require_once('DBcore.class.php');
         	$roomStr .= '<div class="container labStatus  text-center">';
         	$j=1;
 		foreach($roomArr as $row){
+			$cssClassText = '';
             		if ($j == 1 || $j == 5) {
                             $roomStr .= '<div class="row">';
                         }//end of if to check if it is the beginning of a new row
@@ -37,14 +38,17 @@ require_once('DBcore.class.php');
 				//if it is 0 then there is no class in session
 				if($labHourStr == "No open Hours"){
 					$roomStatus = 'Closed';
+					$cssClassText = 'lab-closed';
 				}
 				else{
 					$roomStatus = 'Open';
+					$cssClassText = 'lab-open';
 				}
 			}
 			else{
 				//if it is greater than 0 then and event is in progress
 				$roomStatus = 'Class';
+				$cssClassText = 'lab-class';
 			}
              		$roomStr .= '
                   		<div class="col-sm-6 col-md-3">
@@ -52,7 +56,7 @@ require_once('DBcore.class.php');
                           			<input type="hidden" name="roomNumber" value="'.$roomNumber.'">
                           			<div class="col-sm-12 col-md-12">
                           				<a href="#" class="roomCard" onclick="document.getElementById(\''.$roomName.'\').submit();">
-								<div class="lab lab-open">
+								<div class="lab '.$cssClassText.'">
                                             				<div class="labHeading">
                                                 				<h3>'.$roomName.' - '.$roomNumber.'</h3>
                                                 				<h4>'.$labHourStr.'</h4>
