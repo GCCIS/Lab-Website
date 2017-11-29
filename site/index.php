@@ -17,7 +17,7 @@ writeNav('activePage','notActivePage','notActivePage','notActivePage','notActive
         <div class="row">
 		<div class="col-xs-12 col-sm-6 col-md-6">
                 	<div class="TA-onShift">
-				<h2>TA - Available</h2>
+				<h2>On Duty - TA</h2>
 
 <?php
             echo getOnShiftTAs();
@@ -26,7 +26,7 @@ writeNav('activePage','notActivePage','notActivePage','notActivePage','notActive
 		</div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="TA-onShift">
-                                <h2>Lab Assistant - Available</h2>
+                                <h2>On Duty - Lab Assistant</h2>
 
 <?php
             echo getOnShiftLAs();
