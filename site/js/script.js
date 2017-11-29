@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	
+   if(typeof room !== 'undefined'){
 	 $('#calendar').fullCalendar({
                 defaultView: 'agendaWeek',
 		minTime: "08:00:00",
@@ -21,7 +21,7 @@ $(document).ready(function(){
                                 }
                         }
         });
-
+   }
 	$('#taCalendar').fullCalendar({
                 defaultView: 'agendaWeek',
                 //defaultView: 'basicWeek',   -- Will this work better?
