@@ -29,6 +29,21 @@ class DBcore{
 	
 	}//end of get rooms	
 
+
+	function selectRoomHours($roomNumber){
+		$data = array();
+		$dowNum = date('w');
+		$dayOfWeekArr = array('SU'=>0,'M'=>1,'TU'=>2,'W'=>3,'TH'=>4,'F'=>5,'SA'=>6);
+		$dowLetter = array_search($dowNum, $dayOfWeekArr);
+		if($stmt = $this->conn->prepare("select rs.openTime, rs.closeTime from ROOM r join ROOM_SCHEDULE rs using(roomNumber) where dayOfWeek=:dow AND r.roomNumber= :roomNumber;")){
+			$stmt->bindValue(":dow", $dowLetter);
+			$stmt->bindValue(":roomNumber", $roomNumber);
+			$stmt->execute();
+                        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return $data;
+	}
+
 	/*
 	* Select the current event that is hapenning in the room - if no event then return 0 - if event that return 1
 	*/

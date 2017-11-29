@@ -16,13 +16,31 @@ require_once('DBcore.class.php');
 			$roomNumber = $row['roomNumber'];
 			$roomName = $row['roomName'];
 			
+                        $roomHours = $DBcore->selectRoomHours($roomNumber);
+			$openTime = '';
+			$closeTime = '';
+			foreach($roomHours as $row2){
+				$openTime = date("g:i a", strtotime(substr($row2['openTime'], 0, 5)));
+				$closeTime = date("g:i a", strtotime(substr($row2['closeTime'],0,5)));
+				$labHourStr = 'Lab Hours: '.$openTime.' - '.$closeTime.'';
+			}
+			if(strlen($openTime) == 0){
+				$labHourStr = "No open Hours";
+			}
+
+
 			//$eventsCurr = array();
                         //for each room check to see if there any events currently happening
                         $eventsCurr = $DBcore->selectCurrentEvent($roomNumber);
 			//print_r($eventsCurr);
 			if($eventsCurr == 0){
 				//if it is 0 then there is no class in session
-				$roomStatus = 'Closed/Open';
+				if($labHourStr == "No open Hours"){
+					$roomStatus = 'Closed';
+				}
+				else{
+					$roomStatus = 'Open';
+				}
 			}
 			else{
 				//if it is greater than 0 then and event is in progress
@@ -37,7 +55,7 @@ require_once('DBcore.class.php');
 								<div class="lab lab-open">
                                             				<div class="labHeading">
                                                 				<h3>'.$roomName.' - '.$roomNumber.'</h3>
-                                                				<h4>Lab Hours: 8 AM - 12 AM</h4>
+                                                				<h4>'.$labHourStr.'</h4>
                                             				</div>
                                             				<div class="labDetails">
                                                 				<p class="currentStatus">'.$roomStatus.'</p>
