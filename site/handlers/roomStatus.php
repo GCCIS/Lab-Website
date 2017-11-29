@@ -5,7 +5,7 @@ require_once('DBcore.class.php');
 		$DBcore = new DBcore();
 		$roomArr = array();
 		$roomArr = $DBcore->selectAllRooms();
-        	$roomStr - '';
+        	$roomStr = '';
         	$roomStr .= '<div class="container labStatus  text-center">';
         	$j=1;
 		foreach($roomArr as $row){

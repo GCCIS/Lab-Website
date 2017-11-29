@@ -156,16 +156,33 @@ require_once('DBcore.class.php');
 		foreach($laShiftArr as $row){
 			$name = $row['firstName'].' '.$row['lastName'];
 			$image = $row['image'];
+			if(strlen($image)<4){
+                                $image = 'default.jpg';
+                        }
 			$dayOfWeek = $row['dayOfWeek'];
 			$dayOfWeekNum = array_search($dayOfWeek, $dayOfWeekArr);
-			$startTime = $row['startTime'];
-			$endTime = $row['endTime'];
+			$startTime = substr($row['startTime'], 0, 5);
+			$startTime12  = date("g:i a", strtotime($startTime));
+			$endTime = substr($row['endTime'], 0, 5);
+                        $endTime12  = date("g:i a", strtotime($endTime));
+			$major = $row['major'];
 			
 			//if today is the same day as scheduled then print it out
 			if($today == $dayOfWeekNum){
 				//if the current time is between the start and the end time then show the la
 				if($startTime <= $currentTime && $currentTime <= $endTime){
-					$laShiftStr.= $name." works ".$startTime." - ".$endTime." </br>";
+					//$laShiftStr.= $name." works ".$startTime." - ".$endTime." </br>";
+					$laShiftStr .= '<div class="row">
+                                                	<div class="col-xs-4 col-sm-4 col-md-3">
+                                                        	<img src="images/employees/'.$image.'">
+                                                        	<h3>'.$name.'</h3>
+                                                	</div>
+                                                	<div class="TADetails col-xs-7 col-sm-7 col-md-8">
+                                                        	<p>Equipment Cage</p>
+								<p>'.$startTime12.' to '.$endTime12.'</p>
+								<p><span class="TASignoffs">Major</span>'.$major.'</p>
+                                                	</div>
+                                        	</div>';
 				}
 			}
 		}
@@ -177,34 +194,36 @@ require_once('DBcore.class.php');
 		$taShiftArr = array();
 		//will get the TA's that are currently clocked into webpunch
 		$taShiftArr = $DBcore->selectWorkingTAs();
+		$taStr = '';
 		foreach($taShiftArr as $row){
 			$eid = $row['TA_EID'];
-			$shiftBegin = $row['shift_begin'];
-			$shiftEnd = $row['shift_end'];
+			$shiftBegin = substr($row['shift_begin'],0,5);
+                        $beginTime12  = date("g:i a", strtotime($shiftBegin));
+			$shiftEnd = substr($row['shift_end'],0,5);
+                        $endTime12  = date("g:i a", strtotime($shiftEnd));
 			$location = $row['location'];
 			$name = $row['firstName'].' '.$row['lastName'];
 			$image = $row['image'];
+			if(strlen($image)<4){
+                                $image = 'default.jpg';
+                        }
 			$uid = $row['uid'];
 			$courseStr = $DBcore->SelectTASignoffs($uid);
-            echo '<div class="col-xs-12 col-sm-6 col-md-6">
-                <div class="TA-onShift">
-                    <h2>TA - Available</h2>
-                    <div class="row">
-                        <div class="col-xs-4 col-sm-4 col-md-3">
-                            <img src="images/employees/'.$image.'">
-                            <h3>'.$name.'</h3>
-                        </div>
-                        <div class="TADetails col-xs-7 col-sm-7 col-md-8">
-                            <p>'.$location.'</p>
-                            <p>'.$shiftBegin.' to '.$shiftEnd.'</p>
-                            <p><span class="TASignoffs">Signoffs</span>'.$courseStr.'</p>
-                        </div>
-                    </div>
-                </div>
-            </div>';
+            		$taStr .= '		<div class="row">
+                        			<div class="col-xs-4 col-sm-4 col-md-3">
+                            				<img src="images/employees/'.$image.'">
+                            				<h3>'.$name.'</h3>
+                        			</div>
+                        			<div class="TADetails col-xs-7 col-sm-7 col-md-8">
+                            				<p>'.$location.'</p>
+                            				<p>'.$beginTime12.' to '.$endTime12.'</p>
+                            				<p><span class="TASignoffs">Signoffs</span>'.$courseStr.'</p>
+                        			</div>
+                    			</div>';
             
 			
 		}
+		return $taStr;
 	}
 
 

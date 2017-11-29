@@ -91,10 +91,10 @@ class DBcore{
                         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         foreach($data as $row){
                         	$course = $row['courseNumber'];
-                                $courseStr .= $course.";";
+                                $courseStr .= $course.", ";
                       	}
                  }
-		return $courseStr;
+		return rtrim($courseStr, ", ");
 
 	}//end of TA signoffs
 	
@@ -144,7 +144,7 @@ class DBcore{
 
 	function selectAllLAShifts(){
 		$data = array();
-		$sqlStmt = "select e.firstName, e.lastName, e.image, ess.dayOfWeek, ess.startTime, ess.endTime FROM EMPLOYEE_SHIFT_SCHEDULE ess JOIN EMPLOYEE e using(uid) WHERE e.employeeType='LA';";
+		$sqlStmt = "select e.firstName, e.lastName, e.image, e.major, ess.dayOfWeek, ess.startTime, ess.endTime FROM EMPLOYEE_SHIFT_SCHEDULE ess JOIN EMPLOYEE e using(uid) WHERE e.employeeType='LA';";
 		if($stmt = $this->conn->prepare($sqlStmt)){
 			$stmt->execute();
 			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -158,7 +158,7 @@ class DBcore{
 		$currDate = date("Y-m-d");
 		$currTime = date("H:i:s");
 		//select all events on today where the current time falls within the shift begin and end
-		$sqlStmt = "SELECT tsl.TA_EID, tsl.shift_date, tsl.shift_begin, tsl.shift_end, tsl.location, e.firstName, e.lastName, e.image, e.uid FROM TA_SHIFT_LOG tsl JOIN EMPLOYEE e on tsl.TA_EID=e.EID WHERE tsl.shift_date='".$currDate."' AND tsl.shift_begin <= '".$currTime."' AND tsl.shift_end >= '".$currTime."';";
+		$sqlStmt = "SELECT tsl.TA_EID, tsl.shift_date, tsl.shift_begin, tsl.shift_end, tsl.location, e.firstName, e.lastName, e.image, e.uid FROM TA_SHIFT_LOG tsl JOIN EMPLOYEE e on tsl.TA_EID=e.EID WHERE tsl.shift_date='".$currDate."' AND tsl.shift_begin <= '".$currTime."' AND tsl.shift_end >= '".$currTime."' AND e.employeeType ='TA';";
 		if($stmt = $this->conn->prepare($sqlStmt)){
 			$stmt->execute();
 			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
