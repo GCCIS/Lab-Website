@@ -1,5 +1,4 @@
 body {
-  min-height: 2000px;
   padding-top: 80px;
   background-color: #181818;
 }
@@ -12,8 +11,8 @@ body {
 }
 
 .navbar-brand img {
-    margin-top: 32px;
-    margin-left: -10px;
+    margin-top: 40px;
+    margin-left: -12px;
     width: 60px;
     height: auto;
 }
@@ -252,6 +251,7 @@ body {
 /* LA Status */
 
 .onShift {
+    margin-top: 40px;
     padding: 30px;
 }
 
@@ -320,39 +320,39 @@ body {
 /* TA Status */
 
 .TA-onShift {
-    margin-top: 50px;
+    margin-top: 20px;
     border: 4px solid #29ABE0;
     border-radius: 10px;
 }
 
 .TA-onShift .row {
-    margin: 20px;
+    margin: 0px 20px;
 }
 
 .TA-onShift img {
-    width: 105px;
+    width: 80px;
     height: auto;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 }
 
 .TA-onShift h2 {
-    font-size: 32px;
+    font-size: 24px;
     color: #29ABE0;
     text-align: center;
-    margin: 20px;
+    margin: 10px;
 }
 
 .TA-onShift h3 {
     margin-top: 0px;
-    width: 105px;
-    height: 30px;
-    padding: 8px;
+    width: 80px;
+    height: 20px;
+    padding: 6px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: 600;
     color: #FCFCFC;
     background-color: #29ABE0;
@@ -361,14 +361,15 @@ body {
 }
 
 .TADetails {
-    margin-top: 10px;
-    margin-left: 20px;
+    padding: 0;
+    margin-top: 5px;
+    margin-left: 5px;
     color: #FCFCFC;: 
 }
 
 .TADetails p {
-    padding: 3px;
-    font-size: 16px;
+    padding: 1px;
+    font-size: 14px;
     color: #FCFCFC;
 }
 
@@ -376,7 +377,7 @@ body {
     padding: 3px;
     margin-right: 10px;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 14px;
     color: #29ABE0;
     background-color: #FCFCFC;
 }
@@ -384,7 +385,7 @@ body {
 /* Lab Status */
 
 .labStatus {
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 .lab {
@@ -475,6 +476,43 @@ body {
     color: #FCFCFC;
     background-color: #26A35B;
 }
+
+/* Closed Hours */
+
+.lab-closed {
+    border: 4px solid #C83644;
+}
+
+.lab-closed .labHeading {
+    background-color: #C83644;
+    margin-top: -20px;
+}
+
+.lab-closed h3{
+    margin-top: 20px;
+    font-size: 18px;
+    color: #FCFCFC;
+    padding-top: 10px;
+}
+
+.lab-closed h4 {
+    font-size: 15px;
+    color: #FCFCFC;
+    padding-bottom: 10px;
+}
+
+.lab-closed .labDetails {
+  padding: 20px;
+}
+
+.lab-closed .currentStatus {
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #FCFCFC;
+    background-color: #C83644;
+}
+
 
 /* Calendar */
 
