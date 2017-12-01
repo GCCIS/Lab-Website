@@ -8,6 +8,9 @@ require_once('DBcore.class.php');
         	$roomStr = '';
         	$roomStr .= '<div class="container labStatus  text-center">';
         	$j=1;
+		$openTime = "";
+		$closeTime = "";
+		$currentTime = date("g:i a");
 		foreach($roomArr as $row){
 			$cssClassText = '';
             		if ($j == 1 || $j == 5) {
@@ -24,11 +27,23 @@ require_once('DBcore.class.php');
 				$openTime = date("g:i a", strtotime(substr($row2['openTime'], 0, 5)));
 				$closeTime = date("g:i a", strtotime(substr($row2['closeTime'],0,5)));
 				$labHourStr = 'Lab Hours: '.$openTime.' - '.$closeTime.'';
+				 
 			}
 			if(strlen($openTime) == 0){
 				$labHourStr = "No open Hours";
 			}
-
+			$openTimeTest = date("H:i", strtotime($openTime));
+			$closeTimeTest = date("H:i", strtotime($closeTime));
+			$currentTimeTest = date("H:i", strtotime($currentTime));
+			if($openTimeTest == "00:00"){
+				$openTimeTest = "24:00";
+			}
+			elseif($closeTimeTest == "00:00"){
+				$closeTimeTest = "24:00";
+			}	
+			elseif($currentTimeTest = "00:00"){
+				$currentTimeTest = "24:00";
+			}
 
 			//$eventsCurr = array();
                         //for each room check to see if there any events currently happening
@@ -41,8 +56,16 @@ require_once('DBcore.class.php');
 					$cssClassText = 'lab-closed';
 				}
 				else{
-					$roomStatus = 'Open';
-					$cssClassText = 'lab-open';
+					//check to see if the lab is currently open
+					if($currentTimeTest > $openTimeTest && $currentTimeTest < $closeTimeTest){
+						$roomStatus = 'Open ';
+						$cssClassText = 'lab-open';
+					}
+					elseif($currentTimeTest < $openTimeTest || $currentTimeTest > $closeTimeTest){
+						
+						$roomStatus = 'Closed ';
+						$cssClassText = 'lab-closed';
+					}
 				}
 			}
 			else{
