@@ -22,7 +22,7 @@ writeNav('notActivePage','activePage','notActivePage','notActivePage','notActive
                         <ul>
                             <?php
                                 //<li class="notActiveRoomactiveRoom"><a>Mac Lab2</a></li>
-                                echo makeRoomButtons();
+                                echo makeRoomButtons($_POST['roomNumber']);
                             ?>
                             
                         </ul>
