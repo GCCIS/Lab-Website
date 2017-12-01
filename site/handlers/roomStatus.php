@@ -125,10 +125,10 @@ require_once('DBcore.class.php');
             $roomNumber = $row['roomNumber'];
 			$roomName = $row['roomName'];
             if($postRoom ==  $roomNumber){
-                $roomStr.= '<form id="'.$roomName.'" name="roomStatusForm" action="labSchedule.php" method="post"><input type="hidden" name="roomNumber" value="'.$roomNumber.'"><li class="activeRoom"><a href="#" onclick="document.getElementById(\''.$roomName.'\').submit();">'.$roomName.'</a></li></form>';
+                $roomStr.= '<li class="activeRoom"><form id="'.$roomName.'" name="roomStatusForm" action="labSchedule.php" method="post"><input type="hidden" name="roomNumber" value="'.$roomNumber.'"><a href="#" onclick="document.getElementById(\''.$roomName.'\').submit();">'.$roomName.'</a></form></li>';
             }
             else{
-                $roomStr.= '<form id="'.$roomName.'" name="roomStatusForm" action="labSchedule.php" method="post"><input type="hidden" name="roomNumber" value="'.$roomNumber.'"><li class="notActiveRoom"><a href="#" onclick="document.getElementById(\''.$roomName.'\').submit();">'.$roomName.'</a></li></form>';
+                $roomStr.= '<li class="notActiveRoom"><form id="'.$roomName.'" name="roomStatusForm" action="labSchedule.php" method="post"><input type="hidden" name="roomNumber" value="'.$roomNumber.'"><a href="#" onclick="document.getElementById(\''.$roomName.'\').submit();">'.$roomName.'</a></form></li>';
             }
         }
         return $roomStr;
