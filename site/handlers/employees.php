@@ -187,7 +187,7 @@ require_once('DBcore.class.php');
 			}
 		}
 		 //if no LAs are on duty print that out
-                if(count($laShiftArr) == 0){
+                if(strlen($laShiftStr) == 0){
                         $laShiftStr .= '<div class="row">
                                         <div class="TADetails col-xs-7 col-sm-7 col-md-8">
                                                 <p>No Lab Assistant on duty</p>
