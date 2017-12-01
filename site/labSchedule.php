@@ -21,8 +21,14 @@ writeNav('notActivePage','activePage','notActivePage','notActivePage','notActive
                     <div class=Roomstatus>
                         <ul>
                             <?php
-                                //<li class="notActiveRoomactiveRoom"><a>Mac Lab2</a></li>
-                                echo makeRoomButtons($_POST['roomNumber']);
+                                //<li class="activeRoom"><a>Mac Lab2</a></li>
+                                if(isset($_POST['roomNumber'])){
+                                    echo makeRoomButtons($_POST['roomNumber']);
+                                }
+                            else{
+                                    echo makeRoomButtons("");
+                                    echo "<p>Select a room to see the calendar</p>";
+                            }
                             ?>
                             
                         </ul>
