@@ -476,6 +476,42 @@ body {
     background-color: #26A35B;
 }
 
+/* Open Hours */
+
+.lab-closed {
+    border: 4px solid #C83644;
+}
+
+.lab-closed .labHeading {
+    background-color: #C83644;
+    margin-top: -20px;
+}
+
+.lab-closed h3{
+    margin-top: 20px;
+    font-size: 18px;
+    color: #FCFCFC;
+    padding-top: 10px;
+}
+
+.lab-closed h4 {
+    font-size: 15px;
+    color: #FCFCFC;
+    padding-bottom: 10px;
+}
+
+.lab-closed .labDetails {
+  padding: 20px;
+}
+
+.lab-closed .currentStatus {
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 16px;
+    color: #FCFCFC;
+    background-color: #C83644;
+}
+
 /* Calendar */
 
 #calendar {
