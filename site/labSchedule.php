@@ -15,14 +15,13 @@ writeNav('notActivePage','activePage','notActivePage','notActivePage','notActive
 ?>
 <!--Dump the event calendar in this div -->
 
-</br></br</br></br></br></br>
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class=Roomstatus>
                         <ul>
                             <?php
-                                //<li class="notActiveRoom"><a>Mac Lab2</a></li>
+                                //<li class="notActiveRoomactiveRoom"><a>Mac Lab2</a></li>
                                 echo makeRoomButtons();
                             ?>
                             

@@ -124,7 +124,7 @@ require_once('DBcore.class.php');
         foreach($roomArr as $row){
             $roomNumber = $row['roomNumber'];
 			$roomName = $row['roomName'];
-            $roomStr.= '<li class="activeRoom"><a>'.$roomName.'</a></li>';
+            $roomStr.= '<form id="'.$roomName.'" name="roomStatusForm" action="labSchedule.php" method="post"><input type="hidden" name="roomNumber" value="'.$roomNumber.'"><li class="notActiveRoom"><a href="#" onclick="document.getElementById(\''.$roomName.'\').submit();">'.$roomName.'</a></li></form>';
         }
         return $roomStr;
      }
