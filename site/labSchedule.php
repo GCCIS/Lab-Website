@@ -16,7 +16,28 @@ writeNav('notActivePage','activePage','notActivePage','notActivePage','notActive
 <!--Dump the event calendar in this div -->
 
 </br></br</br></br></br></br>
-<div id="calendar"><div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class=Roomstatus>
+                        <ul>
+                            <?php
+                                //<li class="notActiveRoom"><a>Mac Lab2</a></li>
+                                echo makeRoomButtons();
+                            ?>
+                            
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                      <div id="calendar"></div>
+                </div>
+            </div>
+        </div>    
+
 
 <script>
 	var room = "<?php echo $_POST['roomNumber'];?>";

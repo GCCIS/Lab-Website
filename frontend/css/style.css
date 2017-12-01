@@ -205,45 +205,55 @@ body {
     background-color: #FCFCFC;
 }
 
-/* Calendar Style */
-
-#calendar {
-    margin-top: 20px;
-}
+/* Room Status */
 
 .Roomstatus {
     align-content: left;
-    margin-top: 180px;
+    margin-top: 140px;
 }
 
 .Roomstatus li {
+    margin-top: 25px !important;
     display: inline-block;
     list-style: none;
     padding: 10px;
 }
 
 .notActiveRoom a {
-    padding: 6px;
+    transition: background-color 0.3s ease;
+    padding: 15px;
     transition: background-color 0.3s ease;
     background-color: #464646;
+    text-decoration: none;
     border-radius: 3px;
     color: #FCFCFC;
 }
 
 .activeRoom a{
-    padding: 6px;
+    transition: background-color 0.3s ease;
+    padding: 15px;
     transition: background-color 0.3s ease;
     background-color: #29ABE0;
+    text-decoration: none;
     border-radius: 3px;
     color: #FCFCFC;
 }
 
-.onShift {
-    padding: 30px;
+/* mouse over link 
+*/
+.Roomstatus li a:hover {
+    transition: background-color 0.3s ease;
+    background-color: #2072AE !important;
+    border-radius: 3px;
+    color: #DBDBDB;
 }
 
 
 /* LA Status */
+
+.onShift {
+    padding: 30px;
+}
 
 .LA-onShift {
     margin-top: 50px;
@@ -469,8 +479,7 @@ body {
 /* Calendar */
 
 #calendar {
-    margin-top: 50px;
-    padding: 20px;
+    padding: 15px;
 }
 
 #calendar .fc-today {

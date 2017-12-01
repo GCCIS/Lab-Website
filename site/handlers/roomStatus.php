@@ -113,5 +113,21 @@ require_once('DBcore.class.php');
              $roomStr .= '</div>';
 		return $roomStr;
 	}
+
+
+    function makeRoomButtons(){
+        $DBcore = new DBcore();
+		$roomArr = array();
+		$roomArr = $DBcore->selectAllRooms();
+        $roomStr = "";
+        
+        foreach($roomArr as $row){
+            $roomNumber = $row['roomNumber'];
+			$roomName = $row['roomName'];
+            $roomStr.= '<li class="activeRoom"><a>'.$roomName.'</a></li>';
+        }
+        return $roomStr;
+     }
+    
 	
 ?>
