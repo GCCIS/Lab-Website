@@ -25,7 +25,7 @@ writeNav('activePage','notActivePage','notActivePage','notActivePage','notActive
 			</div>	
 		</div>
                 <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="TA-onShift">
+                        <div class="LA-onShift">
                                 <h2>On Duty - Lab Assistant</h2>
 
 <?php
