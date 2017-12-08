@@ -63,7 +63,7 @@ function writeNav($indexA, $scheduleA, $TASchedulA, $TAProfileA, $LAProfileA){
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a class="navbar-brand" href="#"><img src="images/IST.png"></a>
+              <a class="navbar-brand" href="index.php"><img src="images/IST.png"></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
@@ -78,24 +78,6 @@ function writeNav($indexA, $scheduleA, $TASchedulA, $TAProfileA, $LAProfileA){
          </nav>';
 }//end of nav
 
-
-//writes the header
-function writeHTMLHeader($title){
-  echo '
-        <div class="header"> <!-- Main component for a primary message -->
-            <div class="container">
-                <div class="row"> 
-                    <div class="col-md-6">
-                        <h1>'.$title.'</h1>
-                        <p>1:30 PM</p>
-                    </div>
-                    <div class="col-md-6">
-                        <img src="images/IST_large.png">  
-                    </div>
-                </div>     
-            </div>
-         </div>';
-}//end of header
 
 //writes the html footer
 function writeHTMLFooter(){
