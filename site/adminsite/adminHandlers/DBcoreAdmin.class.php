@@ -103,6 +103,19 @@ class DBcoreAdmin{
 
 	
 
+  	/*
+        * select just 1 admin
+        */
+        function selectOneAdmin($email){
+		$data = array();
+                if($stmt = $this->conn->prepare("select email, firstName, lastName, password from ADMINUSER where email=:email;")){
+                        $stmt->bindParam(':email', $email);
+                        $stmt->execute();
+                        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        return $data;
+                }
+
+        }//end of selectOneCourse
 
 
 
@@ -116,8 +129,15 @@ class DBcoreAdmin{
 		}
 		return $result;
 	}
-
-
+	
+	function deleteOneAdmin($email){
+		$sql = "delete from ADMINUSER where email=:email;";
+                if($stmt = $this->conn->prepare($sql)){
+                        $stmt->bindParam(':email', $email);
+                        $result = $stmt->execute();
+                }
+                return $result;
+	}
 
 
 	//INSERT FUNCTIONALITY
@@ -129,6 +149,20 @@ class DBcoreAdmin{
 			$result = $stmt->execute();
 		}
 		return $result;
+	}
+	
+	function addOneAdmin($email, $firstName, $lastName, $password){
+		$pass = hash('sha256', $password);
+		$sql = "insert into ADMINUSER (email, firstName, lastName, accessLevel, password) VALUES (:email, :firstName, :lastName, 1, :password);";
+                if($stmt = $this->conn->prepare($sql)){
+                        $stmt->bindParam(':email', $email);
+                        $stmt->bindParam(':firstName',$firstName);
+                        $stmt->bindParam(':lastName', $lastName);
+                        $stmt->bindParam(':password',$pass);
+                        $result = $stmt->execute();
+                }
+                return $result;
+
 	}
 
 
@@ -145,6 +179,24 @@ class DBcoreAdmin{
                 return $result;
 
 	}
+
+	 function editOneAdmin($prevEmail, $email, $firstName, $lastName, $password){
+		$pass = hash('sha256', $password);
+                $sql = "update ADMINUSER SET email=:email, firstName=:firstName, lastName=:lastName, password=:password where email=:prevEmail;";
+                if($stmt = $this->conn->prepare($sql)){
+                        $stmt->bindParam(':email', $email);
+                        $stmt->bindParam(':firstName',$firstName);
+                        $stmt->bindParam(':lastName', $lastName);
+                        $stmt->bindParam(':password',$pass);
+			$stmt->bindParam('prevEmail', $prevEmail);
+                        $result = $stmt->execute();
+                }
+                return $result;
+
+        }
+
+
+
 
 
 
