@@ -2,8 +2,8 @@ $(document).ready(function(){
    if(typeof room !== 'undefined'){
 	 $('#calendar').fullCalendar({
                 defaultView: 'agendaWeek',
-                eventBackgroundColor: "#FF3800",
-                eventBorderColor: "#4C555C",
+                eventBackgroundColor: "#F66337",
+                eventBorderColor: "#F66337",
               //eventBackgroundColor: 'rgb(255, 56, 0)',
 		        minTime: "08:00:00",
                 maxTime: "22:00:00",
@@ -27,7 +27,7 @@ $(document).ready(function(){
    }
 	$('#taCalendar').fullCalendar({
                 defaultView: 'agendaWeek',
-                eventBackgroundColor: "#FF3800",
+                eventBackgroundColor: "#F66337",
                 eventBorderColor: "#4C555C",
                 minTime: "08:00:00",
                 maxTime: "22:00:00",
