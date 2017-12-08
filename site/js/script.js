@@ -2,9 +2,9 @@ $(document).ready(function(){
    if(typeof room !== 'undefined'){
 	 $('#calendar').fullCalendar({
                 defaultView: 'agendaWeek',
-		minTime: "08:00:00",
+		        minTime: "08:00:00",
                 maxTime: "22:00:00",
-		nowIndicator: true,
+		        nowIndicator: true,
                 header: false,
                 themeSystem: 'bootstrap3',
                 theme: 'darkly',
