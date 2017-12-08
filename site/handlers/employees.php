@@ -177,10 +177,10 @@ require_once('DBcore.class.php');
                                                         	<img src="images/employees/'.$image.'">
                                                         	<h3>'.$name.'</h3>
                                                 	</div>
-                                                	<div class="TADetails col-xs-7 col-sm-7 col-md-8">
+                                                	<div class="LADetails col-xs-7 col-sm-7 col-md-8">
                                                         	<p>Equipment Cage</p>
 								<p>'.$startTime12.' to '.$endTime12.'</p>
-								<p><span class="TASignoffs">Major</span>'.$major.'</p>
+								<p><span class="LASignoffs">Major</span>'.$major.'</p>
                                                 	</div>
                                         	</div>';
 				}
@@ -189,7 +189,7 @@ require_once('DBcore.class.php');
 		 //if no LAs are on duty print that out
                 if(strlen($laShiftStr) == 0){
                         $laShiftStr .= '<div class="row">
-                                        <div class="TADetails col-xs-7 col-sm-7 col-md-8">
+                                        <div class="LADetails col-xs-7 col-sm-7 col-md-8">
                                                 <p>No Lab Assistant on duty</p>
                                         </div>
                                   </div>';

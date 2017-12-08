@@ -2,9 +2,12 @@ $(document).ready(function(){
    if(typeof room !== 'undefined'){
 	 $('#calendar').fullCalendar({
                 defaultView: 'agendaWeek',
-		minTime: "08:00:00",
+                eventBackgroundColor: "#FF4308",
+                eventBorderColor: "#4C555C",
+              //eventBackgroundColor: 'rgb(255, 56, 0)',
+		        minTime: "08:00:00",
                 maxTime: "22:00:00",
-		nowIndicator: true,
+		        nowIndicator: true,
                 header: false,
                 themeSystem: 'bootstrap3',
                 theme: 'darkly',
@@ -24,7 +27,8 @@ $(document).ready(function(){
    }
 	$('#taCalendar').fullCalendar({
                 defaultView: 'agendaWeek',
-                //defaultView: 'basicWeek',   -- Will this work better?
+                eventBackgroundColor: "#FF4308",
+                eventBorderColor: "#4C555C",
                 minTime: "08:00:00",
                 maxTime: "22:00:00",
                 nowIndicator: true,

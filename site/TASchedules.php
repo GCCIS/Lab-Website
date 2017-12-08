@@ -12,9 +12,14 @@ writeNav('notActivePage','notActivePage','activePage','notActivePage','notActive
 
 <!--Dump the ta event calendar in this div -->
 
-</br></br</br></br></br></br>
 
-<div id="taCalendar"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div id="taCalendar"></div>
+                </div>
+            </div>
+        </div>    
 
 <?php
 

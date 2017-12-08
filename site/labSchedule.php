@@ -19,6 +19,7 @@ writeNav('notActivePage','activePage','notActivePage','notActivePage','notActive
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class=Roomstatus>
+                       <h3>Select a room to see the calendar</h3>
                         <ul>
                             <?php
                                 //<li class="activeRoom"><a>Mac Lab2</a></li>
@@ -27,7 +28,6 @@ writeNav('notActivePage','activePage','notActivePage','notActivePage','notActive
                                 }
                             else{
                                     echo makeRoomButtons("");
-                                    echo "<p>Select a room to see the calendar</p>";
                             }
                             ?>
                             
