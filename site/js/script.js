@@ -28,7 +28,7 @@ $(document).ready(function(){
 	$('#taCalendar').fullCalendar({
                 defaultView: 'agendaWeek',
                 eventBackgroundColor: "#FF4308",
-                eventBorderColor: "#4C555C",
+                eventBorderColor: "#181818",
                 minTime: "08:00:00",
                 maxTime: "22:00:00",
                 nowIndicator: true,
