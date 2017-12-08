@@ -2,6 +2,7 @@ $(document).ready(function(){
    if(typeof room !== 'undefined'){
 	 $('#calendar').fullCalendar({
                 defaultView: 'agendaWeek',
+                eventBackgroundColor: 'rgb(255, 56, 0)',
 		        minTime: "08:00:00",
                 maxTime: "22:00:00",
 		        nowIndicator: true,
@@ -24,7 +25,7 @@ $(document).ready(function(){
    }
 	$('#taCalendar').fullCalendar({
                 defaultView: 'agendaWeek',
-                //defaultView: 'basicWeek',   -- Will this work better?
+                eventBackgroundColor: 'rgb(255, 56, 0)',
                 minTime: "08:00:00",
                 maxTime: "22:00:00",
                 nowIndicator: true,
