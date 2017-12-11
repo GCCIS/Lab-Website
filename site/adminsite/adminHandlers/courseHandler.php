@@ -49,8 +49,8 @@
 		//create the edit form 
 		echo '<form action="course.php" method="post" name="editForm">
 			<input type="hidden" name="prevNumber" value="'.$courseNumber.'">
-			<input type="text" name="courseName" value="'.$courseName.'" required>
-			<input type="text" name="courseNumber" value="'.$courseNumber.'" required>
+			Course Name: <input type="text" name="courseName" value="'.$courseName.'" required><br>
+			Course Number: <input type="text" name="courseNumber" value="'.$courseNumber.'" required><br>
 			<input type="submit" name="submitEdit" value="Submit Edit">
 			</form>';
 	}
