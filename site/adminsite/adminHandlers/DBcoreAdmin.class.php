@@ -17,17 +17,33 @@ class DBcoreAdmin{
 	}//end of default constructor 
   
 	/*
-	* Get all rooms
+	* Get room info
 	*/
-	function selectAllRooms(){
+	function selectAllRoomInfo($roomNumber){
 		$data = array();
-		if($stmt = $this->conn->prepare("select r.roomNumber, r.roomName, rs.dayOfWeek, rs.openTIme, rs.closeTime from ROOM r JOIN ROOM_SCHEDULE rs using(roomNumber);")){
+		if($stmt = $this->conn->prepare("select r.roomNumber, r.roomName, rs.dayOfWeek, rs.openTime, rs.closeTime from ROOM r JOIN ROOM_SCHEDULE rs using(roomNumber) where r.roomNumber=:roomNumber;")){
+                        $stmt->bindParam(':roomNumber', $roomNumber);
 			$stmt->execute();
 			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 		}
 		return $data;
 	
-	}//end of get rooms	
+	}//end of get room info	
+
+	/*
+        * Get all rooms
+        */
+        function selectAllRooms(){
+                $data = array();
+                if($stmt = $this->conn->prepare("select roomNumber, roomName from ROOM;")){
+                        $stmt->execute();
+                        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                }
+                return $data;
+
+        }//end of get rooms
+
+
 
 	/*
 	* Get all admins
@@ -115,7 +131,24 @@ class DBcoreAdmin{
                         return $data;
                 }
 
-        }//end of selectOneCourse
+        }//end of selectOneAdmin
+
+
+
+	
+        /*
+        * select just 1 room
+        */
+        function selectOneRoom($roomNumber){
+                $data = array();
+                if($stmt = $this->conn->prepare("select roomNumber, roomName from ROOM where roomNumber=:roomNumber;")){
+                        $stmt->bindParam(':roomNumber', $roomNumber);
+                        $stmt->execute();
+                        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        return $data;
+                }
+
+        }//end of selectOneRoom
 
 
 
@@ -137,6 +170,16 @@ class DBcoreAdmin{
                         $result = $stmt->execute();
                 }
                 return $result;
+	}
+	
+	function deleteOneRoom($roomNumber){
+		$sql = "delete from ROOM where roomNumber=:roomNumber;";
+		if($stmt = $this->conn->prepare($sql)){
+                        $stmt->bindParam(':roomNumber', $roomNumber);
+                        $result = $stmt->execute();
+                }
+                return $result;
+
 	}
 
 
@@ -165,6 +208,17 @@ class DBcoreAdmin{
 
 	}
 
+	function addOneRoom($roomName, $roomNumber){
+                $sql = "insert into ROOM (roomNumber, roomName) VALUES (:roomNumber, :roomName);";
+                if($stmt = $this->conn->prepare($sql)){
+                        $stmt->bindParam(':roomNumber', $roomNumber);
+                        $stmt->bindParam(':roomName',$roomName);
+                        $result = $stmt->execute();
+                }
+                return $result;
+
+        }
+	
 
 
 	//UPDATE FUNCTIONALITY
@@ -194,11 +248,17 @@ class DBcoreAdmin{
                 return $result;
 
         }
-
-
-
-
-
+	
+	function editOneRoom($prevNumber, $roomName, $roomNumber){
+                $sql = "update ROOM SET roomName=:roomName, roomNumber=:roomNumber where roomNumber=:prevNumber;";
+                if($stmt = $this->conn->prepare($sql)){
+                        $stmt->bindParam(':roomName', $roomName);
+                        $stmt->bindParam(':roomNumber',$roomNumber);
+                        $stmt->bindParam(':prevNumber', $prevNumber);
+                        $result = $stmt->execute();
+                }
+                return $result;
+        }
 
 
 }//end of class
