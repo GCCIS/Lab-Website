@@ -151,6 +151,23 @@ class DBcoreAdmin{
         }//end of selectOneRoom
 
 
+	/*
+        * select just 1 employee
+        */
+        function selectOneEmployee($uid){
+                $data = array();
+                if($stmt = $this->conn->prepare("select uid, EID, firstName, lastName, email, major, biography, employeeType, image from EMPLOYEE where uid=:uid;")){
+                        $stmt->bindParam(':uid', $uid);
+                        $stmt->execute();
+                        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        return $data;
+                }
+
+        }//end of selectOneRoom
+
+
+
+
 
 	//DELETE FUNCTIONALITY
 	
@@ -181,6 +198,17 @@ class DBcoreAdmin{
                 return $result;
 
 	}
+
+	function deleteOneEmployee($uid){
+                $sql = "delete from EMPLOYEE where uid=:uid;";
+                if($stmt = $this->conn->prepare($sql)){
+                        $stmt->bindParam(':uid', $uid);
+                        $result = $stmt->execute();
+                }
+                return $result;
+
+        }
+
 
 
 	//INSERT FUNCTIONALITY
@@ -219,6 +247,26 @@ class DBcoreAdmin{
 
         }
 	
+	function addOneEmployee($uid, $EID, $firstName, $lastName, $email, $major, $biography, $employeeType, $image){
+                $sql = "insert into EMPLOYEE (uid, EID, firstName, lastName, email, major, biography, employeeType, image) VALUES (:uid, :EID, :firstName, :lastName, :email, :major, :biography, :employeeType, :image);";
+                if($stmt = $this->conn->prepare($sql)){
+                        $stmt->bindParam(':uid', $uid);
+                        $stmt->bindParam(':EID',$EID);
+                        $stmt->bindParam(':firstName', $firstName);
+                        $stmt->bindParam(':lastName', $lastName);
+                        $stmt->bindParam(':email', $email);
+                        $stmt->bindParam(':major', $major);
+                        $stmt->bindParam(':biography', $biography);
+                        $stmt->bindParam(':employeeType', $employeeType);
+                        $stmt->bindParam(':image', $image);
+                        $result = $stmt->execute();
+                }
+                return $result;
+
+        }
+
+
+
 
 
 	//UPDATE FUNCTIONALITY
@@ -259,6 +307,27 @@ class DBcoreAdmin{
                 }
                 return $result;
         }
+
+	function editOneEmployee($prevUID, $uid, $EID, $firstName, $lastName, $email, $major, $biography, $employeeType, $image){
+                $sql = "update EMPLOYEE set uid=:uid, EID=:EID, firstName=:firstName, lastName=:lastName, email=:email, major=:major, biography=:biography, employeeType=:employeeType, image=:image where uid=:prevUID;";
+                if($stmt = $this->conn->prepare($sql)){
+                        $stmt->bindParam(':uid', $uid);
+                        $stmt->bindParam(':EID',$EID);
+                        $stmt->bindParam(':firstName', $firstName);
+                        $stmt->bindParam(':lastName', $lastName);
+                        $stmt->bindParam(':email', $email);
+                        $stmt->bindParam(':major', $major);
+                        $stmt->bindParam(':biography', $biography);
+                        $stmt->bindParam(':employeeType', $employeeType);
+                        $stmt->bindParam(':image', $image);
+                        $stmt->bindParam(':prevUID', $prevUID);
+                        $result = $stmt->execute();
+                }
+                return $result;
+        }
+
+
+
 
 
 }//end of class

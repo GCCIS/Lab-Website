@@ -18,7 +18,7 @@
 	}
 	
 	function createAddAdminForm(){
-		$htmlStr .= '<form method="post" action="admin.php" name="addAdminForm">
+		$htmlStr = '<form method="post" action="admin.php" name="addAdminForm">
 				<label>Email</label>
 				<input type="email" name="email" required><br>
 				<label>First Name</label>
