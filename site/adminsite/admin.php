@@ -22,25 +22,12 @@ include 'adminHandlers/adminHandler.php';
 		$addResult = addAdmin($_POST['email'], $_POST['firstName'],$_POST['lastName'],$_POST['password']);
 	}
 ?>
-
-    <form action="admin.php" name="adminForm" method="post">
-	<select name="adminList">
-		<option>Select an Admin</option>
-		<!--use php to get the admins (options) -->
-		<?php 
-			echo getAdminOptions();
-		?>
-	</select> 
-	<input type="submit" name="editAdmin" value="Edit Admin">    
-	<input type="submit" name="addAdmin" value="Add New Admin">
-	<input type="submit" name="deleteAdmin" value="Delete Admin"> 
-    </form>
-    
     
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
                 <div class=adminFunctions>
+                 <form action="admin.php" name="adminForm" method="post">
                     <ul>
                         <select name="adminList" required="">
                             <option>Select an Admin</option>
@@ -53,6 +40,7 @@ include 'adminHandlers/adminHandler.php';
                         <li><button class="btn btn-lg btn-primary btn-block" type="submit" name="addAdmin" value="Add New Admin">Add New Admin</button></li>
                         <li><button class="btn btn-lg btn-primary btn-block" type="submit" name="deleteAdmin" value="Delete Admin">Delete Admin</button></li>
                     </ul>
+                 </form> 
                 </div>
             </div>
         </div>
