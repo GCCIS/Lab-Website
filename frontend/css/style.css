@@ -602,6 +602,10 @@ th {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.webPunchForm label {
+    color: #181818;
+} 
+
 .webPunchForm h2 {
   color: #181818;
   font-size: 27px;
@@ -613,9 +617,9 @@ th {
   font-size: 16px;
   height: auto;
   padding: 10px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  box-sizing: border-box !important;
 }
 
 .webPunchForm .form-control:focus {
@@ -624,12 +628,13 @@ th {
 
 .webPunchForm input[type="text"] {
   margin-bottom: 20px;
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
 
 .webPunchForm select {
   margin-bottom: 30px;
+  color: #181818;    
   width: 100%;
   padding: 5px;
 }
@@ -744,8 +749,9 @@ th {
     background-color: #2072AE;
 }
 
+
+/* Admin Functions */
 .adminFunctions {
-    align-content: left;
     margin-top: 100px;
 }
 
@@ -756,7 +762,7 @@ th {
     padding: 10px;
 }
 
-.notActiveRoom a {
+.functionButton a {
     transition: background-color 0.3s ease;
     padding: 10px 25px 10px;
     transition: background-color 0.3s ease;
@@ -766,18 +772,6 @@ th {
     color: #FCFCFC;
 }
 
-.adminFunctions a{
-    transition: background-color 0.3s ease;
-    padding: 10px 25px 10px;
-    transition: background-color 0.3s ease;
-    background-color: #29ABE0;
-    text-decoration: none;
-    border-radius: 3px;
-    color: #FCFCFC;
-}
-
-/* mouse over link 
-*/
 .adminFunctions li a:hover {
     transition: background-color 0.3s ease;
     background-color: #2072AE !important;
@@ -786,12 +780,73 @@ th {
 }
 
 .adminFunctions select {
-    margin: 0px 10px 0px 40px;
+    margin: 0px 10px 0px 0px;
     padding: 8px;
     font-size: 15px;
     text-align: center;
     border-radius: 3px;
 }
+
+.functionsForm {
+  max-width: 380px;
+  border-radius: 4px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.functionsForm .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.functionsForm .form-control:focus {
+  z-index: 2;
+}
+
+.functionsForm label {
+  margin-top: 10px;
+}
+
+.functionsForm input[type="text"] {
+  margin-bottom: -1px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.functionsForm select {
+  width: 100%;
+  padding: 5px;
+}
+
+.imageFile {
+    margin-bottom: 20px;
+}
+
+.functionsForm button {
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-size: 16px;
+    color: #FCFCFC;
+    border-radius: 3px;
+    border: none;
+    background-color: #29ABE0;
+}
+
+.functionsForm button:hover {
+    transition: background-color 0.3s ease;
+    border-radius: 3px;
+    border: none;
+    background-color: #2072AE;
+}
+
+
 
 /* Responsive CSS*/
 @media only screen and (max-width:767px)  {
