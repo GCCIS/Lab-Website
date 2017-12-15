@@ -47,12 +47,18 @@
 		$DBcoreAdmin = new DBcoreAdmin();
 		$courseName = $DBcoreAdmin->selectCourseName($courseNumber);
 		//create the edit form 
-		echo '<form action="course.php" method="post" name="editForm">
-			<input type="hidden" name="prevNumber" value="'.$courseNumber.'">
-			Course Name: <input type="text" name="courseName" value="'.$courseName.'" required><br>
-			Course Number: <input type="text" name="courseNumber" value="'.$courseNumber.'" required><br>
-			<input type="submit" name="submitEdit" value="Submit Edit">
-			</form>';
+		echo '
+        
+                <div class="adminFunctionsForm">
+                    <form action="course.php" method="post" name="editForm">
+                          <input type="hidden" name="prevNumber" value="'.$courseNumber.'">    
+                          <label>Course Name</label>
+                          <input type="text" name="courseName" class="form-control" value="'.$courseName.'" placeholder="Enter Course Name" required="" autofocus="" />
+                          <label>Course Number</label>
+                          <input type="text" name="courseNumber" class="form-control" value="'.$courseNumber.'" placeholder="Enter Course Number" required="" autofocus="" />
+                          <button class="btn btn-lg btn-primary btn-block" type="submit" name="submitEdit" value="Submit Add">Edit Course</button>
+                    </form>    
+                </div>';
 	}
 
 	function deleteCourse($courseNumber){

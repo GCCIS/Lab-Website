@@ -27,30 +27,49 @@ include 'adminHandlers/courseHandler.php';
 	}
 ?>
 
-
-	<form action="course.php" method="post" name="courseForm">
-		 <select name="courseList">
-			<option>Select a course</option>
-		<?php
-			echo getCourses();
-		?>
-		</select>
-		<input type="submit" name="editCourse" value="Edit Course">
-                <input type="submit" name="deleteCourse" value="Delete Course">
-                <input type="submit" name="addCourse" value="Add Course">
-
-	</form><br>
-	    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class=adminFunctions>
+                 <form action="course.php" method="post" name="courseForm">
+                    <ul>
+                        <select name="courseList" required="">
+                            <option>Select an course</option>
+                            <!--use php to get the course (options) -->
+                            <?php 
+                                echo getCourses();
+                            ?>
+                        </select>
+                        <li><button class="btn btn-lg btn-primary btn-block" type="submit" name="editCourse" value="Edit Course">Edit Course</button></li>
+                        <li><button class="btn btn-lg btn-primary btn-block" type="submit" name="addCourse" value="Add Course">Add Course</button></li>
+                        <li><button class="btn btn-lg btn-primary btn-block" type="submit" name="deleteCourse" value="Delete Course">Delete Course</button></li>
+                    </ul>
+                 </form> 
+                </div>
+            </div>
+        </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+                  <div id="calendar"></div>
+            </div>
+        </div>
+    </div>   
 	
 <?php	
 
 	if(isset($_POST['addCourse'])){
                 //add course form
-                echo '<form action="course.php" method="post" name="addCourse">
-                        Course Name: <input type="text" name="courseName" required><br>
-                        Course Number: <input type="text" name="courseNumber" required><br>
-                        <input type="submit" name="submitAdd" value="Submit Add">
-                      </form>';
+                echo '
+                
+                 <div class="adminFunctionsForm">
+                    <form class="functionsForm" action="course.php" method="post" name="addCourse">
+                          <label>Course Name</label>
+                          <input type="text" name="courseName" class="form-control" placeholder="Enter Course Name" required="" autofocus="" />
+                          <label>Course Number</label>
+                          <input type="text" name="courseNumber" class="form-control" placeholder="Enter Course Number" required="" autofocus="" />
+                          <button class="btn btn-lg btn-primary btn-block" type="submit" name="submitAdd" value="Submit Add">Add New Course</button>
+                    </form>    
+                </div>';
 
         }
 	if(isset($_POST['editCourse'])){
