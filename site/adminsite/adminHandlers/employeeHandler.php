@@ -17,7 +17,7 @@
 		return $options;
 	}
 	function createAddEmployeeForm(){
-		$htmlStr .= '<form method="post" action="employee.php" name="addEmployeeForm" enctype="multipart/form-data">
+		$htmlStr = '<form method="post" action="employee.php" name="addEmployeeForm" enctype="multipart/form-data">
 				<label>First Name</label>
 				<input type="text" name="firstName" required><br>
 				<label>Last Name</label>

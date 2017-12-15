@@ -150,6 +150,22 @@ class DBcoreAdmin{
 
         }//end of selectOneRoom
 
+	/*
+	* Select the open and close times for a lab on a day of week
+	*/
+	function selectHours($roomNumber, $dayOfWeek){
+		$data = array();
+		if($stmt = $this->conn->prepare("select openTime, closeTime from ROOM_SCHEDULE where roomNumber=:roomNumber and dayOfWeek=:dayOfWeek;")){
+			$stmt->bindParam(':roomNumber', $roomNumber);
+			$stmt->bindParam(':dayOfWeek', $dayOfWeek);
+			$stmt->execute();
+			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			return $data;
+	
+		}
+	}
+
+
 
 	/*
         * select just 1 employee
@@ -190,10 +206,15 @@ class DBcoreAdmin{
 	}
 	
 	function deleteOneRoom($roomNumber){
+		$hourSQL = "delete from ROOM_SCHEDULE where roomNumber=:roomNumber";
+		if($stmt = $this->conn->prepare($hourSQL)){
+			$stmt->bindParam(':roomNumber', $roomNumber);
+			$resultHr = $stmt->execute();
+		}
 		$sql = "delete from ROOM where roomNumber=:roomNumber;";
-		if($stmt = $this->conn->prepare($sql)){
-                        $stmt->bindParam(':roomNumber', $roomNumber);
-                        $result = $stmt->execute();
+		if($stmta = $this->conn->prepare($sql)){
+                        $stmta->bindParam(':roomNumber', $roomNumber);
+                        $result = $stmta->execute();
                 }
                 return $result;
 
@@ -208,7 +229,16 @@ class DBcoreAdmin{
                 return $result;
 
         }
-
+	
+	function deleteRoomHours($roomNumber, $dayOfWeek){
+		$sql = "delete from ROOM_SCHEDULE where roomNumber=:roomNumber and dayOfWeek=:dayOfWeek";
+		if($stmt = $this->conn->prepare($sql)){
+			$stmt->bindParam(':roomNumber', $roomNumber);
+			$stmt->bindParam('dayOfWeek', $dayOfWeek);
+			$result = $stmt->execute();
+		}
+		return $result;
+	}
 
 
 	//INSERT FUNCTIONALITY
@@ -265,8 +295,20 @@ class DBcoreAdmin{
 
         }
 
-
-
+	/*
+	* Add the hours for one day for one room
+	*/
+	function addHours($roomNumber, $dayOfWeek, $openTime, $closeTime){
+		$sql = "insert into ROOM_SCHEDULE (roomNumber, dayOfWeek, openTime, closeTime) VALUES (:roomNumber, :dayOfWeek, :openTime, :closeTime);";
+		if($stmt = $this->conn->prepare($sql)){
+			$stmt->bindParam(':roomNumber', $roomNumber);
+			$stmt->bindParam(':dayOfWeek', $dayOfWeek);
+			$stmt->bindParam(':openTime', $openTime);
+			$stmt->bindParam(':closeTime', $closeTime);
+			$result = $stmt->execute();
+		}
+		return $result;
+	}
 
 
 	//UPDATE FUNCTIONALITY
