@@ -62,6 +62,12 @@ body {
     color: #DBDBDB;
 }
 
+.logOut a{
+    background-color: #C83644 !important;
+    color: #FCFCFC !important;
+}
+
+
 .header {
     margin-top: 70px;
 }
