@@ -68,9 +68,9 @@
                                 <option value="Net Lab">Admin2</option>
                                 <option value="Open Lab">Admin3</option>
                             </select>
-                            <li class="activeRoom"><a>NetLab</a></li>
-                            <li class="notActiveRoom"><a>SysLab </a></li>
-                            <li class="notActiveRoom"><a>DB Small</a></li>
+                            <li class="functionButton"><a>Edit Admin</a></li>
+                            <li class="functionButton"><a>Delete Admin</a></li>
+                            <li class="functionButton"><a>Add Admin</a></li>
                         </ul>
                     </div>
                 </div>
@@ -82,13 +82,26 @@
             </div>
     </div>   
     
-    <div class="adminLogin">
-            <form class="loginForm">       
-                  <h2>Admin Login</h2>
-                  <input type="text" class="form-control" name="username" placeholder="Username" required="" autofocus="" />
-                  <input type="password" class="form-control" name="password" placeholder="Password" required=""/> 
-                  <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
-
+    <div class="adminFunctionsForm">
+            <form class="functionsForm">
+                  <label>First Name</label>
+                  <input type="text" class="form-control" name="firstName" placeholder="Enter First Name" required="" autofocus="" />
+                  <label>Last Name</label>
+                  <input type="text" class="form-control" name="lastName" placeholder="Enter Last Name" required="" autofocus="" />  
+                  <label>University ID</label>
+                  <input type="text" class="form-control" name="UniversityID" placeholder="Enter University ID" required="" autofocus="" />
+                  <label>Badge Number</label>
+                  <input type="text" class="form-control" name="BadgeNumber" placeholder="Enter Badge Number" required="" autofocus="" />
+                  <label>Location:</label>
+                  <select name="location" required="">
+                    <option value="Sys Lab">Sys Lab</option>
+                    <option value="Net Lab">Net Lab</option>
+                    <option value="Open Lab">Open Lab</option>
+                    <option value="Other Lab">Other Lab</option>
+                  </select>
+                  <label>Image</label>
+                  <input class="imageFile" type="file" name="image" id="image">
+                  <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
             </form>    
     </div>
       

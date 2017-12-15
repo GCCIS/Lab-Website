@@ -36,26 +36,6 @@
               <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
               <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
             <![endif]-->
-<style>
-	body{
-		padding-top: 0px;
-		
-	}
-	h1{
-		text-align: center;
-		color: #29ABE0;
-		font-weight: bold;
-	}
-	form{
-		width: 400px;
-		margin: 0 auto;
-	}
-	select{
-		color: #181818;
-	}
-
-</style>
-
           </head>
           <body>
 <?php
@@ -108,6 +88,8 @@ require('../handlers/DBcore.class.php');
 
 	}
 </script>
+              
+              <!--
 	<h1>TA Login</h1>
 	<form action="index.php" method="post" name="webpunchForm" onsubmit="return validateForm()" >
 		<label>Badge Number: </label>
@@ -125,7 +107,39 @@ require('../handlers/DBcore.class.php');
 		</select>
 		<br>
 		<input type="submit" name="submitWebpunch" value="submit">
-	</form>
+	</form> -->
+              
+    <div class="webPunchHeader"> <!-- Main component for a primary message -->
+        <div class="container">
+            <div class="row"> 
+                <div class=" col-md-12 text-center">
+                    <h1>Welcome to IST Labs</h1>
+                </div>
+                <div class="logo col-md-12">
+                    <img src="images/IST_large.png">  
+                </div>
+            </div>     
+        </div>
+    </div>
+    
+    <div class="TALogin">
+            <form class="webPunchForm" action="index.php" method="post" name="webpunchForm" onsubmit="return validateForm()" >    
+                  <h2>TA/GA Login</h2>
+                  <label>Badge Number:</label>
+                  <input type="text" class="form-control" placeholder="Enter Badge Number" required="" autofocus="" name="TA_EID" required/>
+                  <label>Shift ends at (use 24hr time):</label>
+                  <input type="text" class="form-control" name="shift_end" placeholder="Enter Shift Hours" required=""/>
+                  <label>Location:</label>
+                  <select name="location" required="">
+                    <option value="Sys Lab">Sys Lab</option>
+                    <option value="Net Lab">Net Lab</option>
+                    <option value="Open Lab">Open Lab</option>
+                    <option value="Other Lab">Other Lab</option>
+                  </select>
+                  <button name="submitWebpunch" class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>   
+            </form>    
+    </div>
+          
 
  <!-- Bootstrap core JavaScript
             ================================================== -->
