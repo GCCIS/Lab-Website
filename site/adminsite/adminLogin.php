@@ -44,7 +44,7 @@ writeHTMLHead("Admin Login");
                     <h1>Welcome to IST Labs</h1>
                 </div>
                 <div class="logo col-md-12">
-                    <img src="images/IST_large.png">  
+                    <img src="../images/IST_large.png">  
                 </div>
             </div>     
         </div>

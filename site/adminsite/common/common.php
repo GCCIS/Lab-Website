@@ -16,16 +16,16 @@ function writeHTMLHead($title){
     <title>IST Labs</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/site/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="/site/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="../css/adminStyle.css" rel="stylesheet">
+    <link href="css/adminStyle.css" rel="stylesheet">
 
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="/site/js/ie-emulation-modes-warning.js"></script>
+    <script src="../js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -60,7 +60,7 @@ function writeNav(){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#"><img src="images/IST.png"></a>
+          <a class="navbar-brand" href="#"><img src="../images/IST.png"></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">

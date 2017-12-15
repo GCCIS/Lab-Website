@@ -153,7 +153,9 @@ include 'adminHandlers/employeeHandler.php';
 		addEmployeeShift($_POST['uid'], 'TH', $_POST['TH_startTime'], $_POST['TH_endTime']);
 		addEmployeeShift($_POST['uid'], 'F', $_POST['F_startTime'], $_POST['F_endTime']);
 		addEmployeeShift($_POST['uid'], 'SA', $_POST['SA_startTime'], $_POST['SA_endTime']);
-           }
+		//addTASignoffs($_POST['uid'], $_POST['courseNumber']);		
+ 
+          }
 
 	
 	}
