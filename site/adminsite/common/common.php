@@ -57,7 +57,7 @@ function writeNav($admin, $course, $employee, $room){
             <li class="'.$course.'"><a href="course.php">Courses</a></li>
             <li class="'.$employee.'"><a href="employee.php">Employees</a></li>
             <li class="'.$room.'"><a href="room.php">Rooms</a></li>
-            <li class="notActivePage"><a href="logout.php">Logout</a></li>  
+            <li class="logOut"><a href="logout.php">Logout</a></li>  
           </ul>
         </div><!--/.nav-collapse -->
       </div>
