@@ -16,16 +16,16 @@ function writeHTMLHead($title){
     <title>IST Labs</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="/site/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="/site/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../css/adminStyle.css" rel="stylesheet">
 
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="js/ie-emulation-modes-warning.js"></script>
+    <script src="/site/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>

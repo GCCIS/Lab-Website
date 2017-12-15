@@ -36,11 +36,35 @@ include_once('common/common.php');
 writeHTMLHead("Admin Login");
 
 ?>
+
+    <div class="adminHeader"> <!-- Main component for a primary message -->
+        <div class="container">
+            <div class="row"> 
+                <div class=" col-md-12 text-center">
+                    <h1>Welcome to IST Labs</h1>
+                </div>
+                <div class="logo col-md-12">
+                    <img src="images/IST_large.png">  
+                </div>
+            </div>     
+        </div>
+    </div>
+
+    <div class="adminLogin">
+        <form class="loginForm" action = "adminLogin.php" name="adminLogin" method = "post">       
+              <h2>Admin Login</h2>
+              <input type="text" class="form-control" name="username" placeholder="Enter Username" required="" autofocus="" />
+              <input type="password" class="form-control" name="password" placeholder="Enter Password" required=""/> 
+              <button class="btn btn-lg btn-primary btn-block" type="submit" name="loginSubmit" value="Login">Login</button>   
+        </form>    
+    </div>
+
+<!--
     <form action = "adminLogin.php" name="adminLogin" method = "post">
         <label>UserName: </label><input type = "text" name = "username"/><br/>
         <label>Password: </label><input type = "password" name = "password"/><br/>
         <input type = "submit" name = "loginSubmit" value = "Login"/><br/>
-    </form>
+    </form> -->
 <?php
 
 writeHTMLFooter();
