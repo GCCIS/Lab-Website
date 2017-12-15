@@ -50,7 +50,7 @@
 		echo '
         
                 <div class="adminFunctionsForm">
-                    <form action="course.php" method="post" name="editForm">
+                    <form class="functionsForm" action="course.php" method="post" name="editForm">
                           <input type="hidden" name="prevNumber" value="'.$courseNumber.'">    
                           <label>Course Name</label>
                           <input type="text" name="courseName" class="form-control" value="'.$courseName.'" placeholder="Enter Course Name" required="" autofocus="" />
