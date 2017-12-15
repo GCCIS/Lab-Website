@@ -236,6 +236,19 @@ class DBcoreAdmin{
 	}
 
 	function deleteOneEmployee($uid){
+		//delete from TA_SHIFT_LOG where the TA_EID is the person
+		$signoffsql = "delete from TA_SIGNOFF where uid=:uid;";
+		if($stmt = $this->conn->prepare($signoffsql)){
+                        $stmt->bindParam(':uid', $uid);
+                        $result = $stmt->execute();
+                }
+		$shfitsql = "delete from EMPLOYEE_SHIFT_SCHEDULE where uid=:uid;";
+                if($stmt = $this->conn->prepare($shiftsql)){
+                        $stmt->bindParam(':uid', $uid);
+                        $result = $stmt->execute();
+                }
+
+
                 $sql = "delete from EMPLOYEE where uid=:uid;";
                 if($stmt = $this->conn->prepare($sql)){
                         $stmt->bindParam(':uid', $uid);

@@ -86,6 +86,7 @@ include 'adminHandlers/employeeHandler.php';
                 deleteEmployee($_POST['employeeList']);
         }
 	else if(isset($_POST['submitEmployeeAdd'])){
+		print_r($_POST);
 	   if($_FILES['image']['size'] > 0){
 		//check the image
 		print_r($_FILES);
