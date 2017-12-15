@@ -242,19 +242,17 @@ class DBcoreAdmin{
                         $stmt->bindParam(':uid', $uid);
                         $result = $stmt->execute();
                 }
-		$shfitsql = "delete from EMPLOYEE_SHIFT_SCHEDULE where uid=:uid;";
-                if($stmt = $this->conn->prepare($shiftsql)){
-                        $stmt->bindParam(':uid', $uid);
-                        $result = $stmt->execute();
-                }
-
+		$shift = "delete from EMPLOYEE_SHIFT_SCHEDULE where uid=:uid;";
+		if($stmt = $this->conn->prepare($shift)){
+			$stmt->bindParam(':uid', $uid);
+			$result = $stmt->execute();
+		}
 
                 $sql = "delete from EMPLOYEE where uid=:uid;";
                 if($stmt = $this->conn->prepare($sql)){
                         $stmt->bindParam(':uid', $uid);
                         $result = $stmt->execute();
                 }
-                return $result;
 
         }
 	
@@ -365,6 +363,16 @@ class DBcoreAdmin{
 		}
 	}
 
+	function addTASignoffs($uid, $courseNumber){
+		$sql = "insert into TA_SIGNOFF (uid, courseNumber, signoff) VALUES (:uid, :courseNumber, 1);";
+		if($stmt = $this->conn->prepare($sql)){
+			$stmt->bindParam('uid', $uid);
+			$stmt->bindParam('courseNumber', $courseNumber);
+			$result = $stmt->execute();
+			return $result;
+		}
+	
+	}
 
 	//UPDATE FUNCTIONALITY
 	function editTheCourse($prevNumber, $courseName, $courseNumber){
@@ -424,6 +432,26 @@ class DBcoreAdmin{
         }
 
 
+	function deleteAllTASignoffs($uid){
+		$sql = "delete from TA_SIGNOFF where uid=:uid;";
+		if($stmt = $this->conn->prepare($sql)){
+			$stmt->bindParam(':uid', $uid);
+			$result = $stmt->execute();
+			return $result;
+		}
+
+	}
+
+	function editTASignoffs($uid, $courseNumber){
+		$sql = "insert into TA_SIGNOFF (uid, courseNumber, signoff) VALUES (:uid, :courseNumber, 1);";
+		if($stmt = $this->conn->prepare($sql)){
+			$stmt->bindParam(':uid', $uid);
+			$stmt->bindParam(':courseNumber', $courseNumber);
+			$result = $stmt->execute();
+			return $result;
+		}
+
+	}
 
 
 

@@ -150,8 +150,8 @@ include 'courseHandler.php';
 			}
 			else{
 				$htmlStr .= '<label>Tuesday: </label>
-                                        Start Time: <input type="text" name="TU_startTime" value="'.$turow['startTime'].'">
-                                        End Time: <input type="text" name="TU_endTime" value="'.$turow['endTime'].'"><br>';
+                                        Start Time: <input type="text" name="TU_startTime">
+                                        End Time: <input type="text" name="TU_endTime"><br>';
 			}
 			if(count($wArr) > 0){
 			   foreach($wArr as $wrow){        
@@ -202,9 +202,10 @@ include 'courseHandler.php';
                                         End Time: <input type="text" name="SA_endTime"><br>';
 			}
 
-			
+			$htmlStr .= '<select name="signoffList[]" multiple>';
+			$htmlStr .= getCourses();
 
-			$htmlStr .= '<input type="submit" name="submitEmployeeEdit" value="Edit Employee">
+			$htmlStr .= '</select><br><br><input type="submit" name="submitEmployeeEdit" value="Edit Employee">
                         	</form>';
 		}
                 return $htmlStr;
@@ -224,7 +225,19 @@ include 'courseHandler.php';
 			return $addResult;
 		}
 	}
+
+	function addTASignoff($uid, $courseNumber){
+		$DBcoreAdmin = new DBcoreAdmin();
+		$addResult = $DBcoreAdmin->addTASignoffs($uid, $courseNumber);
+		return $addResult;
+	}
 	
+	function deleteTASignoffs($uid){
+		$DBcoreAdmin = new DBcoreAdmin();
+		$deleteResult = $DBcoreAdmin->deleteAllTASignoffs($uid);
+		return $deleteResult;
+	}
+
 	function deleteEmployee($uid){
 		$DBcoreAdmin = new DBcoreAdmin();
         	$deleteResult = $DBcoreAdmin->deleteOneEmployee($uid);

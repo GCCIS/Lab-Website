@@ -65,7 +65,11 @@ include 'adminHandlers/employeeHandler.php';
                 editEmployeeShift($_POST['uid'], 'TH', $_POST['TH_startTime'], $_POST['TH_endTime']);
                 editEmployeeShift($_POST['uid'], 'F', $_POST['F_startTime'], $_POST['F_endTime']);
                 editEmployeeShift($_POST['uid'], 'SA', $_POST['SA_startTime'], $_POST['SA_endTime']);
-
+		
+		deleteTASignoffs($_POST['uid']);
+		for($i = 0; $i < count($_POST['signoffList']); $i++){
+                        editTASignoff($_POST['uid'], $_POST['signoffList'][$i]);
+                }
 	   }
 	//no imaqge was submitted
 	   else{
@@ -78,7 +82,11 @@ include 'adminHandlers/employeeHandler.php';
                 editEmployeeShift($_POST['uid'], 'TH', $_POST['TH_startTime'], $_POST['TH_endTime']);
                 editEmployeeShift($_POST['uid'], 'F', $_POST['F_startTime'], $_POST['F_endTime']);
                 editEmployeeShift($_POST['uid'], 'SA', $_POST['SA_startTime'], $_POST['SA_endTime']);
-
+		
+		deleteTASignoffs($_POST['uid']);
+		for($i = 0; $i < count($_POST['signoffList']); $i++){
+                        addTASignoff($_POST['uid'], $_POST['signoffList'][$i]);
+                }
 	   }
 	}
         else if(isset($_POST['deleteEmployee'])){
@@ -140,9 +148,11 @@ include 'adminHandlers/employeeHandler.php';
                 addEmployeeShift($_POST['uid'], 'TH', $_POST['TH_startTime'], $_POST['TH_endTime']);
                 addEmployeeShift($_POST['uid'], 'F', $_POST['F_startTime'], $_POST['F_endTime']);
                 addEmployeeShift($_POST['uid'], 'SA', $_POST['SA_startTime'], $_POST['SA_endTime']);
-  
+  		for($i = 0; $i < count($_POST['signoffList']); $i++){
+                        addTASignoff($_POST['uid'], $_POST['signoffList'][$i]);
+                }
 	   }
-	    //no imaqge was submitted
+	    //no image was submitted
            else{
                 //send the edit employee to the database
                 addEmployee($_POST['uid'], $_POST['EID'], $_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['major'], $_POST['biography'], $_POST['employeeType'], '');
@@ -153,8 +163,10 @@ include 'adminHandlers/employeeHandler.php';
 		addEmployeeShift($_POST['uid'], 'TH', $_POST['TH_startTime'], $_POST['TH_endTime']);
 		addEmployeeShift($_POST['uid'], 'F', $_POST['F_startTime'], $_POST['F_endTime']);
 		addEmployeeShift($_POST['uid'], 'SA', $_POST['SA_startTime'], $_POST['SA_endTime']);
-		//addTASignoffs($_POST['uid'], $_POST['courseNumber']);		
- 
+		
+		for($i = 0; $i < count($_POST['signoffList']); $i++){
+			addTASignoff($_POST['uid'], $_POST['signoffList'][$i]);		
+ 		}
           }
 
 	
