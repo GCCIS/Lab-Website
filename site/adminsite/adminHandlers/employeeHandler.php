@@ -1,5 +1,6 @@
 <?php
  require_once('DBcoreAdmin.class.php');
+include 'courseHandler.php';
 
 
 	function getEmployees(){
@@ -54,7 +55,13 @@
 				<label>Friday: </label>
 					Start Time: <input type="text" name="F_startTime"> End Time: <input type="text" name="F_endTime"><br>
 				<label>Saturday: </label>
-					Start Time: <input type="text" name="SA_startTime"> End Time: <input type="text" name="SA_endTime"><br>
+					Start Time: <input type="text" name="SA_startTime"> End Time: <input type="text" name="SA_endTime"><br><br>
+
+				<select name="signoffList[]" multiple>';
+			$htmlStr .= getCourses();				
+						
+
+			$htmlStr .=	'</select><br><br>
 
 				<input type="submit" name="submitEmployeeAdd" value="Add New Employee">
 			</form>';
