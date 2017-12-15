@@ -35,6 +35,34 @@ include 'adminHandlers/adminHandler.php';
 	<input type="submit" name="addAdmin" value="Add New Admin">
 	<input type="submit" name="deleteAdmin" value="Delete Admin"> 
     </form>
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class=adminFunctions>
+                    <ul>
+                        <select name="adminList" required="">
+                            <option>Select an Admin</option>
+                            <!--use php to get the admins (options) -->
+                            <?php 
+                                echo getAdminOptions();
+                            ?>
+                        </select>
+                        <li><button class="btn btn-lg btn-primary btn-block" type="submit" name="editAdmin" value="Edit Admin">Edit Admin</button></li>
+                        <li><button class="btn btn-lg btn-primary btn-block" type="submit" name="addAdmin" value="Add New Admin">Add New Admin</button></li>
+                        <li><button class="btn btn-lg btn-primary btn-block" type="submit" name="deleteAdmin" value="Delete Admin">Delete Admin</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+          <div class="row">
+            <div class="col-md-12 text-center">
+                  <div id="calendar"></div>
+            </div>
+        </div>
+    </div>   
+    
 
 <?php
 

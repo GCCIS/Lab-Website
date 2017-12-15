@@ -18,18 +18,20 @@
 	}
 	
 	function createAddAdminForm(){
-		$htmlStr = '<form method="post" action="admin.php" name="addAdminForm">
-				<label>Email</label>
-				<input type="email" name="email" required><br>
-				<label>First Name</label>
-                                <input type="text" name="firstName" required><br>
-				<label>Last Name</label>
-                                <input type="text" name="lastName" required><br>
-				<label>Password</label>
-                                <input type="text" name="password" required><br>
-			
-				<input type="submit" name="submitAdminAdd" value="Add New User">
-			</form>';
+		$htmlStr = '
+                <div class="adminFunctionsForm">
+                    <form class="functionsForm" method="post" action="admin.php" name="addAdminForm">
+                          <label>Email</label>
+                          <input type="email" name="email" class="form-control" placeholder="Enter Email" required="" autofocus="" />
+                          <label>First Name</label>
+                          <input type="text" class="form-control" name="firstName" placeholder="Enter First Name" required="" autofocus="" />
+                          <label>Last Name</label>
+                          <input type="text" class="form-control" name="lastName" placeholder="Enter Last Name" required="" autofocus="" />  
+                          <label>Password</label>
+                          <input type="text" class="form-control" name="password" placeholder="Enter Password" required>
+                          <button class="btn btn-lg btn-primary btn-block" type="submit" name="submitAdminAdd" value="Add New User">Add New User</button>
+                    </form>    
+                </div>';
 		return $htmlStr;
 	}
 
@@ -40,19 +42,22 @@
 		$adminArr = $DBcoreAdmin->selectOneAdmin($email);
 		foreach($adminArr as $row){
 
-			$htmlStr .= '<form method="post" action="admin.php" name="editAdminForm">
-				<input type="hidden" name="prevEmail" value="'.$row['email'].'">
-                                <label>Email</label>
-                                <input type="email" name="email" value="'.$row['email'].'" required><br>
-                                <label>First Name</label>
-                                <input type="text" name="firstName" value="'.$row['firstName'].'" required><br>
-                                <label>Last Name</label>
-                                <input type="text" name="lastName" value="'.$row['lastName'].'" required><br>
-                                <label>Password</label>
-                                <input type="text" name="password" required><br>
-
-                                <input type="submit" name="submitAdminEdit" value="Edit User">
-                        </form>';
+			$htmlStr .= '
+            
+             <div class="adminFunctionsForm">
+                    <form class="functionsForm" method="post" action="admin.php" name="editAdminForm">
+                          <input type="hidden" name="prevEmail" value="'.$row['email'].'">
+                          <label>Email</label>
+                          <input type="email" class="form-control" name="email" value="'.$row['email'].'" required="" autofocus="" />
+                          <label>First Name</label>
+                          <input type="text" class="form-control" name="firstName"  value="'.$row['firstName'].'" required="" autofocus="" />
+                          <label>Last Name</label>
+                          <input type="text" class="form-control" name="lastName" value="'.$row['lastName'].'" required="" autofocus="" />  
+                          <label>Password</label>
+                          <input type="text" class="form-control" name="password" required>
+                          <button class="btn btn-lg btn-primary btn-block" type="submit" name="submitAdminEdit" value="Edit User">Edit User</button>
+                    </form>    
+                </div>';
 		}
                 return $htmlStr;
 

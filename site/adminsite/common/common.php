@@ -39,18 +39,7 @@ function writeHTMLHead($title){
 
 //basic of a nav -- replace with the bootstrap nav you will be using
 function writeNav(){
-  echo '
-         <!-- Fixed navbar -->
-         <nav>
-              <ul>
-                <li><a href="admin.php">Admins</a></li>
-                <li><a href="course.php">Courses</a></li>
-                <li><a href="employee.php">Employees</a></li>
-                <li><a href="room.php">Rooms</a></li> 
-              	<li><a href="logout.php">Logout</a></li>
-		</ul>
-         </nav>
-         
+  echo '    
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">

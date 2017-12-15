@@ -787,6 +787,23 @@ th {
     border-radius: 3px;
 }
 
+.adminFunctions button {
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+    font-size: 16px;
+    color: #FCFCFC;
+    border-radius: 3px;
+    border: none;
+    background-color: #464646;
+}
+
+.adminFunctions button:hover {
+    transition: background-color 0.3s ease;
+    border-radius: 3px;
+    border: none;
+    background-color: #2072AE;
+}
+
 .functionsForm {
   max-width: 380px;
   border-radius: 4px;
