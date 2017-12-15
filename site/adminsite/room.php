@@ -8,7 +8,7 @@ include 'adminHandlers/roomHandler.php';
    }
    
     writeHTMLHead("Room");
-    writeNav();
+    writeNav("notActivePage", "notActivePage", "notActivePage", "activePage");
 
 	//if the form has been submitted then update the database
         if(isset($_POST['submitRoomEdit'])){

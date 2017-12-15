@@ -9,7 +9,7 @@ include 'adminHandlers/courseHandler.php';
    }
    
     writeHTMLHead("Course");
-    writeNav();
+    writeNav("notActivePage", "activePage", "notActivePage", "notActivePage");
 
 
 	//if the form has been submitted then update the database

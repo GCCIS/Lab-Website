@@ -38,7 +38,7 @@ function writeHTMLHead($title){
 }//end of writeHTMLHead
 
 //basic of a nav -- replace with the bootstrap nav you will be using
-function writeNav(){
+function writeNav($admin, $course, $employee, $room){
   echo '    
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -53,10 +53,10 @@ function writeNav(){
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="activePage"><a href="admin.php">Admins</a></li>
-            <li class="notActivePage"><a href="course.php">Courses</a></li>
-            <li class="notActivePage"><a href="employee.php">Employees</a></li>
-            <li class="notActivePage"><a href="room.php">Rooms</a></li>
+            <li class="'.$admin.'"><a href="admin.php">Admins</a></li>
+            <li class="'.$course.'"><a href="course.php">Courses</a></li>
+            <li class="'.$employee.'"><a href="employee.php">Employees</a></li>
+            <li class="'.$room.'"><a href="room.php">Rooms</a></li>
             <li class="notActivePage"><a href="logout.php">Logout</a></li>  
           </ul>
         </div><!--/.nav-collapse -->

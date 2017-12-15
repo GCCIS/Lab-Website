@@ -7,7 +7,7 @@ include 'adminHandlers/adminHandler.php';
 	header("Location:logout.php");
    }   
     writeHTMLHead("Admin");
-    writeNav();
+    writeNav("activePage", "notActivePage", "notActivePage", "notActivePage");
 
 	if(isset($_POST['deleteAdmin'])){
 		//call delete admin function

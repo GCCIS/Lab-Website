@@ -8,7 +8,7 @@ include 'adminHandlers/employeeHandler.php';
    }
    
     writeHTMLHead("Employee");
-    writeNav();
+    writeNav("notActivePage", "notActivePage", "activePage", "notActivePage");
 
 
 	//if the form has been submitted then update the database
