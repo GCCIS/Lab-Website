@@ -165,6 +165,21 @@ class DBcoreAdmin{
 		}
 	}
 
+	/*
+	* Select the shift scheduled for the day
+	*/
+	function selectShift($uid, $dayOfWeek){
+		$data = array();
+                if($stmt = $this->conn->prepare("select startTime, endTime from EMPLOYEE_SHIFT_SCHEDULE where uid=:uid and dayOfWeek=:dayOfWeek;")){
+                        $stmt->bindParam(':uid', $uid);
+                        $stmt->bindParam(':dayOfWeek', $dayOfWeek);
+                        $stmt->execute();
+                        $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                        return $data;
+
+                }
+
+	}
 
 
 	/*
@@ -240,6 +255,17 @@ class DBcoreAdmin{
 		return $result;
 	}
 
+	function deleteShift($uid, $dayOfWeek){
+		$sql = "delete from EMPLOYEE_SHIFT_SCHEDULE where uid=:uid and dayOfWeek=:dayOfWeek;";
+		if($stmt = $this->conn->prepare($sql)){
+                        $stmt->bindParam(':uid', $uid);
+                        $stmt->bindParam('dayOfWeek', $dayOfWeek);
+                        $result = $stmt->execute();
+                }
+                return $result;
+
+	}
+
 
 	//INSERT FUNCTIONALITY
 	function addTheCourse($courseName, $courseNumber){
@@ -306,8 +332,24 @@ class DBcoreAdmin{
 			$stmt->bindParam(':openTime', $openTime);
 			$stmt->bindParam(':closeTime', $closeTime);
 			$result = $stmt->execute();
+			return $result;
 		}
-		return $result;
+	}
+
+
+	/*
+	* Add the shift for an employee for 1 day
+	*/
+	function addShift($uid, $dayOfWeek, $startTime, $endTime){
+		$sql = "insert into EMPLOYEE_SHIFT_SCHEDULE (uid, dayOfWeek, startTime, endTime) VALUES (:uid, :dayOfWeek, :startTime, :endTime);";
+		if($stmt = $this->conn->prepare($sql)){
+			$stmt->bindParam(':uid', $uid);
+                        $stmt->bindParam(':dayOfWeek', $dayOfWeek);
+                        $stmt->bindParam(':startTime', $startTime);
+                        $stmt->bindParam(':endTime', $endTime);
+                        $result = $stmt->execute();
+                        return $result;
+		}
 	}
 
 

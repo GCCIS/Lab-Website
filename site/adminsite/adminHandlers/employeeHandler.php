@@ -39,6 +39,23 @@
 					</select><br>
 				<label>Image</label>
 				<input type="file" name="image" id="image"><br>
+
+				<p>Shift Schedule (use 24hr time - leave blank if there are no scheduled hours on a day)</p>
+				<label>Sunday: </label>
+					Start Time: <input type="text" name="SU_startTime"> End Time: <input type="text" name="SU_endTime"><br>
+				<label>Monday: </label>
+					Start Time: <input type="text" name="M_startTime"> End Time: <input type="text" name="M_endTime"><br>
+				<label>Tuesday: </label>
+					Start Time: <input type="text" name="TU_startTime"> End Time: <input type="text" name="TU_endTime"><br>
+				<label>Wednesday: </label>
+					Start Time: <input type="text" name="W_startTime"> End Time: <input type="text" name="W_endTime"><br>
+				<label>Thursday: </label>
+					Start Time: <input type="text" name="TH_startTime"> End Time: <input type="text" name="TH_endTime"><br>
+				<label>Friday: </label>
+					Start Time: <input type="text" name="F_startTime"> End Time: <input type="text" name="F_endTime"><br>
+				<label>Saturday: </label>
+					Start Time: <input type="text" name="SA_startTime"> End Time: <input type="text" name="SA_endTime"><br>
+
 				<input type="submit" name="submitEmployeeAdd" value="Add New Employee">
 			</form>';
 		return $htmlStr;
@@ -51,6 +68,14 @@
 		$empArr = $DBcoreAdmin->selectOneEmployee($uid);
 		foreach($empArr as $row){
 			$employeeType = $row['employeeType'];
+			
+			$suArr = $DBcoreAdmin->selectShift($uid, 'SU');
+			$mArr = $DBcoreAdmin->selectShift($uid, 'M');
+			$tuArr = $DBcoreAdmin->selectShift($uid, 'TU');
+			$wArr = $DBcoreAdmin->selectShift($uid, 'W');
+			$thArr = $DBcoreAdmin->selectShift($uid, 'TH');
+			$fArr = $DBcoreAdmin->selectShift($uid, 'F');
+			$saArr = $DBcoreAdmin->selectShift($uid, 'SA');
 			
 			$htmlStr .= '<form method="post" action="employee.php" name="editEmployeeForm" enctype="multipart/form-data">
 					<input type="hidden" name="prevUID" value="'.$row['uid'].'">
@@ -83,8 +108,97 @@
 			$htmlStr .='</select><br>
 					<label>Image</label>
 					<input type="file" name="image" id="image"><br>
-					<input type="submit" name="submitEmployeeEdit" value="Edit Employee">
-                        </form>';
+					<p>Shift Schedule (use 24hr time - leave blank if there are no scheduled hours on a day)</p>';
+
+			if(count($suArr) > 0){
+			   foreach($suArr as $surow){
+                         	$htmlStr .= '<label>Sunday: </label>
+					Start Time: <input type="text" name="SU_startTime" value="'.$surow['startTime'].'" > 
+					End Time: <input type="text" name="SU_endTime" value="'.$surow['endTime'].'"><br>';
+                           }
+			}
+			else{
+				$htmlStr .= '<label>Sunday: </label>
+                                        Start Time: <input type="text" name="SU_startTime">
+                                        End Time: <input type="text" name="SU_endTime"><br>';
+			}
+			if(count($mArr) > 0){
+			   foreach($mArr as $mrow){
+				$htmlStr .=	'<label>Monday: </label>
+                                	Start Time: <input type="text" name="M_startTime" value="'.$mrow['startTime'].'"> 
+					End Time: <input type="text" name="M_endTime" value="'.$mrow['endTime'].'"><br>';
+                           }
+			}
+			else{
+				$htmlStr .=     '<label>Monday: </label>
+                                        Start Time: <input type="text" name="M_startTime">
+                                        End Time: <input type="text" name="M_endTime"><br>';
+			} 
+			if(count($tuArr) > 0){   
+			   foreach($tuArr as $turow){       
+				$htmlStr .= '<label>Tuesday: </label>
+                                	Start Time: <input type="text" name="TU_startTime" value="'.$turow['startTime'].'"> 
+					End Time: <input type="text" name="TU_endTime" value="'.$turow['endTime'].'"><br>';
+                           }
+			}
+			else{
+				$htmlStr .= '<label>Tuesday: </label>
+                                        Start Time: <input type="text" name="TU_startTime" value="'.$turow['startTime'].'">
+                                        End Time: <input type="text" name="TU_endTime" value="'.$turow['endTime'].'"><br>';
+			}
+			if(count($wArr) > 0){
+			   foreach($wArr as $wrow){        
+				$htmlStr .= '<label>Wednesday: </label>
+                                	Start Time: <input type="text" name="W_startTime" value="'.$wrow['startTime'].'"> 
+ 					End Time: <input type="text" name="W_endTime" value="'.$wrow['endTime'].'"><br>';
+                           }
+			}
+			else{
+				$htmlStr .= '<label>Wednesday: </label>
+                                        Start Time: <input type="text" name="W_startTime">
+                                        End Time: <input type="text" name="W_endTime"><br>';
+			}
+			if(count($thArr) > 0){        
+			   foreach($thArr as $throw){
+				$htmlStr .= '<label>Thursday: </label>
+                                	Start Time: <input type="text" name="TH_startTime" value="'.$throw['startTime'].'"> 
+					End Time: <input type="text" name="TH_endTime" value="'.$throw['endTime'].'"><br>';
+                           }
+			}
+			else{
+				$htmlStr .= '<label>Thursday: </label>
+                                        Start Time: <input type="text" name="TH_startTime">
+                                        End Time: <input type="text" name="TH_endTime"><br>';
+			}
+			if(count($fArr) > 0){
+			   foreach($fArr as $frow){        
+				$htmlStr .= '<label>Friday: </label>
+                                	Start Time: <input type="text" name="F_startTime" value="'.$frow['startTime'].'"> 
+					End Time: <input type="text" name="F_endTime" value="'.$frow['endTime'].'"><br>';
+                           }
+			}
+			else{
+				$htmlStr .= '<label>Friday: </label>
+                                        Start Time: <input type="text" name="F_startTime">
+                                        End Time: <input type="text" name="F_endTime"><br>';
+			}
+			if(count($saArr) > 0 ){        
+			   foreach($saArr as $sarow){
+				$htmlStr .= '<label>Saturday: </label>
+                                	Start Time: <input type="text" name="SA_startTime" value="'.$sarow['startTime'].'"> 
+					End Time: <input type="text" name="SA_endTime" value="'.$sarow['endTime'].'"><br>';
+			   }
+			}
+			else{
+				$htmlStr .= '<label>Saturday: </label>
+                                        Start Time: <input type="text" name="SA_startTime">
+                                        End Time: <input type="text" name="SA_endTime"><br>';
+			}
+
+			
+
+			$htmlStr .= '<input type="submit" name="submitEmployeeEdit" value="Edit Employee">
+                        	</form>';
 		}
                 return $htmlStr;
 	}
@@ -94,6 +208,14 @@
 		$DBcoreAdmin = new DBcoreAdmin();
 		$addResult = $DBcoreAdmin->addOneEmployee($uid, $EID, $firstName, $lastName, $email, $major, $biography, $employeeType, $image);
 		return $addResult;
+	}
+	
+	function addEmployeeShift($uid, $dayOfWeek, $startTime, $endTime){
+		$DBcoreAdmin = new DBcoreAdmin();
+		if(strlen($startTime) > 0 && strlen($endTime) > 0){
+			$addResult = $DBcoreAdmin->addShift($uid, $dayOfWeek, $startTime, $endTime);
+			return $addResult;
+		}
 	}
 	
 	function deleteEmployee($uid){
@@ -108,5 +230,14 @@
         	return $editResult;
 	}
 
+	function editEmployeeShift($uid, $dayOfWeek, $startTime, $endTime){
+		$DBcoreAdmin = new DBcoreAdmin();
+		$editResult = $DBcoreAdmin->deleteShift($uid, $dayOfWeek);
+		if(strlen($startTime) > 0 && strlen($endTime) > 0){
+			$addResult = $DBcoreAdmin->addShift($uid, $dayOfWeek, $startTime, $endTime);
+			return $addResult;
+		}
+	
+	}
 
 ?>

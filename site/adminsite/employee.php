@@ -58,11 +58,26 @@ include 'adminHandlers/employeeHandler.php';
 	   
 		//send the edit employee to the database
 		editEmployee($_POST['prevUID'], $_POST['uid'], $_POST['EID'], $_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['major'], $_POST['biography'], $_POST['employeeType'], $_FILES['image']['name']);
+	   	editEmployeeShift($_POST['uid'], 'SU', $_POST['SU_startTime'], $_POST['SU_endTime']);
+                editEmployeeShift($_POST['uid'], 'M', $_POST['M_startTime'], $_POST['M_endTime']);
+                editEmployeeShift($_POST['uid'], 'TU', $_POST['TU_startTime'], $_POST['TU_endTime']);
+                editEmployeeShift($_POST['uid'], 'W', $_POST['W_startTime'], $_POST['W_endTime']);
+                editEmployeeShift($_POST['uid'], 'TH', $_POST['TH_startTime'], $_POST['TH_endTime']);
+                editEmployeeShift($_POST['uid'], 'F', $_POST['F_startTime'], $_POST['F_endTime']);
+                editEmployeeShift($_POST['uid'], 'SA', $_POST['SA_startTime'], $_POST['SA_endTime']);
+
 	   }
 	//no imaqge was submitted
 	   else{
 		//send the edit employee to the database
                 editEmployee($_POST['prevUID'], $_POST['uid'], $_POST['EID'], $_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['major'], $_POST['biography'], $_POST['employeeType'], $_POST['prevImage']);
+		editEmployeeShift($_POST['uid'], 'SU', $_POST['SU_startTime'], $_POST['SU_endTime']);
+                editEmployeeShift($_POST['uid'], 'M', $_POST['M_startTime'], $_POST['M_endTime']);
+                editEmployeeShift($_POST['uid'], 'TU', $_POST['TU_startTime'], $_POST['TU_endTime']);
+                editEmployeeShift($_POST['uid'], 'W', $_POST['W_startTime'], $_POST['W_endTime']);
+                editEmployeeShift($_POST['uid'], 'TH', $_POST['TH_startTime'], $_POST['TH_endTime']);
+                editEmployeeShift($_POST['uid'], 'F', $_POST['F_startTime'], $_POST['F_endTime']);
+                editEmployeeShift($_POST['uid'], 'SA', $_POST['SA_startTime'], $_POST['SA_endTime']);
 
 	   }
 	}
@@ -117,12 +132,26 @@ include 'adminHandlers/employeeHandler.php';
 
 		//the add employee form has been submitted so now update the database	
 		addEmployee($_POST['uid'], $_POST['EID'], $_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['major'], $_POST['biography'], $_POST['employeeType'], $_FILES["image"]["name"]);
-	  }
+		addEmployeeShift($_POST['uid'], 'SU', $_POST['SU_startTime'], $_POST['SU_endTime']);
+                addEmployeeShift($_POST['uid'], 'M', $_POST['M_startTime'], $_POST['M_endTime']);
+                addEmployeeShift($_POST['uid'], 'TU', $_POST['TU_startTime'], $_POST['TU_endTime']);
+                addEmployeeShift($_POST['uid'], 'W', $_POST['W_startTime'], $_POST['W_endTime']);
+                addEmployeeShift($_POST['uid'], 'TH', $_POST['TH_startTime'], $_POST['TH_endTime']);
+                addEmployeeShift($_POST['uid'], 'F', $_POST['F_startTime'], $_POST['F_endTime']);
+                addEmployeeShift($_POST['uid'], 'SA', $_POST['SA_startTime'], $_POST['SA_endTime']);
+  
+	   }
 	    //no imaqge was submitted
            else{
                 //send the edit employee to the database
                 addEmployee($_POST['uid'], $_POST['EID'], $_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['major'], $_POST['biography'], $_POST['employeeType'], '');
-
+		addEmployeeShift($_POST['uid'], 'SU', $_POST['SU_startTime'], $_POST['SU_endTime']);
+		addEmployeeShift($_POST['uid'], 'M', $_POST['M_startTime'], $_POST['M_endTime']);
+		addEmployeeShift($_POST['uid'], 'TU', $_POST['TU_startTime'], $_POST['TU_endTime']);
+		addEmployeeShift($_POST['uid'], 'W', $_POST['W_startTime'], $_POST['W_endTime']);
+		addEmployeeShift($_POST['uid'], 'TH', $_POST['TH_startTime'], $_POST['TH_endTime']);
+		addEmployeeShift($_POST['uid'], 'F', $_POST['F_startTime'], $_POST['F_endTime']);
+		addEmployeeShift($_POST['uid'], 'SA', $_POST['SA_startTime'], $_POST['SA_endTime']);
            }
 
 	
