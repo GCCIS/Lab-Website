@@ -23,6 +23,8 @@ function writeHTMLHead($title){
 
     <!-- Custom styles for this template -->
     <link href="css/adminStyle.css" rel="stylesheet">
+    
+    <script src="../js/jquery.min.js"></script>
 
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../js/ie-emulation-modes-warning.js"></script>
@@ -69,7 +71,15 @@ function writeNav($admin, $course, $employee, $room){
 
 //writes the html footer
 function writeHTMLFooter(){
-  echo '</body>
+  echo ' 
+            <!-- Bootstrap core JavaScript
+            ================================================== -->
+            <!-- Placed at the end of the document so the pages load faster -->
+	        <script src="js/bootstrap.min.js"></script>
+            <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+            <script src="../js/ie10-viewport-bug-workaround.js"></script>    
+  
+          </body>
         </html>';
 }//end of writeHTMLFooter
 
