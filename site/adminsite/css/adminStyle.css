@@ -277,6 +277,13 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+.functionsForm select{
+    margin: 10px 10px 0px 0px;
+    padding: 8px;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 3px;
+}
 .functionsForm .form-control {
   position: relative;
   font-size: 16px;
