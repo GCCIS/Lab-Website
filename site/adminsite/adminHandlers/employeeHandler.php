@@ -57,11 +57,11 @@ include 'courseHandler.php';
 				<label>Saturday: </label>
 					<input type="text" name="SA_startTime" class="form-control" placeholder="Enter Start Time"><input type="text" name="SA_endTime" class="form-control" placeholder="Enter End Time">
 
-				<select name="signoffList[]" multiple>';
+				<label>TA Signoff Course List</label><br><select name="signoffList[]" multiple>';
 			$htmlStr .= getCourses();				
 						
 
-			$htmlStr .=	'</select>
+			$htmlStr .=	'</select><br>
 
 				<button class="btn btn-lg btn-primary btn-block" type="submit" name="submitEmployeeAdd" value="Add New Employee">Add New Employee</button>
 			</form></div>';
