@@ -33,8 +33,8 @@ include 'adminHandlers/courseHandler.php';
                 <div class=adminFunctions>
                  <form action="course.php" method="post" name="courseForm">
                     <ul>
-                        <select name="courseList" required="">
-                            <option>Select an course</option>
+                        <select name="courseList">
+                            <option>Select a course</option>
                             <!--use php to get the course (options) -->
                             <?php 
                                 echo getCourses();
@@ -46,11 +46,6 @@ include 'adminHandlers/courseHandler.php';
                     </ul>
                  </form> 
                 </div>
-            </div>
-        </div>
-          <div class="row">
-            <div class="col-md-12 text-center">
-                  <div id="calendar"></div>
             </div>
         </div>
     </div>   

@@ -67,9 +67,11 @@ include 'adminHandlers/employeeHandler.php';
                 editEmployeeShift(sanitize($_POST['uid']), 'SA', sanitize($_POST['SA_startTime']), sanitize($_POST['SA_endTime']));
 		
 		deleteTASignoffs(sanitize($_POST['uid']));
-		for($i = 0; $i < count($_POST['signoffList']); $i++){
-                        editTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));
-                }
+		if(isset($_POST['signoffList'])){
+			for($i = 0; $i < count($_POST['signoffList']); $i++){
+                        	editTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));
+                	}
+		}
 	   }
 	//no imaqge was submitted
 	   else{
@@ -84,9 +86,11 @@ include 'adminHandlers/employeeHandler.php';
                 editEmployeeShift(sanitize($_POST['uid']), 'SA', sanitize($_POST['SA_startTime']), sanitize($_POST['SA_endTime']));
 		
 		deleteTASignoffs(sanitize($_POST['uid']));
-		for($i = 0; $i < count($_POST['signoffList']); $i++){
-                        addTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));
-                }
+		if(isset($_POST['signoffList'])){
+			for($i = 0; $i < count($_POST['signoffList']); $i++){
+                        	addTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));
+                	}
+		}
 	   }
 	}
         else if(isset($_POST['deleteEmployee'])){
@@ -147,9 +151,11 @@ include 'adminHandlers/employeeHandler.php';
                 addEmployeeShift(sanitize($_POST['uid']), 'TH', sanitize($_POST['TH_startTime']), sanitize($_POST['TH_endTime']));
                 addEmployeeShift(sanitize($_POST['uid']), 'F', sanitize($_POST['F_startTime']), sanitize($_POST['F_endTime']));
                 addEmployeeShift(sanitize($_POST['uid']), 'SA', sanitize($_POST['SA_startTime']), sanitize($_POST['SA_endTime']));
-  		for($i = 0; $i < count($_POST['signoffList']); $i++){
-                        addTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));
-                }
+  		if(isset($_POST['signoffList'])){
+			for($i = 0; $i < count($_POST['signoffList']); $i++){
+                        	addTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));
+                	}
+		}
 	   }
 	    //no image was submitted
            else{
@@ -162,9 +168,11 @@ include 'adminHandlers/employeeHandler.php';
                 addEmployeeShift(sanitize($_POST['uid']), 'TH', sanitize($_POST['TH_startTime']), sanitize($_POST['TH_endTime']));
                 addEmployeeShift(sanitize($_POST['uid']), 'F', sanitize($_POST['F_startTime']), sanitize($_POST['F_endTime']));
                 addEmployeeShift(sanitize($_POST['uid']), 'SA', sanitize($_POST['SA_startTime']), sanitize($_POST['SA_endTime']));
-		for($i = 0; $i < count($_POST['signoffList']); $i++){
-			addTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));		
- 		}
+		if(isset($_POST['signoffList'])){
+			for($i = 0; $i < count($_POST['signoffList']); $i++){
+				addTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));		
+ 			}
+		}
           }
 
 	
@@ -172,18 +180,27 @@ include 'adminHandlers/employeeHandler.php';
 
 
 ?>
-
-    <form action="employee.php" name="employeeForm" method="post">
-    	<select name="employeeList">
-		<option>Select An Employee<option</>
-	<?php
-		echo getEmployees();
-	?>
-	</select>
-	<input type="submit" name="editEmployee" value="Edit Employee">
-        <input type="submit" name="deleteEmployee" value="Delete Employee">
-        <input type="submit" name="addEmployee" value="Add Employee">
-    </form><br>
+<div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class=adminFunctions>
+    			<form action="employee.php" name="employeeForm" method="post">
+    				<ul>
+					<select name="employeeList">
+						<option>Select An Employee</option>
+						<?php
+							echo getEmployees();
+						?>
+					</select>
+					<li><button class="btn btn-lg btn-primary btn-block" type="submit" name="editEmployee" value="Edit Employee">Edit Employee</button></li>
+					<li><button class="btn btn-lg btn-primary btn-block" type="submit" name="addEmployee" value="Add Employee">Add Employee</button></li>
+					<li><button class="btn btn-lg btn-primary btn-block" type="submit" name="deleteEmployee" value="Delete Employee">Delete Employee</button></li>
+    				</ul>
+			</form>
+	 	</div>
+            </div>
+        </div>
+    </div>   
 
 <?php
 
