@@ -57,44 +57,43 @@ include 'adminHandlers/employeeHandler.php';
                 }
 	   
 		//send the edit employee to the database
-		editEmployee($_POST['prevUID'], $_POST['uid'], $_POST['EID'], $_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['major'], $_POST['biography'], $_POST['employeeType'], $_FILES['image']['name']);
-	   	editEmployeeShift($_POST['uid'], 'SU', $_POST['SU_startTime'], $_POST['SU_endTime']);
-                editEmployeeShift($_POST['uid'], 'M', $_POST['M_startTime'], $_POST['M_endTime']);
-                editEmployeeShift($_POST['uid'], 'TU', $_POST['TU_startTime'], $_POST['TU_endTime']);
-                editEmployeeShift($_POST['uid'], 'W', $_POST['W_startTime'], $_POST['W_endTime']);
-                editEmployeeShift($_POST['uid'], 'TH', $_POST['TH_startTime'], $_POST['TH_endTime']);
-                editEmployeeShift($_POST['uid'], 'F', $_POST['F_startTime'], $_POST['F_endTime']);
-                editEmployeeShift($_POST['uid'], 'SA', $_POST['SA_startTime'], $_POST['SA_endTime']);
+		editEmployee(sanitize($_POST['prevUID']), sanitize($_POST['uid']), sanitize($_POST['EID']), sanitize($_POST['firstName']), sanitize($_POST['lastName']), sanitize($_POST['email']), sanitize($_POST['major']), sanitize($_POST['biography']), sanitize($_POST['employeeType']), sanitize($_FILES['image']['name']));
+	   	editEmployeeShift(sanitize($_POST['uid']), 'SU', sanitize($_POST['SU_startTime']), sanitize($_POST['SU_endTime']));
+                editEmployeeShift(sanitize($_POST['uid']), 'M', sanitize($_POST['M_startTime']), sanitize($_POST['M_endTime']));
+                editEmployeeShift(sanitize($_POST['uid']), 'TU', sanitize($_POST['TU_startTime']), sanitize($_POST['TU_endTime']));
+                editEmployeeShift(sanitize($_POST['uid']), 'W', sanitize($_POST['W_startTime']), sanitize($_POST['W_endTime']));
+                editEmployeeShift(sanitize($_POST['uid']), 'TH', sanitize($_POST['TH_startTime']), sanitize($_POST['TH_endTime']));
+                editEmployeeShift(sanitize($_POST['uid']), 'F', sanitize($_POST['F_startTime']), sanitize($_POST['F_endTime']));
+                editEmployeeShift(sanitize($_POST['uid']), 'SA', sanitize($_POST['SA_startTime']), sanitize($_POST['SA_endTime']));
 		
-		deleteTASignoffs($_POST['uid']);
+		deleteTASignoffs(sanitize($_POST['uid']));
 		for($i = 0; $i < count($_POST['signoffList']); $i++){
-                        editTASignoff($_POST['uid'], $_POST['signoffList'][$i]);
+                        editTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));
                 }
 	   }
 	//no imaqge was submitted
 	   else{
 		//send the edit employee to the database
-                editEmployee($_POST['prevUID'], $_POST['uid'], $_POST['EID'], $_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['major'], $_POST['biography'], $_POST['employeeType'], $_POST['prevImage']);
-		editEmployeeShift($_POST['uid'], 'SU', $_POST['SU_startTime'], $_POST['SU_endTime']);
-                editEmployeeShift($_POST['uid'], 'M', $_POST['M_startTime'], $_POST['M_endTime']);
-                editEmployeeShift($_POST['uid'], 'TU', $_POST['TU_startTime'], $_POST['TU_endTime']);
-                editEmployeeShift($_POST['uid'], 'W', $_POST['W_startTime'], $_POST['W_endTime']);
-                editEmployeeShift($_POST['uid'], 'TH', $_POST['TH_startTime'], $_POST['TH_endTime']);
-                editEmployeeShift($_POST['uid'], 'F', $_POST['F_startTime'], $_POST['F_endTime']);
-                editEmployeeShift($_POST['uid'], 'SA', $_POST['SA_startTime'], $_POST['SA_endTime']);
+                editEmployee(sanitize($_POST['prevUID']), sanitize($_POST['uid']), sanitize($_POST['EID']), sanitize($_POST['firstName']), sanitize($_POST['lastName']), sanitize($_POST['email']), sanitize($_POST['major']), sanitize($_POST['biography']), sanitize($_POST['employeeType']), sanitize($_POST['prevImage']));
+		editEmployeeShift(sanitize($_POST['uid']), 'SU', sanitize($_POST['SU_startTime']), sanitize($_POST['SU_endTime']));
+                editEmployeeShift(sanitize($_POST['uid']), 'M', sanitize($_POST['M_startTime']), sanitize($_POST['M_endTime']));
+                editEmployeeShift(sanitize($_POST['uid']), 'TU', sanitize($_POST['TU_startTime']), sanitize($_POST['TU_endTime']));
+                editEmployeeShift(sanitize($_POST['uid']), 'W', sanitize($_POST['W_startTime']), sanitize($_POST['W_endTime']));
+                editEmployeeShift(sanitize($_POST['uid']), 'TH', sanitize($_POST['TH_startTime']), sanitize($_POST['TH_endTime']));
+                editEmployeeShift(sanitize($_POST['uid']), 'F', sanitize($_POST['F_startTime']), sanitize($_POST['F_endTime']));
+                editEmployeeShift(sanitize($_POST['uid']), 'SA', sanitize($_POST['SA_startTime']), sanitize($_POST['SA_endTime']));
 		
-		deleteTASignoffs($_POST['uid']);
+		deleteTASignoffs(sanitize($_POST['uid']));
 		for($i = 0; $i < count($_POST['signoffList']); $i++){
-                        addTASignoff($_POST['uid'], $_POST['signoffList'][$i]);
+                        addTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));
                 }
 	   }
 	}
         else if(isset($_POST['deleteEmployee'])){
                 //delete the employee
-                deleteEmployee($_POST['employeeList']);
+                deleteEmployee(sanitize($_POST['employeeList']));
         }
 	else if(isset($_POST['submitEmployeeAdd'])){
-		print_r($_POST);
 	   if($_FILES['image']['size'] > 0){
 		//check the image
 		print_r($_FILES);
@@ -140,32 +139,31 @@ include 'adminHandlers/employeeHandler.php';
 	
 
 		//the add employee form has been submitted so now update the database	
-		addEmployee($_POST['uid'], $_POST['EID'], $_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['major'], $_POST['biography'], $_POST['employeeType'], $_FILES["image"]["name"]);
-		addEmployeeShift($_POST['uid'], 'SU', $_POST['SU_startTime'], $_POST['SU_endTime']);
-                addEmployeeShift($_POST['uid'], 'M', $_POST['M_startTime'], $_POST['M_endTime']);
-                addEmployeeShift($_POST['uid'], 'TU', $_POST['TU_startTime'], $_POST['TU_endTime']);
-                addEmployeeShift($_POST['uid'], 'W', $_POST['W_startTime'], $_POST['W_endTime']);
-                addEmployeeShift($_POST['uid'], 'TH', $_POST['TH_startTime'], $_POST['TH_endTime']);
-                addEmployeeShift($_POST['uid'], 'F', $_POST['F_startTime'], $_POST['F_endTime']);
-                addEmployeeShift($_POST['uid'], 'SA', $_POST['SA_startTime'], $_POST['SA_endTime']);
+		addEmployee(sanitize($_POST['uid']), sanitize($_POST['EID']), sanitize($_POST['firstName']), sanitize($_POST['lastName']), sanitize($_POST['email']), sanitize($_POST['major']), sanitize($_POST['biography']), sanitize($_POST['employeeType']), sanitize($_FILES["image"]["name"]));
+		addEmployeeShift(sanitize($_POST['uid']), 'SU', sanitize($_POST['SU_startTime']), sanitize($_POST['SU_endTime']));
+                addEmployeeShift(sanitize($_POST['uid']), 'M', sanitize($_POST['M_startTime']), sanitize($_POST['M_endTime']));
+                addEmployeeShift(sanitize($_POST['uid']), 'TU', sanitize($_POST['TU_startTime']), sanitize($_POST['TU_endTime']));
+                addEmployeeShift(sanitize($_POST['uid']), 'W', sanitize($_POST['W_startTime']), sanitize($_POST['W_endTime']));
+                addEmployeeShift(sanitize($_POST['uid']), 'TH', sanitize($_POST['TH_startTime']), sanitize($_POST['TH_endTime']));
+                addEmployeeShift(sanitize($_POST['uid']), 'F', sanitize($_POST['F_startTime']), sanitize($_POST['F_endTime']));
+                addEmployeeShift(sanitize($_POST['uid']), 'SA', sanitize($_POST['SA_startTime']), sanitize($_POST['SA_endTime']));
   		for($i = 0; $i < count($_POST['signoffList']); $i++){
-                        addTASignoff($_POST['uid'], $_POST['signoffList'][$i]);
+                        addTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));
                 }
 	   }
 	    //no image was submitted
            else{
                 //send the edit employee to the database
-                addEmployee($_POST['uid'], $_POST['EID'], $_POST['firstName'], $_POST['lastName'], $_POST['email'], $_POST['major'], $_POST['biography'], $_POST['employeeType'], '');
-		addEmployeeShift($_POST['uid'], 'SU', $_POST['SU_startTime'], $_POST['SU_endTime']);
-		addEmployeeShift($_POST['uid'], 'M', $_POST['M_startTime'], $_POST['M_endTime']);
-		addEmployeeShift($_POST['uid'], 'TU', $_POST['TU_startTime'], $_POST['TU_endTime']);
-		addEmployeeShift($_POST['uid'], 'W', $_POST['W_startTime'], $_POST['W_endTime']);
-		addEmployeeShift($_POST['uid'], 'TH', $_POST['TH_startTime'], $_POST['TH_endTime']);
-		addEmployeeShift($_POST['uid'], 'F', $_POST['F_startTime'], $_POST['F_endTime']);
-		addEmployeeShift($_POST['uid'], 'SA', $_POST['SA_startTime'], $_POST['SA_endTime']);
-		
+                addEmployee(sanitize($_POST['uid']), sanitize($_POST['EID']), sanitize($_POST['firstName']), sanitize($_POST['lastName']), sanitize($_POST['email']), sanitize($_POST['major']), sanitize($_POST['biography']), sanitize($_POST['employeeType']), '');
+		addEmployeeShift(sanitize($_POST['uid']), 'SU', sanitize($_POST['SU_startTime']), sanitize($_POST['SU_endTime']));
+                addEmployeeShift(sanitize($_POST['uid']), 'M', sanitize($_POST['M_startTime']), sanitize($_POST['M_endTime']));
+                addEmployeeShift(sanitize($_POST['uid']), 'TU', sanitize($_POST['TU_startTime']), sanitize($_POST['TU_endTime']));
+                addEmployeeShift(sanitize($_POST['uid']), 'W', sanitize($_POST['W_startTime']), sanitize($_POST['W_endTime']));
+                addEmployeeShift(sanitize($_POST['uid']), 'TH', sanitize($_POST['TH_startTime']), sanitize($_POST['TH_endTime']));
+                addEmployeeShift(sanitize($_POST['uid']), 'F', sanitize($_POST['F_startTime']), sanitize($_POST['F_endTime']));
+                addEmployeeShift(sanitize($_POST['uid']), 'SA', sanitize($_POST['SA_startTime']), sanitize($_POST['SA_endTime']));
 		for($i = 0; $i < count($_POST['signoffList']); $i++){
-			addTASignoff($_POST['uid'], $_POST['signoffList'][$i]);		
+			addTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));		
  		}
           }
 
@@ -195,7 +193,7 @@ include 'adminHandlers/employeeHandler.php';
 	}
 	else if(isset($_POST['editEmployee'])){
 		//create the edit employee form
-		echo createEditEmployeeForm($_POST['employeeList']);	
+		echo createEditEmployeeForm(sanitize($_POST['employeeList']));	
 	}
 
     writeHTMLFooter();

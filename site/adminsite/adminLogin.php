@@ -1,5 +1,5 @@
 <?php
-include_once('common/common.php');
+include 'common/common.php';
 
  require_once('adminHandlers/DBcoreAdmin.class.php');
     //begin session
@@ -12,8 +12,8 @@ include_once('common/common.php');
     }
     else{
         if(isset($_POST['loginSubmit'])){
-            $email = $_POST['username'];
-            $pass = $_POST['password'];
+            $email = sanitize($_POST['username']);
+            $pass = sanitize($_POST['password']);
             $DBcore = new DBcoreAdmin();
             $userArr = array();
             $userResult = $DBcore->login($email,$pass);
@@ -58,13 +58,6 @@ writeHTMLHead("Admin Login");
               <button class="btn btn-lg btn-primary btn-block" type="submit" name="loginSubmit" value="Login">Login</button>   
         </form>    
     </div>
-
-<!--
-    <form action = "adminLogin.php" name="adminLogin" method = "post">
-        <label>UserName: </label><input type = "text" name = "username"/><br/>
-        <label>Password: </label><input type = "password" name = "password"/><br/>
-        <input type = "submit" name = "loginSubmit" value = "Login"/><br/>
-    </form> -->
 <?php
 
 writeHTMLFooter();

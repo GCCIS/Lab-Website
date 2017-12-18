@@ -1,5 +1,5 @@
 <?php
-include_once('common/common.php');
+include 'common/common.php';
 include 'adminHandlers/courseHandler.php';
   //check if the user is logged in
    session_start();
@@ -15,15 +15,15 @@ include 'adminHandlers/courseHandler.php';
 	//if the form has been submitted then update the database
         if(isset($_POST['submitEdit'])){
 		//send the edit course to the database
-		editCourse($_POST['prevNumber'], $_POST['courseName'], $_POST['courseNumber']);
+		editCourse(sanitize($_POST['prevNumber']), sanitize($_POST['courseName']), sanitize($_POST['courseNumber']));
 	}
         else if(isset($_POST['deleteCourse'])){
                 //delete the course
-                deleteCourse($_POST['courseList']);
+                deleteCourse(sanitize($_POST['courseList']));
         }
 	else if(isset($_POST['submitAdd'])){
 		//the add course form has been submitted so now update the database	
-		addCourse($_POST['courseName'], $_POST['courseNumber']);
+		addCourse(sanitize($_POST['courseName']), sanitize($_POST['courseNumber']));
 	}
 ?>
 
@@ -74,7 +74,7 @@ include 'adminHandlers/courseHandler.php';
         }
 	if(isset($_POST['editCourse'])){
                 //create the edit course form
-                editCourseForm($_POST['courseList']);
+                editCourseForm(sanitize($_POST['courseList']));
         }
 
     writeHTMLFooter();

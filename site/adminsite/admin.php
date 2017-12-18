@@ -1,5 +1,5 @@
 <?php
-include_once('common/common.php');
+include 'common/common.php';
 include 'adminHandlers/adminHandler.php';
    session_start();
    if(!isset($_SESSION['userLogin'])){
@@ -11,15 +11,15 @@ include 'adminHandlers/adminHandler.php';
 
 	if(isset($_POST['deleteAdmin'])){
 		//call delete admin function
-		$deleteResult = deleteAdmin($_POST['adminList']);
+		$deleteResult = deleteAdmin(sanitize($_POST['adminList']));
 	}
 	if(isset($_POST['submitAdminEdit'])){
 		//call edit admin function
-		$editResult = editAdmin($_POST['prevEmail'],$_POST['email'], $_POST['firstName'],$_POST['lastName'],$_POST['password']);
+		$editResult = editAdmin(sanitize($_POST['prevEmail']),sanitize($_POST['email']), sanitize($_POST['firstName']),sanitize($_POST['lastName']),sanitize($_POST['password']));
 	}
 	if(isset($_POST['submitAdminAdd'])){
 		//call add admin function
-		$addResult = addAdmin($_POST['email'], $_POST['firstName'],$_POST['lastName'],$_POST['password']);
+		$addResult = addAdmin(sanitize($_POST['email']), sanitize($_POST['firstName']),sanitize($_POST['lastName']),sanitize($_POST['password']));
 	}
 ?>
     
@@ -57,7 +57,7 @@ include 'adminHandlers/adminHandler.php';
 
 	if(isset($_POST['editAdmin'])){
 		//show the edit admin form
-		echo createEditAdminForm($_POST['adminList']);
+		echo createEditAdminForm(sanitize($_POST['adminList']));
 	}
 	if(isset($_POST['addAdmin'])){	
 		//show the add admin form

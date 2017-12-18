@@ -1,5 +1,5 @@
 <?php
-include_once('common/common.php');
+include 'common/common.php';
 include 'adminHandlers/roomHandler.php';
   session_start();
    if(!isset($_SESSION['userLogin'])){
@@ -13,48 +13,62 @@ include 'adminHandlers/roomHandler.php';
 	//if the form has been submitted then update the database
         if(isset($_POST['submitRoomEdit'])){
 		//send the edit room to the database
-		print_r($_POST);
-		editRoom($_POST['prevNumber'], $_POST['roomName'], $_POST['roomNumber']);
-                editRoomHours($_POST['roomNumber'], 'SU', $_POST['SU_openTime'], $_POST['SU_closeTime']);
-                editRoomHours($_POST['roomNumber'], 'M', $_POST['M_openTime'], $_POST['M_closeTime']);
-                editRoomHours($_POST['roomNumber'], 'TU', $_POST['TU_openTime'], $_POST['TU_closeTime']);
-                editRoomHours($_POST['roomNumber'], 'W', $_POST['W_openTime'], $_POST['W_closeTime']);
-                editRoomHours($_POST['roomNumber'], 'TH', $_POST['TH_openTime'], $_POST['TH_closeTime']);
-                editRoomHours($_POST['roomNumber'], 'F', $_POST['F_openTime'], $_POST['F_closeTime']);
-                editRoomHours($_POST['roomNumber'], 'SA', $_POST['SA_openTime'], $_POST['SA_closeTime']);
+		editRoom(sanitize($_POST['prevNumber']), sanitize($_POST['roomName']), sanitize($_POST['roomNumber']));
+                editRoomHours(sanitize($_POST['roomNumber']), 'SU', sanitize($_POST['SU_openTime']), sanitize($_POST['SU_closeTime']));
+                editRoomHours(sanitize($_POST['roomNumber']), 'M', sanitize($_POST['M_openTime']), sanitize($_POST['M_closeTime']));
+                editRoomHours(sanitize($_POST['roomNumber']), 'TU', sanitize($_POST['TU_openTime']), sanitize($_POST['TU_closeTime']));
+                editRoomHours(sanitize($_POST['roomNumber']), 'W', sanitize($_POST['W_openTime']), sanitize($_POST['W_closeTime']));
+                editRoomHours(sanitize($_POST['roomNumber']), 'TH', sanitize($_POST['TH_openTime']), sanitize($_POST['TH_closeTime']));
+                editRoomHours(sanitize($_POST['roomNumber']), 'F', sanitize($_POST['F_openTime']), sanitize($_POST['F_closeTime']));
+                editRoomHours(sanitize($_POST['roomNumber']), 'SA', sanitize($_POST['SA_openTime']), sanitize($_POST['SA_closeTime']));
 
 
 	}
         else if(isset($_POST['deleteRoom'])){
                 //delete the room
-                deleteRoom($_POST['roomList']);
+                deleteRoom(sanitize($_POST['roomList']));
         }
 	else if(isset($_POST['submitRoomAdd'])){
 		//the add room form has been submitted so now update the database	
-		addRoom($_POST['roomName'], $_POST['roomNumber']);
-		addRoomHours($_POST['roomNumber'], 'SU', $_POST['SU_openTime'], $_POST['SU_closeTime']);
-                addRoomHours($_POST['roomNumber'], 'M', $_POST['M_openTime'], $_POST['M_closeTime']);
-                addRoomHours($_POST['roomNumber'], 'TU', $_POST['TU_openTime'], $_POST['TU_closeTime']);
-                addRoomHours($_POST['roomNumber'], 'W', $_POST['W_openTime'], $_POST['W_closeTime']);
-                addRoomHours($_POST['roomNumber'], 'TH', $_POST['TH_openTime'], $_POST['TH_closeTime']);
-                addRoomHours($_POST['roomNumber'], 'F', $_POST['F_openTime'], $_POST['F_closeTime']);
-                addRoomHours($_POST['roomNumber'], 'SA', $_POST['SA_openTime'], $_POST['SA_closeTime']);
+		addRoom(sanitize($_POST['roomName']), sanitize($_POST['roomNumber']));
+		addRoomHours(sanitize($_POST['roomNumber']), 'SU', sanitize($_POST['SU_openTime']), sanitize($_POST['SU_closeTime']));
+                addRoomHours(sanitize($_POST['roomNumber']), 'M', sanitize($_POST['M_openTime']), sanitize($_POST['M_closeTime']));
+                addRoomHours(sanitize($_POST['roomNumber']), 'TU', sanitize($_POST['TU_openTime']), sanitize($_POST['TU_closeTime']));
+                addRoomHours(sanitize($_POST['roomNumber']), 'W', sanitize($_POST['W_openTime']), sanitize($_POST['W_closeTime']));
+                addRoomHours(sanitize($_POST['roomNumber']), 'TH', sanitize($_POST['TH_openTime']), sanitize($_POST['TH_closeTime']));
+                addRoomHours(sanitize($_POST['roomNumber']), 'F', sanitize($_POST['F_openTime']), sanitize($_POST['F_closeTime']));
+                addRoomHours(sanitize($_POST['roomNumber']), 'SA', sanitize($_POST['SA_openTime']), sanitize($_POST['SA_closeTime']));
 	}
 
 ?>
 
-    <form action="room.php" name="roomForm" method="post">
- 	<select name="roomList">
-		<option>Select a Room</option>
-	<?php
-		echo getRooms();
-	?>
-	</select>
-	<input type="submit" name="editRoom" value="Edit Room">
-        <input type="submit" name="deleteRoom" value="Delete Room">
-        <input type="submit" name="addRoom" value="Add Room">   
-    </form><br>
 
+<div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <div class=adminFunctions>
+    			<form action="room.php" name="roomForm" method="post">
+				<ul>
+ 					<select name="roomList" required="">
+						<option>Select a Room</option>
+						<?php
+							echo getRooms();
+						?>
+					</select>
+					<li><button class="btn btn-lg btn-primary btn-block" type="submit" name="editRoom" value="Edit Room">Edit Room</button></li>
+					<li><button class="btn btn-lg btn-primary btn-block" type="submit" name="addRoom" value="Add Room">Add Room</button></li>
+					<li><button class="btn btn-lg btn-primary btn-block" type="submit" name="deleteRoom" value="Delete Room">Delete Room</button></li>
+    				</ul>
+			</form>
+		</div>
+            </div>
+        </div>
+       	<div class="row">
+            <div class="col-md-12 text-center">
+                  <div id="calendar"></div>
+            </div>
+        </div>
+    </div> 
 <?php
 
 	if(isset($_POST['addRoom'])){
@@ -63,7 +77,7 @@ include 'adminHandlers/roomHandler.php';
 	}
 	else if(isset($_POST['editRoom'])){
 		//create the edit room form
-		echo createEditRoomForm($_POST['roomList']);	
+		echo createEditRoomForm(sanitize($_POST['roomList']));	
 	}
 	
 
