@@ -41,7 +41,7 @@ require_once('DBcore.class.php');
 			elseif($closeTimeTest == "00:00"){
 				$closeTimeTest = "24:00";
 			}	
-			elseif($currentTimeTest = "00:00"){
+			elseif($currentTimeTest == "00:00"){
 				$currentTimeTest = "24:00";
 			}
 
