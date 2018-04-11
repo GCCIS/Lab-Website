@@ -75,40 +75,32 @@ require_once('DBcore.class.php');
 			}
              		$roomStr .= '
                   		<div class="col-sm-6 col-md-3">
-                      			<form id="'.$roomName.'" name="roomStatusForm" action="labSchedule.php" method="post">
-                          			<input type="hidden" name="roomNumber" value="'.$roomNumber.'">
-                          			<div class="col-sm-12 col-md-12">
-                          				<a href="#" class="roomCard" onclick="document.getElementById(\''.$roomName.'\').submit();">
-								<div class="lab '.$cssClassText.'">
-                                            				<div class="labHeading">
-                                                				<h3>'.$roomName.' - '.$roomNumber.'</h3>
-                                                				<h4>'.$labHourStr.'</h4>
-                                            				</div>
-                                            				<div class="labDetails">
-                                                				<p class="currentStatus">'.$roomStatus.'</p>
-                                            				</div>
-                                    				</div>
-                          				</a>
-                          			</div>      
-                      			</form>
-                    		</div>';
-					if ($j == 0 || $j % 4 == 0) {
-						echo '
-							<!-- End of Card -->';
-					}
-					else {
-						echo '  <!-- End of Card -->
+							<form id="'.$roomName.'" name="roomStatusForm" action="labSchedule.php" method="post">
+								<input type="hidden" name="roomNumber" value="'.$roomNumber.'">
+								<div class="col-sm-12 col-md-12">
+									<a href="#" class="roomCard" onclick="document.getElementById(\''.$roomName.'\').submit();">
+									<div class="lab '.$cssClassText.'">
+										<div class="labHeading">
+											<h3>'.$roomName.' - '.$roomNumber.'</h3>
+											<h4>'.$labHourStr.'</h4>
+										</div>
+										<div class="labDetails">
+											<p class="currentStatus">'.$roomStatus.'</p>
+										</div>
+									</div>
+									</a>
+								</div>      
+							</form>
+						</div>';
+					$j++;
+					if ($j % 4 == 0) {
+						echo '  <!-- End of Row -->
 							  </div>';
 					}
-					$j++;
+
 		}//end of foreach
         
-                    if($j % 4 != 0) {
-                            echo '
-                                <!-- End of Lab  -->
-                                </div>
-                                ';
-                }     
+ 
              $roomStr .= '</div>';
 		return $roomStr;
 	}
