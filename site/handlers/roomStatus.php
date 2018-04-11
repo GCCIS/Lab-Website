@@ -7,13 +7,13 @@ require_once('DBcore.class.php');
 		$roomArr = $DBcore->selectAllRooms();
         	$roomStr = '';
         	$roomStr .= '<div class="container labStatus  text-center">';
-        	$j=1;
+        	$j=0;
 		$openTime = "";
 		$closeTime = "";
 		$currentTime = date("g:i a");
 		foreach($roomArr as $row){
 			$cssClassText = '';
-            		if ($j == 1 || $j == 5) {
+            		if ($j == 0 || $j == 4) {
                             $roomStr .= '<div class="row">';
                         }//end of if to check if it is the beginning of a new row
             
@@ -92,7 +92,7 @@ require_once('DBcore.class.php');
                           			</div>      
                       			</form>
                     		</div>'; 
-            		if ($j == 4) {
+            		if ($j == 3) {
                         	$roomStr .= '  <!-- End of Lab and row -->
                         			</div>';
  
