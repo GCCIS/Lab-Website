@@ -107,7 +107,7 @@ require_once('DBcore.class.php');
                                 </div>
                                 ';
                 } 
-            // $roomStr .= '</div>';
+             $roomStr .= '</div>';
 		return $roomStr;
 	}
 
