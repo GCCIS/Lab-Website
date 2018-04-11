@@ -13,7 +13,7 @@ require_once('DBcore.class.php');
 		$currentTime = date("g:i a");
 		foreach($roomArr as $row){
 			$cssClassText = '';
-            		if ($j == 0 || $i % 4 == 0) {
+            		if ($j == 0 || $j % 4 == 0) {
                             $roomStr .= '<div class="row">';
                         }//end of if to check if it is the beginning of a new row
             
@@ -91,22 +91,24 @@ require_once('DBcore.class.php');
                           				</a>
                           			</div>      
                       			</form>
-                    		</div>'; 
-							if ($j == 0 || $j % 4 == 0) {
-								echo '
-									<!-- End of Lab -->';
-							}
-							else {
-								echo '  <!-- End of Row -->
-									  </div>';
-							}
+                    		</div>';
+					if ($j == 0 || $j % 4 == 0) {
+						echo '
+							<!-- End of Card -->';
+					}
+					else {
+						echo '  <!-- End of Card -->
+							  </div>';
+					}
+					$j++;
 		}//end of foreach
-                if($j % 4 != 0) {
+        
+                    if($j % 4 != 0) {
                             echo '
                                 <!-- End of Lab  -->
                                 </div>
                                 ';
-                } 
+                }     
              $roomStr .= '</div>';
 		return $roomStr;
 	}
