@@ -100,8 +100,6 @@ require_once('DBcore.class.php');
 
 		}//end of foreach
         
- 
-             $roomStr .= '</div>';
 		return $roomStr;
 	}
 
