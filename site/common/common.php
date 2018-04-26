@@ -70,8 +70,8 @@ function writeNav($indexA, $scheduleA, $TASchedulA, $TAProfileA, $LAProfileA){
                 <li class="'.$indexA.'"><a href="index.php">Home</a></li>
                 <li class="'.$scheduleA.'"><a href="labSchedule.php">Lab Schedules</a></li>
                 <li class="'.$TASchedulA.'"><a href="TASchedules.php">TA Schedules</a></li>
-                <li class="'.$TAProfileA.'"><a href="TAProfiles.php">TA Profiles</a></li>
-                <li class="'.$LAProfileA.'"><a href="LAProfiles.php">Lab Asst. Profiles</a></li>  
+                <li class="'.$TAProfileA.'"><a href="TAProfiles.php">Teaching Assistants</a></li>
+                <li class="'.$LAProfileA.'"><a href="LAProfiles.php">Lab Assistants</a></li>  
               </ul>
             </div><!--/.nav-collapse -->
           </div>
