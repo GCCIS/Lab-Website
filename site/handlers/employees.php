@@ -75,7 +75,20 @@ require_once('DBcore.class.php');
         
 		$DBcore = new DBcore();
 		$taArr = array();
-		$taArr = $DBcore->selectAllTAProfiles();
+                $taArr = $DBcore->selectAllTAProfiles();
+                $courseArr = $DBcore->selectAllCoursesForTASignoff();
+                echo '
+                  <div class="row signoffSelectorRow">
+                    <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                
+                ';
+                echo 'Select Course: <select class="signoffSelector form-control">';
+                        echo '<option value="All">All Courses</option>';
+                        foreach($courseArr as $row) {
+                                echo '<option value="' . $row['courseNumber'] . '">' . $row['courseNumber'] . '</option>';
+                        }
+                echo '</select>';
+                echo '</div></div>';
 		$j=0;
 		foreach($taArr[0] as $row){
             
@@ -108,7 +121,7 @@ require_once('DBcore.class.php');
                                              <div class="TADetails col-xs-7 col-sm-8 col-md-7">
                                                 <p>'.$firstName.' '.$lastName.'</p>
                                                 <p>'.$email.'</p>
-                                                <p><span class="TAMajor">Signoffs</span>'.$courseStr.'</p>
+                                                <p><span class="TAMajor" data-class-signoffs="' . $courseStr .'">Signoffs</span>'.$courseStr.'</p>
                                              </div>
                                         </div>
                                     </div>

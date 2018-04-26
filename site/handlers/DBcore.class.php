@@ -125,6 +125,19 @@ class DBcore{
 
 	}
 
+	/*
+	* Get all courses
+	*/
+	function selectAllCoursesForTASignoff(){
+		$data = array();
+		if($stmt = $this->conn->prepare("select DISTINCT courseNumber FROM TA_SIGNOFF ORDER BY courseNumber;")){
+			$stmt->execute();
+			$data = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		}
+		return $data;
+	
+	}//end of get courses
+
 	function selectTASchedules(){
 		$data = array();
 		$sqlStmt = "select ess.uid, ess.dayOfWeek, ess.startTime, ess.endTime, e.firstName, e.lastName from EMPLOYEE_SHIFT_SCHEDULE ess join EMPLOYEE e using(uid) WHERE employeeType='TA';";

@@ -14,3 +14,4 @@ echo getTAProfiles();
 writeHTMLFooter();
 ?>
 
+<script src="js/TAselector.js"></script>

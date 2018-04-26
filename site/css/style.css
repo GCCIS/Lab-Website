@@ -170,8 +170,7 @@ body {
 /* TA Profiles */
 
 .TACard {
-    margin-top: 50px;
-    margin-left: 60px;
+    margin: 50px auto 0;
     background-color: #29ABE0;
     border-radius: 10px;
 }
@@ -202,6 +201,11 @@ body {
     font-size: 16px;
     color: #29ABE0;
     background-color: #FCFCFC;
+}
+
+.signoffSelector {
+    color: #FCFCFC;
+    background-color: #464646;
 }
 
 /* Room Status */
