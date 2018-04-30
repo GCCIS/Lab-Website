@@ -36,7 +36,8 @@ $('.signoffSelector').change(function () {
       cardsAdded += 1 // Increment the number of cards that we have added to the row
     }
 
-    if (cardsAdded % 2 === 0) {
+    // Append the row if we have two per row OR if this is the last TA card.
+    if (cardsAdded % 2 === 0 || i === TAList.length - 1) {
       $(newTAs).append(row)
       row = document.createElement('div')
       $(row).addClass('row')
@@ -51,5 +52,4 @@ $('.signoffSelector').change(function () {
   // Clear out the existing TA container and append the new ones
   $('.profiles .container').remove()
   $('.profiles').append(newTAs)
-  console.log(newTAs)
 })
