@@ -91,6 +91,8 @@ require_once('DBcore.class.php');
                                 }
                         echo '</select>';
                         echo '</div></div>';
+                } else {
+                        echo '<p>Teaching Assistants have not yet been assigned. Please check back later.</p>';
                 }
 		$j=0;
 		foreach($taArr[0] as $row){
