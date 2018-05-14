@@ -29,6 +29,7 @@ The script is pretty easy to install. The installation instructions below assume
 
 # Configuration
 The config.py file takes a few configuration variables:
+
 | Variable      | Description                                         |
 |:------------- |:--------------------------------------------------- |
 | RIT_API_KEY   | API key for api.rit.edu                             |
