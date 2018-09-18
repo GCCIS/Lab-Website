@@ -69,7 +69,7 @@ include 'adminHandlers/employeeHandler.php';
 		deleteTASignoffs(sanitize($_POST['uid']));
 		if(isset($_POST['signoffList'])){
 			for($i = 0; $i < count($_POST['signoffList']); $i++){
-                        	editTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));
+                        	addTASignoff(sanitize($_POST['uid']), sanitize($_POST['signoffList'][$i]));
                 	}
 		}
 	   }
