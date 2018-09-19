@@ -202,9 +202,8 @@ include 'courseHandler.php';
                                         <input type="text" name="SA_endTime" class="form-control" placeholder="Enter End Time">';
 			}
 
-			$htmlStr .= '<label>TA Signoff Course List</label>
-					<br><select name="signoffList[]" multiple>';
-			$htmlStr .= getCourses();
+			
+			$htmlStr .= getCourses($uid);
 
 			$htmlStr .= '</select><br>
 					<button class="btn btn-lg btn-primary btn-block" type="submit" name="submitEmployeeEdit" value="Edit Employee">Edit Employee</button>

@@ -1,17 +1,35 @@
 <?php
  require_once('DBcoreAdmin.class.php');
 
-	function getCourses(){
+	function getCourses($uid){
 		$DBcoreAdmin = new DBcoreAdmin();
 		$courseArr = array();
 		$courseArr = $DBcoreAdmin->selectAllCourses();
 		$options = '';
+		$existingCourses = $DBcoreAdmin->selectTACourses($uid);
 		foreach($courseArr as $row){
 			$courseName = $row['courseName'];
 			$courseNumber = $row['courseNumber'];
+
+			// Check to see if this course is already in the TAs signoff list
+			$signoffExists = false;
+			foreach($existingCourses as $existingCourseRow) {
+				if($existingCourseRow['courseNumber'] == $row['courseNumber']) {
+					$signoffExists = true;
+				}
+			}
 			//create the html options for each course
-			$options .= '<option value="'.$courseNumber.'">'.$courseNumber.'</option>';
+			if($signoffExists) {
+				// Checked if they can already signoff
+				$options .= '<input type="checkbox" name="signoffList[]" value="'.$courseNumber.'" checked>'.$courseNumber.'</option> <br />';
+			} else {
+				// Otherwise not checked
+				$options .= '<input type="checkbox" name="signoffList[]" value="'.$courseNumber.'">'.$courseNumber.'</option> <br />';
+			}
+			
+			
 		}//end of foreach
+
 		return $options;
 	}
 

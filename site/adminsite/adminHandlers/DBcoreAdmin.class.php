@@ -70,6 +70,19 @@ class DBcoreAdmin{
 		return $data;
 	
 	}//end of get courses
+
+	/*
+	* Get courses for an individual TA
+	*/
+	function selectTACourses($uid){
+		$sqlStmt = "SELECT c.courseNumber FROM COURSE c JOIN TA_SIGNOFF t using(courseNumber) WHERE t.uid=:uid;";
+		if($stmt = $this->conn->prepare($sqlStmt)) {
+			$stmt->bindValue(":uid", $uid);
+			$stmt->execute();
+			$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+			return $result;
+		}
+	}
     
     
 	/*
