@@ -203,7 +203,7 @@ include 'courseHandler.php';
 			}
 
 			
-			$htmlStr .= getCourses($uid);
+			$htmlStr .= getCoursesForTA($uid);
 
 			$htmlStr .= '</select><br>
 					<button class="btn btn-lg btn-primary btn-block" type="submit" name="submitEmployeeEdit" value="Edit Employee">Edit Employee</button>
