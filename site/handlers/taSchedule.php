@@ -9,7 +9,7 @@ require_once('DBcore.class.php');
         $events = array();
 
         //array to get the date of the day of week
-        $dayOfWeekArr = array(0=>'SU',1=>'M',2=>'TU',3=>'W',4=>'TH',5=>'F',6=>'SA');
+        $dayOfWeekArr = array(7=>'SU',1=>'M',2=>'TU',3=>'W',4=>'TH',5=>'F',6=>'SA');
 	date_default_timezone_set('America/New_York');	
 
         foreach($taArr as $row){
